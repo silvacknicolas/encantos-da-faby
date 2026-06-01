@@ -1,407 +1,469 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encantos da Faby — Loja Online de Crochê Premium</title>
-  <meta name="description" content="E-commerce premium de crochê artesanal de alta costura. Sapatinhos, mantas, bolsas e amigurumis feitos à mão com muito amor pela Fabíola.">
-  
-  <!-- Estilos e Fontes -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- FontAwesome para ícones adicionais de forma simples e premium -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!DOCTYPE html><html class="light scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Encantos da Faby | Amor em cada ponto</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdad4",
+                    "outline": "#827473",
+                    "inverse-surface": "#3b2d26",
+                    "on-primary-container": "#5d3a3b",
+                    "on-secondary-fixed-variant": "#5b403c",
+                    "on-tertiary-container": "#444340",
+                    "on-surface-variant": "#504444",
+                    "surface-container-low": "#fff1eb",
+                    "primary-fixed": "#ffdad9",
+                    "tertiary-fixed": "#e5e2dd",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#795c57",
+                    "on-surface": "#251912",
+                    "surface-bright": "#fff8f6",
+                    "on-primary-fixed-variant": "#603d3e",
+                    "inverse-on-surface": "#ffede6",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#251912",
+                    "surface-tint": "#7b5455",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "surface-container-high": "#fbe3d9",
+                    "surface": "#fff8f6",
+                    "tertiary-fixed-dim": "#c8c6c2",
+                    "on-secondary-fixed": "#2b1613",
+                    "background": "#fff8f6",
+                    "surface-container": "#ffeae0",
+                    "on-primary-fixed": "#2f1314",
+                    "primary-container": "#d4a5a5",
+                    "primary": "#7b5455",
+                    "surface-container-highest": "#f5ded3",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fed7d0",
+                    "outline-variant": "#d4c2c2",
+                    "surface-dim": "#edd5cb",
+                    "tertiary-container": "#b2b0ac",
+                    "primary-fixed-dim": "#ecbbba",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#ecbbba",
+                    "tertiary": "#5f5e5b",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#e3beb8",
+                    "secondary": "#745853",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#f5ded3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "arch": "120px 120px 0 0"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "section": "120px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Playfair Display"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-md": [
+                            "Playfair Display"
+                    ],
+                    "headline-lg-mobile": [
+                            "Playfair Display"
+                    ],
+                    "display-lg": [
+                            "Playfair Display"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .arch-mask {
+            clip-path: ellipse(60% 80% at 50% 20%);
+            border-radius: 200px 200px 0 0;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .soft-shadow {
+            box-shadow: 0px 10px 30px rgba(62, 39, 35, 0.05);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- Header (Shared Component) -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md bg-surface/95 shadow-sm">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="flex items-center gap-3 font-headline-md text-headline-md font-semibold text-primary scale-95 transition-transform duration-200 active:scale-90 hover:opacity-80 transition-opacity duration-300" href="#">
+<img alt="Encantos da Faby Logo" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2tivXjYQgWRIknKW71u6iPMvteYJCWXbFg9-v3eoYqYMkU4dRuHKVazzlxSp_SalAOVmJsMnVD5Lv5ATcCQ_NMLr1ASj39w39Zwmk8iJPDIOntoXhL7c-RC9epxmxV_6gf3pEwsfZJciGz1eSmj-MLRw6Emi3TUiHBpsjfwXILpdM4eDh8pArAhwtPiHhkM7bsGozAoL8_9H47iZZmy8M8hT1SNXXV00Y6AuauUEIIuI5jUBon0sUjuL6LZGtP7-oVpWrsaaVEQGd">
+<span class="">Encantos da Faby</span>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#catalogo">Catálogo</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#nossa-historia">Nossa História</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#depoimentos">Depoimentos</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:opacity-80 transition-opacity duration-300 scale-95 transition-transform duration-200 active:scale-90 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" id="auth-portal-btn">person<span id="auth-btn-label" style="display:none;">Entrar</span></span>
+</button><button class="text-primary hover:opacity-80 transition-opacity duration-300 scale-95 transition-transform duration-200 active:scale-90 relative">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;" id="open-cart-btn">shopping_cart</span>
+<span id="cart-count" class="absolute -top-1 -right-1 bg-primary-container text-on-primary-container text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full min-h-[80vh] flex items-center justify-center bg-surface-container-highest overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Hero Background" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrXqmF0--PArVrBevUQDpsyBGGzKQ3d--BYLcuESxBA0XWWl5shTx47rWiETQK5yCzthwUIArv0UyGNC8_S2FarpMPMma1vH4PrxxAIIjnlNBSDl8jd4GiVZKmFZEhPIz7ynf_cHaOh9F3Q3sG4Rts_g2asTkapFVIp1qKE3gyeKizDbajzsEZmkoeZA1I-lqYYszQa4EA8OTLQd11o9WeSlR4Cw4LRWhdzb9S_u_sW8M-1xquBpHOXENbrEiPAy6WDzGpWW4Gxyw0">
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent z-10"></div>
+<div class="relative z-20 max-w-container-max mx-auto px-gutter w-full flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 flex flex-col items-start gap-6 fade-in visible">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">Coleção Exclusiva</span>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">
+                    Amor em <br><span class="italic text-primary">cada ponto.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                    Descubra o luxo do feito à mão. Peças de crochê curadas com detalhes meticulosos, qualidade impecável e design contemporâneo para o seu dia a dia.
+                </p>
+<a class="mt-4 px-8 py-4 bg-primary-container text-on-primary-container font-label-md text-label-md uppercase rounded-full hover:bg-surface-tint hover:text-on-primary transition-all duration-300 soft-shadow flex items-center gap-2 group" href="#catalogo">
+                    Ver Catálogo
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="w-full md:w-1/2 flex justify-end fade-in relative visible" style="transition-delay: 200ms;">
+<div class="w-[80%] aspect-[3/4] bg-surface-variant arch-mask relative overflow-hidden soft-shadow">
+<img alt="Coleção de Crochê" class="w-full h-full object-cover" data-alt="A lifestyle photo of a woman holding a beautifully crafted luxury crochet handbag. She is standing in a brightly lit, minimalist space with soft archways in the background. The color palette features creamy off-whites, soft dusty rose, and subtle earthy greens. The mood is elegant, serene, and sophisticated, highlighting the artisanal quality of the bag." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLmIHx4yTyunxR3sxP-3GuElDJXqrUu3egD78F_UZML1EFaVbkMI0S_Lx20Tk52FsD9Vd8Is-TH6i1Bl96HwGsx46vtWeTofP-ZiScqqhNvk8OHgN6SWta8msnOCa9gKktaMWJy3s6BiimEy5t80bY79YnSNMSK14dAXVtBUfyQyf73D8FqYfn8ZBV5S2Fjwo_bMjw_EFYeB2SMJ-PaRnS3ZhMk9Jw24-ZvUAB_FpPKx5YpvBE2lzV3CjvCRrItHbzZt0GPIMrSQNi">
+</div>
+<!-- Floating Element -->
+<div class="absolute bottom-12 -left-8 bg-surface p-4 rounded-xl soft-shadow flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+<div class="h-12 w-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">100% Artesanal</p>
+<p class="font-body-md text-sm text-on-surface-variant">Qualidade Garantida</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Catalog Section -->
+<section class="py-section max-w-container-max mx-auto px-gutter" id="catalogo">
+<div class="flex flex-col items-center text-center gap-4 mb-12 fade-in visible">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Catálogo de Produtos</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Peças exclusivas, feitas à mão com os melhores fios e muito carinho.</p>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 fade-in visible">
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-6 py-3 rounded-full bg-primary-container text-on-primary-container border border-primary-container font-label-md text-label-md uppercase transition-colors">Todos</button>
+<button class="px-6 py-3 rounded-full bg-transparent text-on-surface border border-primary-container font-label-md text-label-md uppercase hover:bg-surface-variant transition-colors">Pronta Entrega</button>
+<button class="px-6 py-3 rounded-full bg-transparent text-on-surface border border-primary-container font-label-md text-label-md uppercase hover:bg-surface-variant transition-colors">Sob Encomenda</button>
+</div>
+<div class="relative w-full md:w-auto">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full md:w-64 pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-full font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Buscar produtos..." type="text">
+</div>
+</div>
+<!-- Product Grid (Bento/Asymmetric Style) -->
+<div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+</div>
+<!-- Banner Card inside grid -->
+<div class="col-span-1 sm:col-span-2 lg:col-span-4 mt-12 bg-surface-container-high rounded-[32px] p-8 flex flex-col justify-center items-center text-center fade-in relative overflow-hidden visible" style="transition-delay: 100ms;">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, var(--tw-colors-primary) 1px, transparent 0); background-size: 24px 24px;"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4">stars</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Encomendas Personalizadas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-6">Sonha com uma peça única nas suas cores favoritas? Nós criamos para você.</p>
+<a class="px-8 py-3 border-2 border-primary text-primary rounded-full font-label-md text-label-md uppercase hover:bg-primary hover:text-on-primary transition-colors duration-300" href="#contato">Solicitar Orçamento</a>
+</div>
+<div class="flex justify-center mt-12 fade-in visible">
+<button id="view-all-products-btn" class="flex items-center gap-2 text-on-surface hover:text-primary transition-colors font-label-md text-label-md uppercase pb-1 border-b border-on-surface hover:border-primary">
+                Ver todos os produtos <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Nossa História Section -->
+<section class="py-section bg-surface-bright relative overflow-hidden" id="nossa-historia">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative fade-in order-2 md:order-1 visible">
+<!-- Decorative background shape -->
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-surface-container-high rounded-full opacity-50 blur-3xl -z-10"></div>
+<div class="relative w-full max-w-[400px] mx-auto aspect-[3/4] arch-mask overflow-hidden border-8 border-surface soft-shadow">
+<img alt="Fabíola" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVOnI6M7RzR-xs63fGEKsi1Zr9eENJ7AzZR_tIrwUmsNpbm9gj-UfDTOWvQOKjvwRiuDJXl3b30Upjwpm5Yf5vZnVSOcy5-srdlN_5238ods_HwtHnzuhGyvaYVLVzyOW16Gpq0iw09RnoJxSbQpls1OHL2x4xjXoaKPld5140rZE6d8aCNwniB03zFB6_u0q6nDvr-Dvj1v9TGGtxciN5_xRRKcVNjABzJhYScybNns7V3s1nsWQ2y-SFsuJOh1WZbDwkhLncF4o0">
+</div>
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container rounded-full opacity-30 blur-2xl -z-10"></div>
+</div>
+<div class="flex flex-col gap-6 fade-in order-1 md:order-2 visible">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">A Artesã</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Nossa História, Nossas Raízes</h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant flex flex-col gap-4">
+<p class="">
+                        A Encantos da Faby nasceu em Nova Mutum - MT, da paixão de Fabíola Kurz Chimenes da Silva pelo crochê. O que começou como um hobby terapêutico, transformou-se em uma missão de levar elegância e aconchego através de peças feitas à mão.
+                    </p>
+<p class="">
+                        "Cada ponto carrega um pouco da minha história e da minha dedicação. Meu objetivo é que cada cliente sinta esse amor ao receber uma de nossas criações."
+                    </p>
+<p class="font-semibold text-on-surface mt-2">
+                        Mais do que crochê, é empoderamento.
+                    </p>
+<p class="">
+                        Buscamos não apenas criar produtos luxuosos, mas também inspirar e empoderar outras mulheres a valorizarem o artesanato e a buscarem seus próprios caminhos.
+                    </p>
+</div>
+<div class="flex items-center gap-8 mt-6">
+<div class="flex flex-col">
+<span class="font-display-lg text-4xl text-primary font-bold">5+</span>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">Anos de Experiência</span>
+</div>
+<div class="h-12 w-px bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-display-lg text-4xl text-primary font-bold">500+</span>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">Peças Entregues</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section max-w-container-max mx-auto px-gutter bg-surface-container-lowest" id="depoimentos">
+<div class="text-center mb-16 fade-in visible">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2 block">Depoimentos</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">O que dizem nossas clientes</h2>
+</div>
+<div class="relative max-w-4xl mx-auto fade-in visible">
+<!-- Carousel Container -->
+<div class="overflow-hidden">
+<div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track" style="transform: translateX(0%);">
+<!-- Testimonial 1 -->
+<div class="w-full flex-shrink-0 px-4 text-center">
+<div class="flex justify-center gap-1 mb-6 text-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-headline-lg text-2xl md:text-3xl text-on-surface italic leading-relaxed mb-8">
+                            "A manta que encomendei é simplesmente perfeita. O acabamento é impecável e a embalagem veio com um cheirinho maravilhoso. Dá para sentir o carinho em cada detalhe!"
+                        </p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Marina S.</p>
+<p class="font-body-md text-sm text-outline">São Paulo, SP</p>
+</div>
+<!-- Testimonial 2 (Hidden by default in flow, managed by JS) -->
+<div class="w-full flex-shrink-0 px-4 text-center">
+<div class="flex justify-center gap-1 mb-6 text-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-headline-lg text-2xl md:text-3xl text-on-surface italic leading-relaxed mb-8">
+                            "Atendimento nota mil e peças maravilhosas. Comprei um top de crochê para o verão e vestiu perfeitamente. Muito luxo e conforto."
+                        </p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Camila R.</p>
+<p class="font-body-md text-sm text-outline">Rio de Janeiro, RJ</p>
+</div>
+</div>
+</div>
+<!-- Carousel Controls -->
+<div class="flex justify-center items-center gap-6 mt-12">
+<button class="h-10 w-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" id="prev-btn">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex gap-2" id="carousel-indicators">
+<button class="h-1 rounded-full transition-all duration-300 w-8 bg-primary"></button>
+<button class="h-1 rounded-full transition-all duration-300 w-4 bg-outline-variant"></button>
+</div>
+<button class="h-10 w-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" id="next-btn">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container dark:bg-inverse-surface w-full rounded-t-xl bg-surface-container-low dark:bg-inverse-surface mt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-gutter py-12 max-w-container-max mx-auto text-on-surface dark:text-inverse-on-surface">
+<!-- Brand & Copyright -->
+<div class="flex flex-col gap-4 opacity-90 hover:opacity-100 transition-opacity">
+<a class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim font-bold" href="#">Encantos da Faby</a>
+<p class="font-body-md text-body-md font-label-md text-label-md">© 2024 Encantos da Faby. Feito com amor por Fabíola Kurz Chimenes da Silva.</p>
+<div class="flex gap-4 mt-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<!-- Assuming generic icons for social since exact ones aren't in material standard easily without specifics, using links -->
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+<!-- Links -->
+<div class="flex flex-col gap-3">
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Navegação</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#catalogo">Catálogo</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#nossa-historia">Nossa História</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#depoimentos">Depoimentos</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Informações</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#">Privacidade</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#">Termos</a>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-  <!-- ==========================================================================
-       HEADER / NAVIGATION
-       ========================================================================== -->
-  <header>
-    <div class="container nav-container">
-      <a href="#" class="logo-link">
-        <!-- Logo carregada da pasta Identidade Visual -->
-        <img src="../Identidade Visual/logo.png" alt="Logo Encantos da Faby" class="logo-img">
-        <h1 class="logo-text">Encantos da <span>Faby</span></h1>
-      </a>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-      <nav>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#vitrine">Vitrine</a></li>
-          <li><a href="#historia">Nossa História</a></li>
-          <li><a href="#depoimentos">Depoimentos</a></li>
-          <li class="admin-only" style="display: none;"><a href="#admin-panel" class="admin-link-highlight"><i class="fa-solid fa-gauge"></i> Painel Admin</a></li>
-        </ul>
-      </nav>
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
 
-      <div class="nav-actions">
-        <!-- Botão de Autenticação / Perfil do Cliente -->
-        <button id="auth-portal-btn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.9rem;">
-          <i class="fa-solid fa-user"></i> <span id="auth-btn-label">Entrar</span>
-        </button>
-
-        <!-- Ícone do Carrinho -->
-        <button class="cart-icon-btn" id="open-cart-btn" aria-label="Abrir Carrinho">
-          <i class="fa-solid fa-shopping-bag"></i>
-          <span class="cart-badge" id="cart-count">0</span>
-        </button>
-
-        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ==========================================================================
-       PORTAL DO CLIENTE (ÁREA DE MEUS PEDIDOS)
-       ========================================================================== -->
-  <section id="client-orders-section" class="section-padding container" style="display: none; border-bottom: 1px solid var(--border-soft);">
-    <div class="checkout-section-title">
-      <h2><i class="fa-solid fa-user-circle"></i> Minha Conta & Pedidos</h2>
-      <p class="section-desc" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Olá, <span id="client-user-name" style="font-weight: 600;">Cliente</span>! Veja abaixo o histórico e status das suas encomendas de crochê.</p>
-    </div>
-    
-    <div class="orders-container" style="margin-top: 30px;">
-      <div id="orders-list-empty" class="cart-empty-message">
-        <i class="fa-solid fa-box-open cart-empty-icon"></i>
-        <p>Você ainda não realizou nenhum pedido. Que tal dar uma olhada na nossa vitrine?</p>
-        <a href="#vitrine" class="btn btn-primary" style="margin-top: 15px;">Explorar Vitrine</a>
-      </div>
-      
-      <div class="orders-grid" id="client-orders-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px;">
-        <!-- Injetado via JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       PAINEL ADMINISTRADOR (DASHBOARD DA FABÍOLA)
-       ========================================================================== -->
-  <section id="admin-panel-section" class="section-padding container" style="display: none; background-color: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border-soft); margin-top: 40px; margin-bottom: 40px; padding: 40px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--bg-main); padding-bottom: 20px; margin-bottom: 30px;">
-      <div>
-        <h2 style="font-family: var(--font-headings); font-size: 2.2rem; color: var(--text-primary);"><i class="fa-solid fa-crown"></i> Painel da Fabíola</h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Controle de pedidos, catálogo de 32 produtos e gerenciamento da loja em tempo real.</p>
-      </div>
-      <button class="btn btn-secondary" id="admin-logout-btn" style="border-color: var(--color-primary); color: var(--color-primary);"><i class="fa-solid fa-sign-out"></i> Sair do Admin</button>
-    </div>
-
-    <!-- Abas do Painel Admin -->
-    <div class="payment-tabs" style="margin-bottom: 30px;">
-      <button class="payment-tab-btn active" id="admin-tab-orders-btn"><i class="fa-solid fa-list-check"></i> Gerenciar Pedidos</button>
-      <button class="payment-tab-btn" id="admin-tab-products-btn"><i class="fa-solid fa-boxes-stacked"></i> Gerenciar Produtos</button>
-    </div>
-
-    <!-- Conteúdo da Aba 1: Pedidos dos Clientes -->
-    <div class="payment-content active" id="admin-orders-content">
-      <h3 style="font-size: 1.3rem; margin-bottom: 20px;"><i class="fa-solid fa-circle-notch fa-spin" id="admin-orders-loading" style="display: none; margin-right: 8px;"></i> Pedidos Recebidos</h3>
-      <div id="admin-orders-list-empty" class="cart-empty-message">
-        <i class="fa-solid fa-clipboard-list cart-empty-icon"></i>
-        <p>Nenhum pedido recebido ainda. As vendas aparecerão aqui em tempo real!</p>
-      </div>
-      <div style="overflow-x: auto;">
-        <table id="admin-orders-table" class="admin-table" style="display: none; width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
-          <thead>
-            <tr style="background-color: var(--bg-main); border-bottom: 2px solid var(--border-soft);">
-              <th style="padding: 12px;">ID do Pedido</th>
-              <th style="padding: 12px;">Cliente</th>
-              <th style="padding: 12px;">Itens</th>
-              <th style="padding: 12px;">Total</th>
-              <th style="padding: 12px;">Forma</th>
-              <th style="padding: 12px;">Status</th>
-              <th style="padding: 12px;">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="admin-orders-tbody">
-            <!-- Injetado via JS -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Conteúdo da Aba 2: CRUD de Produtos -->
-    <div class="payment-content" id="admin-products-content">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h3 style="font-size: 1.3rem;"><i class="fa-solid fa-basket-shopping"></i> Catálogo de Produtos (32 Cadastrados)</h3>
-        <button class="btn btn-primary" id="admin-add-product-btn" style="padding: 8px 20px; font-size: 0.85rem;"><i class="fa-solid fa-plus"></i> Novo Produto</button>
-      </div>
-
-      <!-- Formulário Inline para Adicionar/Editar Produto -->
-      <div id="product-form-container" style="display: none; background-color: var(--bg-main); border-radius: var(--radius-md); padding: 24px; border: 1px solid var(--border-soft); margin-bottom: 30px;">
-        <h4 id="product-form-title" style="font-size: 1.1rem; margin-bottom: 15px; color: var(--color-primary-dark);">Adicionar Novo Produto</h4>
-        <form id="admin-product-form" class="form-grid">
-          <input type="hidden" id="form-product-id">
-          
-          <div class="form-group">
-            <label for="form-product-name">Nome da Peça</label>
-            <input type="text" id="form-product-name" required placeholder="Ex: Bolsa Saco Faby">
-          </div>
-          
-          <div class="form-group">
-            <label for="form-product-price">Preço (R$)</label>
-            <input type="number" id="form-product-price" step="0.01" required placeholder="Ex: 150.00">
-          </div>
-          
-          <div class="form-group">
-            <label for="form-product-category">Categoria</label>
-            <select id="form-product-category" required>
-              <option value="Moda & Acessórios">Moda & Acessórios</option>
-              <option value="Mundo Infantil">Mundo Infantil</option>
-              <option value="Decoração & Lar">Decoração & Lar</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="form-product-type">Tipo de Disponibilidade</label>
-            <select id="form-product-type" required>
-              <option value="pronta-entrega">Pronta Entrega (Estoque Imediato)</option>
-              <option value="sob-encomenda">Sob Encomenda (Personalizável)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="form-product-image">Imagem do Produto (Nome do arquivo)</label>
-            <select id="form-product-image">
-              <!-- Preenchido via Javascript de 1 a 32 -->
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="form-product-stock">Quantidade em Estoque</label>
-            <input type="number" id="form-product-stock" value="1" min="0">
-          </div>
-
-          <div class="form-group form-group-full">
-            <label for="form-product-description">Descrição Detalhada</label>
-            <input type="text" id="form-product-description" required placeholder="Ex: Feita com fio 100% algodão, toque macio, ideal para decoração...">
-          </div>
-
-          <div class="form-group form-group-full" style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;">
-            <button type="button" class="btn btn-secondary" id="form-cancel-btn" style="padding: 8px 20px;">Cancelar</button>
-            <button type="submit" class="btn btn-primary" style="padding: 8px 20px;">Salvar Alterações</button>
-          </div>
-        </form>
-      </div>
-
-      <div style="overflow-x: auto;">
-        <table class="admin-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
-          <thead>
-            <tr style="background-color: var(--bg-main); border-bottom: 2px solid var(--border-soft);">
-              <th style="padding: 12px;">Imagem</th>
-              <th style="padding: 12px;">Nome</th>
-              <th style="padding: 12px;">Categoria</th>
-              <th style="padding: 12px;">Preço</th>
-              <th style="padding: 12px;">Estoque</th>
-              <th style="padding: 12px;">Disponibilidade</th>
-              <th style="padding: 12px; text-align: center;">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="admin-products-tbody">
-            <!-- Injetado via JS -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       HERO BANNER
-       ========================================================================== -->
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <h1>Feito à Mão <span>com Amor & Linha</span></h1>
-        <p>Peças exclusivas de crochê premium tecidas com carinho, dedicação e delicadeza para você e seu lar.</p>
-        <div class="hero-buttons">
-          <a href="#vitrine" class="btn btn-primary">Explorar Vitrine</a>
-        </div>
-      </div>
-      <div class="hero-image-wrapper">
-        <div class="hero-circle-bg"></div>
-        <!-- Imagem 32 como o destaque do banner por ser um belo mockup -->
-        <img src="../Imagens dos produtos/Imagem 32.png" alt="Crochê Destaque Encantos da Faby" class="hero-img">
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CATEGORIES SECTION
-       ========================================================================== -->
-  <section class="section-padding container">
-    <div style="text-align: center; margin-bottom: 45px;">
-      <h2 style="font-size: 2.2rem; font-family: var(--font-headings); font-weight: 700;">Nossas Coleções</h2>
-      <p style="color: var(--text-muted); font-size: 1rem; max-width: 500px; margin: 8px auto 0;">Explore o universo encantador do crochê sob medida.</p>
-    </div>
-    
-    <div class="categories-grid">
-      <div class="category-card">
-        <span class="category-icon">🧸</span>
-        <h3>Mundo Infantil</h3>
-        <p>Sapatinhos, amigurumis e mantas ultra macias para os bebês.</p>
-      </div>
-      <div class="category-card">
-        <span class="category-icon">👗</span>
-        <h3>Moda & Estilo</h3>
-        <p>Bolsas estruturadas, croppeds, golas e acessórios artesanais.</p>
-      </div>
-      <div class="category-card">
-        <span class="category-icon">🏡</span>
-        <h3>Decoração & Lar</h3>
-        <p>Caminhos de mesa delicados, sousplats elegantes e tapetes mandalas.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       VITRINE DE PRODUTOS (CATÁLOGO HÍBRIDO COM PAGINAÇÃO)
-       ========================================================================== -->
-  <section class="section-padding container" id="vitrine">
-    <div class="catalog-header">
-      <div>
-        <h2 style="font-size: 2.5rem; font-family: var(--font-headings);">Vitrine Encantadora</h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 4px;">Encontre peças exclusivas a pronta entrega ou encomende sob medida.</p>
-      </div>
-      
-      <!-- Filtros do catálogo -->
-      <ul class="catalog-filters">
-        <li><button class="filter-btn active" data-filter="todos">Todos</button></li>
-        <li><button class="filter-btn" data-filter="pronta-entrega">Pronta Entrega</button></li>
-        <li><button class="filter-btn" data-filter="sob-encomenda">Sob Encomenda</button></li>
-      </ul>
-    </div>
-
-    <!-- Vitrine principal -->
-    <div class="products-grid" id="products-grid">
-      <!-- Injetado via Javascript (8 produtos por página) -->
-    </div>
-
-    <!-- Paginação elegante -->
-    <div class="pagination-container" style="display: flex; justify-content: center; gap: 10px; margin-top: 50px;">
-      <button class="btn btn-secondary" id="prev-page-btn" style="padding: 8px 16px;"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
-      <div id="page-numbers-container" style="display: flex; gap: 6px; align-items: center;">
-        <!-- Números gerados via Javascript -->
-      </div>
-      <button class="btn btn-secondary" id="next-page-btn" style="padding: 8px 16px;">Próximo <i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-  </section>
-
-
-  <!-- ==========================================================================
-       STORYTELLING SECTION (SOBRE NÓS / PROCESSO DA FABY)
-       ========================================================================== -->
-  <section class="section-padding container" id="historia" style="background-color: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border-soft); padding: 50px; margin-top: 40px;">
-    <div class="story-grid">
-      <div class="story-img-wrapper">
-        <!-- Imagem 26 como destaque do ateliê por ter belos novelos e agulhas -->
-        <img src="../Imagens dos produtos/Imagem 26.jpg" alt="Ateliê de Crochê da Faby" class="story-img">
-      </div>
-      <div class="story-content">
-        <h2>Feito à Mão com Amor</h2>
-        <p>A história da <strong>Encantos da Faby</strong> nasceu da paixão da Fabíola em transformar simples fios de linha em peças de extrema delicadeza, conforto e estilo.</p>
+        // Simple Carousel Logic
+        let currentSlide = 0;
+        const track = document.getElementById('testimonial-track');
+        const slides = track.children;
+        const totalSlides = slides.length;
+        const indicators = document.getElementById('carousel-indicators').children;
         
-        <div class="story-highlight">
-          "Cada ponto é tecido pensando em quem irá receber, unindo tradição, carinho e acabamento premium."
-        </div>
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            Array.from(indicators).forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.remove('w-4', 'bg-outline-variant');
+                    indicator.classList.add('w-8', 'bg-primary');
+                } else {
+                    indicator.classList.remove('w-8', 'bg-primary');
+                    indicator.classList.add('w-4', 'bg-outline-variant');
+                }
+            });
+        }
 
-        <p>Utilizamos fios selecionados da mais alta qualidade (como algodão 100% hipoalergênico e ecológico) para garantir que cada sapatinho de bebê, amigurumi ou bolsa tenha durabilidade e um toque macio excepcional.</p>
-      </div>
-    </div>
-  </section>
+        document.getElementById('next-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
 
-  <!-- ==========================================================================
-       TESTIMONIALS SECTION
-       ========================================================================== -->
-  <section class="section-padding container" id="depoimentos">
-    <div style="text-align: center; margin-bottom: 45px;">
-      <h2 style="font-size: 2.2rem; font-family: var(--font-headings);">Quem já se encantou</h2>
-      <p style="color: var(--text-muted); font-size: 1rem;">O que nossos clientes dizem sobre as peças da Faby.</p>
-    </div>
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+        
+        // Auto advance carousel slowly
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 8000);
+    </script>
 
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-        <p class="testimonial-quote">"Encomendei o sapatinho de bebê e a mantinha para o enxoval do meu filho. A delicadeza do ponto e a maciez do fio são inexplicáveis!"</p>
-        <div class="testimonial-author">
-          <!-- Imagem 9 como avatar ilustrativo do bebê/mãe -->
-          <img src="../Imagens dos produtos/Imagem 9.jpg" alt="Mariana Souza" class="author-avatar">
-          <div>
-            <h4 class="author-name">Mariana Souza</h4>
-            <span class="author-role">Mamãe do Theo</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-        <p class="testimonial-quote">"A bolsa de crochê com alça de couro superou todas as minhas expectativas. É extremamente firme, forrada e muito estilosa!"</p>
-        <div class="testimonial-author">
-          <!-- Imagem 14 como avatar da cliente de bolsas -->
-          <img src="../Imagens dos produtos/Imagem 14.jpg" alt="Juliana Ramos" class="author-avatar">
-          <div>
-            <h4 class="author-name">Juliana Ramos</h4>
-            <span class="author-role">Arquiteta</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-        <p class="testimonial-quote">"Comprei o caminho de mesa e o jogo de sousplat para receber minhas visitas. A mesa posta ficou digna de revista. Trabalho impecável."</p>
-        <div class="testimonial-author">
-          <!-- Imagem 17 como avatar da decoração do lar -->
-          <img src="../Imagens dos produtos/Imagem 17.jpg" alt="Beatriz Costa" class="author-avatar">
-          <div>
-            <h4 class="author-name">Beatriz Costa</h4>
-            <span class="author-role">Designer de Interiores</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer>
-    <div class="container footer-grid">
-      <div class="footer-logo-wrapper">
-        <a href="#" class="footer-logo-link">
-          <img src="../Identidade Visual/logo.png" alt="Logo Encantos da Faby" class="footer-logo-img">
-          <h2 class="footer-logo-text">Encantos da <span>Faby</span></h2>
-        </a>
-        <p class="footer-desc">Levando o afeto e a exclusividade do artesanato em crochê para todo o Brasil. Feito à mão, sob medida, com todo amor.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul class="footer-links">
-          <li><a href="#vitrine">Vitrine Virtual</a></li>
-          <li><a href="#historia">Nossa História</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul class="footer-links">
-          <li><a href="https://wa.me/5511999999999" target="_blank"><i class="fa-brands fa-whatsapp"></i> (11) 99999-9999</a></li>
-          <li><a href="mailto:contato@encantosdafaby.com.br"><i class="fa-solid fa-envelope"></i> contato@encantosdafaby.com.br</a></li>
-          <li><span style="font-size: 0.95rem; color: hsl(6, 12%, 80%);"><i class="fa-solid fa-location-dot"></i> São Paulo - SP</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Encantos da Faby. Todos os direitos reservados. Feito com amor.</p>
-      <div class="social-links">
-        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="social-btn"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ==========================================================================
+<!-- ==========================================================================
        MODAL: AUTENTICAÇÃO (LOGIN / REGISTRO)
        ========================================================================== -->
   <div class="modal" id="auth-modal">
@@ -664,6 +726,6 @@
        CDNs DO SDK WEB DO FIREBASE (MODULAR - VERSÃO 10+)
        ========================================================================== -->
   <!-- Inicializaremos dinamicamente a lógica unificada no app.js -->
-  <script src="app.js" type="module"></script>
-</body>
-</html>
+  
+<script src="app.js" type="module"></script>
+</body></html>

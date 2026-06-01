@@ -12,7 +12,7 @@ import { getFirestore, doc, setDoc, getDoc, getDocs, updateDoc, deleteDoc, colle
 
 // Configuração Oficial do Firebase do Projeto Encantos da Faby
 const firebaseConfig = {
-  apiKey: "AIzaSyCI1f78fw1pIhoUpvfgK-Y-vWIHt5n01Tk",
+  apiKey: "AIzaSyCI1f78fw1pIhoUpvfgK-Y-vWIHt5nO1Tk",
   authDomain: "encantos-da-faby.firebaseapp.com",
   projectId: "encantos-da-faby",
   storageBucket: "encantos-da-faby.firebasestorage.app",
@@ -297,7 +297,7 @@ function handleRegister(name, email, password) {
         await setDoc(doc(db, "users", user.uid), {
           name: name,
           email: email,
-          role: "client",
+          role: email === "fabiola@encantosdafaby.com.br" ? "admin" : "client",
           cart: []
         });
         closeModal("auth-modal");
@@ -528,9 +528,11 @@ window.deleteCartItem = (cartId) => removeFromCart(cartId);
  * ==========================================================================
  */
 
+let showAllProducts = false;
+
 function renderVitrine() {
   const grid = document.getElementById("products-grid");
-  const numbersContainer = document.getElementById("page-numbers-container");
+  if (!grid) return;
   grid.innerHTML = "";
   
   // Filter products
@@ -541,95 +543,200 @@ function renderVitrine() {
 
   // Handle empty state
   if (filtered.length === 0) {
-    grid.innerHTML = `<div class="cart-empty-message" style="grid-column: 1/-1;"><p>Nenhum produto cadastrado nesta categoria.</p></div>`;
-    numbersContainer.innerHTML = "";
+    grid.innerHTML = `<div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center py-12"><p class="text-on-surface-variant font-body-lg">Nenhum produto cadastrado nesta categoria.</p></div>`;
+    const viewAllBtn = document.getElementById("view-all-products-btn");
+    if(viewAllBtn) viewAllBtn.style.display = "none";
     return;
   }
 
-  // Calculate Pagination
-  const totalPages = Math.ceil(filtered.length / productsPerPage);
-  if (currentPage > totalPages) currentPage = totalPages || 1;
-
-  const startIdx = (currentPage - 1) * productsPerPage;
-  const pageProducts = filtered.slice(startIdx, startIdx + productsPerPage);
+  // Pagination (8 items max for showcase, or all if toggled)
+  const pageProducts = showAllProducts ? filtered : filtered.slice(0, 8);
 
   // Render products
-  pageProducts.forEach(prod => {
-    const card = document.createElement("div");
-    card.className = "product-card";
+  pageProducts.forEach((prod, index) => {
+    // Generate different styles for asymmetric bento grid
+    let extraClasses = "";
+    let innerHtml = "";
     
-    const badgeHtml = prod.type === "pronta-entrega"
-      ? `<span class="badge badge-ready">Pronta Entrega</span>`
-      : `<span class="badge badge-custom">Sob Encomenda</span>`;
-
-    card.innerHTML = `
-      <div class="product-image-container">
-        <img src="../Imagens dos produtos/${prod.image}" alt="${prod.name}" class="product-img">
-        <div class="product-badges">${badgeHtml}</div>
-      </div>
-      <div class="product-info">
-        <span class="product-category">${prod.category}</span>
-        <h3 class="product-title">${prod.name}</h3>
-        <div class="product-price-row">
-          <div class="product-price">R$ ${prod.price.toFixed(2).replace(".", ",")}</div>
-          <button class="add-to-cart-btn" onclick="quickAdd('${prod.id}')" aria-label="Adicionar ao Carrinho">
-            <i class="fa-solid fa-cart-plus"></i>
+    // Asymmetric pattern repeats every 4 items or just use it on the first 4?
+    // Let's keep it simple: index 0 is Taller, index 3 is Arched, others standard. 
+    // To make it repeat beautifully for all 32 products:
+    const patternIndex = index % 4;
+    
+    if (patternIndex === 0) {
+      // Taller card
+      extraClasses = "lg:col-span-1 lg:row-span-2 flex flex-col";
+      innerHtml = `
+        <div class="relative w-full h-full min-h-[300px] mb-4 overflow-hidden rounded-t-[100px] bg-surface-variant">
+          <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="../Imagens dos produtos/${prod.image}">
+          <div class="absolute inset-0 bg-on-surface/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 soft-shadow" onclick="quickAdd('${prod.id}')">Adicionar</button>
+          </div>
+        </div>
+      `;
+    } else if (patternIndex === 3) {
+      // Arched card
+      extraClasses = "lg:col-span-1";
+      innerHtml = `
+        <div class="relative w-full aspect-[3/4] mb-4 overflow-hidden arch-mask bg-surface-variant">
+          <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="../Imagens dos produtos/${prod.image}">
+          <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+            <button class="bg-surface text-on-surface px-6 py-2 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300" onclick="quickAdd('${prod.id}')">Comprar</button>
+          </div>
+        </div>
+      `;
+    } else {
+      // Standard card
+      extraClasses = "";
+      innerHtml = `
+        <div class="relative w-full aspect-square mb-4 overflow-hidden rounded-2xl bg-surface-variant">
+          <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="../Imagens dos produtos/${prod.image}">
+          ${prod.type === 'pronta-entrega' ? '<div class="absolute top-4 left-4 bg-surface-container-highest px-3 py-1 rounded-full text-xs font-bold text-on-surface">Pronta Entrega</div>' : '<div class="absolute top-4 left-4 bg-primary-container px-3 py-1 rounded-full text-xs font-bold text-on-primary-container">Sob Encomenda</div>'}
+          <button class="absolute bottom-4 right-4 h-10 w-10 bg-surface rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300" onclick="quickAdd('${prod.id}')">
+            <span class="material-symbols-outlined">add_shopping_cart</span>
           </button>
         </div>
+      `;
+    }
+
+    const card = document.createElement("div");
+    card.className = `group cursor-pointer fade-in visible ${extraClasses}`;
+    card.innerHTML = `
+      ${innerHtml}
+      <div class="text-center mt-auto pt-2">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">${prod.name}</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">R$ ${prod.price.toFixed(2).replace(".", ",")}</p>
       </div>
     `;
     grid.appendChild(card);
   });
-
-  // Render Page Numbers
-  numbersContainer.innerHTML = "";
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.className = `filter-btn ${i === currentPage ? 'active' : ''}`;
-    btn.style.padding = "4px 12px";
-    btn.textContent = i;
-    btn.onclick = () => {
-      currentPage = i;
-      renderVitrine();
-    };
-    numbersContainer.appendChild(btn);
+  
+  // Re-observe new elements
+  if (window.StitchObserver) {
+    document.querySelectorAll('.fade-in').forEach(el => window.StitchObserver.observe(el));
   }
-
-  // Adjust pagination buttons disabled state
-  document.getElementById("prev-page-btn").disabled = currentPage === 1;
-  document.getElementById("next-page-btn").disabled = currentPage === totalPages;
+  
+  // Update view-all button
+  const viewAllBtn = document.getElementById("view-all-products-btn");
+  if(viewAllBtn) {
+    if(filtered.length <= 8) {
+        viewAllBtn.style.display = "none";
+    } else {
+        viewAllBtn.style.display = "flex";
+        if(showAllProducts) {
+            viewAllBtn.innerHTML = 'Mostrar menos <span class="material-symbols-outlined">expand_less</span>';
+        } else {
+            viewAllBtn.innerHTML = 'Ver todos os produtos <span class="material-symbols-outlined">arrow_forward</span>';
+        }
+    }
+  }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const viewAllBtn = document.getElementById("view-all-products-btn");
+  if(viewAllBtn) {
+    viewAllBtn.addEventListener("click", () => {
+      showAllProducts = !showAllProducts;
+      renderVitrine();
+      if(!showAllProducts) {
+          document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+});
 
 window.quickAdd = (productId) => {
   addToCart(productId);
 };
 
-// Filters listeners
-document.querySelectorAll(".catalog-filters .filter-btn").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    document.querySelectorAll(".catalog-filters .filter-btn").forEach(b => b.classList.remove("active"));
-    e.target.classList.add("active");
-    activeFilter = e.target.dataset.filter;
-    currentPage = 1;
-    renderVitrine();
-  });
+// Fixed logic for new filter buttons
+document.addEventListener("DOMContentLoaded", () => {
+  const filterContainer = document.querySelector("#catalogo .flex-wrap");
+  if(filterContainer) {
+    const buttons = filterContainer.querySelectorAll("button");
+    const filters = ["todos", "pronta-entrega", "sob-encomenda"];
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => {
+        // Remove active styling from all
+        buttons.forEach(b => {
+          b.classList.remove("bg-primary-container", "text-on-primary-container");
+          b.classList.add("bg-transparent", "text-on-surface");
+        });
+        // Add active styling
+        btn.classList.remove("bg-transparent", "text-on-surface");
+        btn.classList.add("bg-primary-container", "text-on-primary-container");
+        activeFilter = filters[idx] || "todos";
+        renderVitrine();
+      });
+    });
+  }
 });
 
-document.getElementById("prev-page-btn").onclick = () => {
-  if (currentPage > 1) {
-    currentPage--;
-    renderVitrine();
-  }
+// ==========================================================================
+// STITCH UI SCRIPTS (Intersection Observer & Carousel)
+// ==========================================================================
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
 };
 
-document.getElementById("next-page-btn").onclick = () => {
-  const filtered = activeFilter === "todos" ? dbProducts : dbProducts.filter(p => p.type === activeFilter);
-  const totalPages = Math.ceil(filtered.length / productsPerPage);
-  if (currentPage < totalPages) {
-    currentPage++;
-    renderVitrine();
-  }
-};
+window.StitchObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.fade-in').forEach(element => {
+        window.StitchObserver.observe(element);
+    });
+
+    // Simple Carousel Logic
+    let currentSlide = 0;
+    const track = document.getElementById('testimonial-track');
+    if (track) {
+      const slides = track.children;
+      const totalSlides = slides.length;
+      const indicators = document.getElementById('carousel-indicators').children;
+      
+      function updateCarousel() {
+          track.style.transform = `translateX(-${currentSlide * 100}%)`;
+          
+          Array.from(indicators).forEach((indicator, index) => {
+              if (index === currentSlide) {
+                  indicator.classList.remove('w-4', 'bg-outline-variant');
+                  indicator.classList.add('w-8', 'bg-primary');
+              } else {
+                  indicator.classList.remove('w-8', 'bg-primary');
+                  indicator.classList.add('w-4', 'bg-outline-variant');
+              }
+          });
+      }
+
+      const nextBtn = document.getElementById('next-btn');
+      if(nextBtn) nextBtn.addEventListener('click', () => {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateCarousel();
+      });
+
+      const prevBtn = document.getElementById('prev-btn');
+      if(prevBtn) prevBtn.addEventListener('click', () => {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          updateCarousel();
+      });
+      
+      // Auto advance carousel slowly
+      setInterval(() => {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateCarousel();
+      }, 8000);
+    }
+});
 
 
 
