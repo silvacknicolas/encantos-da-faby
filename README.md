@@ -1,45 +1,105 @@
 # 🌸 Encantos da Faby 🌸
 
-> Um e-commerce premium repleto de delicadeza, carinho e estilo. Projetado para proporcionar a melhor experiência de compra para produtos artesanais e personalizados.
+> Um e-commerce premium, elegante e completo para produtos artesanais e personalizados. Desenvolvido sob medida para proporcionar a melhor experiência de compra, com uma interface visual encantadora, alta performance e integrações robustas de back-end.
+
+🌐 **Acesse a aplicação em produção:** [encantos-da-faby.web.app](https://encantos-da-faby.web.app)
 
 ---
 
-## 🚀 Sobre o Projeto
+## ✨ Recursos da Aplicação
 
-O **Encantos da Faby** é uma plataforma de e-commerce moderna voltada para a comercialização de produtos personalizados, artesanais e presentes exclusivos. O design foi concebido com uma estética elegante, transições suaves e foco total na experiência visual do usuário.
+O **Encantos da Faby** foi totalmente reconstruído do zero com foco em estabilidade, performance e design premium. Suas principais funcionalidades incluem:
+
+### 1. 🛍️ Catálogo de Produtos Interativo
+* Exibição em **Bento Grid** com animações suaves e efeito de hover premium.
+* Filtros dinâmicos por categoria e barra de pesquisa inteligente em tempo real.
+* Página dedicada de detalhes do produto (`produto.html`) com galeria de miniaturas de imagens extras, descrição completa em sanfona (accordion) e carrossel de produtos relacionados.
+
+### 2. 🔐 Sistema de Autenticação e Perfil de Cliente (`perfil.html`)
+* Login, cadastro e gerenciamento de conta via **Firebase Auth**.
+* Painel do cliente para alteração de dados pessoais (Nome, Endereço de Entrega, Senha).
+* Upload de foto de perfil (Avatar) integrado ao **Firebase Storage**.
+* Histórico de pedidos detalhado e integrado em tempo real com o Firestore.
+
+### 3. 🛒 Carrinho de Compras e Checkout Seguro (`index.html` & `produto.html`)
+* Drawer lateral responsivo com atualização em tempo real do contador e somatório total.
+* Checkout inteligente integrado ao **Mercado Pago (Card & Pix Bricks)**.
+* Geração de pedido no banco de dados e redirecionamento direto para o WhatsApp para acompanhamento humanizado.
+
+### 4. 👑 Painel Administrativo de Controle (`admin.html`)
+Área de controle restrita para a **Fabíola** (`fabiola@encantosdafaby.com.br`) com:
+* **CRUD Completo de Produtos**: Criação, edição e exclusão de itens do catálogo com suporte a upload de imagem de capa e imagens extras (galeria).
+* **Gerenciador de Pedidos**: Alteração de status de entrega de pedidos em tempo real (Pendente, Pago, Enviado, Entregue, Cancelado).
+* **Relatórios Financeiros e Métricas**: Gráficos e painéis com faturamento mensal, total de pedidos, tíquete médio e contagem de usuários.
+* **Configurações da Loja**: Customização de dados de contato (WhatsApp de atendimento) e chave de produção do Mercado Pago.
 
 ---
 
-## 🛠️ Tecnologias Recomendadas & Planejadas
+## 🛠️ Stack Tecnológica
 
-O projeto está estruturado para suportar o desenvolvimento de uma aplicação web de altíssima performance:
+O projeto utiliza tecnologias modernas e robustas para garantir segurança e escalabilidade:
 
-- **Frontend**: HTML5, CSS3 Avançado (Design Responsivo e Moderno) & JavaScript ES6+
-- **Estilização**: CSS Custom Properties (Variáveis), Flexbox, Grid Layout e Micro-animações fluidas.
-- **Estrutura**: Arquitetura limpa e focada em componentização.
+* **Frontend**: HTML5 Semântico, CSS3 Moderno (Custom Properties, Flexbox, Grid e animações refinadas) e JavaScript ES6+ modular.
+* **Banco de Dados & Storage**: **Firebase Firestore** para dados estruturados de alta velocidade e **Firebase Storage** para assets dinâmicos.
+* **Autenticação**: **Firebase Authentication** com regras seguras.
+* **Pagamentos**: SDK do **Mercado Pago** para processamento seguro via Cartão de Crédito e Pix.
+* **Hospedagem**: **Firebase Hosting** com deploy rápido e CDN global.
 
 ---
 
-## 📁 Estrutura de Pastas
+## 📁 Estrutura do Projeto
 
 ```bash
 encantos-da-faby/
-├── 📁 E-commerce/             # Código-fonte da aplicação web
-│   ├── index.html            # Página inicial do e-commerce
-│   ├── styles/               # Folhas de estilo (CSS)
-│   └── js/                   # Lógica da aplicação e carrinho
-├── 📁 Imagens dos produtos/   # Galeria de fotos de alta qualidade dos produtos
-├── 📄 .gitignore             # Arquivos ignorados pelo controle de versão
-└── 📄 README.md              # Documentação oficial do projeto
+├── 📁 E-commerce/                  # Código-fonte da aplicação web
+│   ├── index.html                 # Página inicial (Loja & Catálogo)
+│   ├── produto.html               # Detalhes do Produto (Galeria & Info)
+│   ├── perfil.html                # Área do Cliente (Dados, Endereço, Pedidos)
+│   ├── admin.html                 # Painel Administrativo (CRUD, Pedidos, Config)
+│   ├── style.css                  # Design System completo e responsivo (Vanilla CSS)
+│   ├── 📁 js/                      # Módulos JavaScript (Arquitetura limpa)
+│   │   ├── firebase.js            # Inicialização e conexões do Firebase
+│   │   ├── auth.js                # Lógica de login, registro e perfil do usuário
+│   │   ├── ui.js                  # Feedbacks visuais, modais, carrosséis e Toasts
+│   │   ├── cart.js                # Controle de estado da sacola de compras
+│   │   ├── catalog.js             # Gestão do catálogo e carga inicial de 32 produtos
+│   │   ├── checkout.js            # Integração com Mercado Pago e geração de pedidos
+│   │   ├── perfil.js              # Interações e atualização do perfil do usuário
+│   │   └── admin.js               # Dashboard, relatórios e CRUD da Fabíola
+│   └── 📁 assets/images/           # Imagens oficiais dos produtos
+├── 📄 .gitignore                  # Arquivos ignorados pelo Git
+└── 📄 README.md                   # Documentação oficial do projeto
 ```
 
 ---
 
-## ✨ Próximos Passos Sugeridos
+## 🚀 Como Executar Localmente
 
-1. 🛍️ **Criação da Página Principal**: Desenvolvimento de uma Landing Page impressionante com catálogo de produtos interativo.
-2. 🛒 **Carrinho de Compras Interativo**: Implementação do sistema de sacola de compras com atualizações em tempo real.
-3. 📱 **Responsividade Total**: Otimização completa para smartphones, tablets e desktops.
+### Pré-requisitos
+Certifique-se de ter instalado o [Node.js](https://nodejs.org/).
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/silvacknicolas/encantos-da-faby.git
+   cd encantos-da-faby/E-commerce
+   ```
+
+2. **Inicie um servidor local:**
+   Para testar a aplicação localmente de forma simples, você pode usar o pacote `live-server` ou o próprio servidor do Firebase:
+   ```bash
+   # Utilizando npx para um servidor leve e rápido
+   npx live-server
+   ```
+   *Ou utilizando o emulador de hosting do Firebase:*
+   ```bash
+   npx firebase emulators:start
+   ```
+
+3. **Deploy para Produção:**
+   Se tiver credenciais administrativas do projeto no Firebase:
+   ```bash
+   npx firebase-tools deploy --only hosting --project encantos-da-faby
+   ```
 
 ---
 
