@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin — Encantos da Faby</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container inner">
+    <div class="nav-logo">
+      <span class="material-symbols-outlined">admin_panel_settings</span>
+      Painel Admin
+    </div>
+    <div class="nav-actions">
+      <a href="index.html" class="btn btn-ghost btn-sm">
+        <span class="material-symbols-outlined" style="font-size:18px">storefront</span> Ver Loja
+      </a>
+      <button class="btn btn-outline btn-sm" id="logout-btn">
+        <span class="material-symbols-outlined" style="font-size:18px">logout</span> Sair
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+
+    <!-- Boas-vindas -->
+    <div style="margin-bottom:36px">
+      <h1 class="text-headline" style="color:var(--primary)">Painel Administrativo</h1>
+      <p style="color:var(--on-surface-variant);margin-top:6px">Bem-vinda, Fabíola! Gerencie sua loja abaixo.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="admin-stats-grid">
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:var(--primary-fixed)">
+          <span class="material-symbols-outlined" style="color:var(--primary)">inventory_2</span>
+        </div>
+        <div class="stat-card-value" id="stat-products">—</div>
+        <div class="stat-card-label">Produtos cadastrados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:#d1e7dd">
+          <span class="material-symbols-outlined" style="color:#0a5237">shopping_bag</span>
+        </div>
+        <div class="stat-card-value" id="stat-orders">—</div>
+        <div class="stat-card-label">Pedidos recebidos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:#fff3cd">
+          <span class="material-symbols-outlined" style="color:#856404">payments</span>
+        </div>
+        <div class="stat-card-value" id="stat-revenue">—</div>
+        <div class="stat-card-label">Faturamento total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-icon" style="background:#fff0d6">
+          <span class="material-symbols-outlined" style="color:#974e00">pending</span>
+        </div>
+        <div class="stat-card-value" id="stat-pending">—</div>
+        <div class="stat-card-label">Pedidos pendentes</div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="admin-tabs" style="margin-bottom:36px">
+      <button class="admin-tab active" data-panel="products" onclick="switchTab('products')">
+        <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle">inventory_2</span> Produtos
+      </button>
+      <button class="admin-tab" data-panel="orders" onclick="switchTab('orders')">
+        <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle">shopping_bag</span> Pedidos
+      </button>
+      <button class="admin-tab" data-panel="reports" onclick="switchTab('reports')">
+        <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle">bar_chart</span> Relatórios
+      </button>
+      <button class="admin-tab" data-panel="settings" onclick="switchTab('settings')">
+        <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle">settings</span> Configurações
+      </button>
+    </div>
+
+    <!-- PAINEL: PRODUTOS -->
+    <div id="panel-products" class="admin-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px">
+        <h2 class="text-title" style="color:var(--primary)">Todos os Produtos</h2>
+        <button class="btn btn-primary" id="btn-new-product">
+          <span class="material-symbols-outlined">add</span> Novo Produto
+        </button>
+      </div>
+      <div style="background:var(--surface-container-lowest);border-radius:var(--radius-lg);border:1px solid var(--outline-variant);overflow:auto;box-shadow:var(--shadow-sm)">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Imagem</th>
+              <th>Produto</th>
+              <th>Preço</th>
+              <th>Tipo</th>
+              <th style="text-align:right">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="admin-products-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAINEL: PEDIDOS -->
+    <div id="panel-orders" class="admin-panel hidden">
+      <h2 class="text-title" style="color:var(--primary);margin-bottom:20px">Todos os Pedidos</h2>
+      <div style="background:var(--surface-container-lowest);border-radius:var(--radius-lg);border:1px solid var(--outline-variant);overflow:auto;box-shadow:var(--shadow-sm)">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Pedido</th>
+              <th>Cliente</th>
+              <th>Itens</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Atualizar</th>
+            </tr>
+          </thead>
+          <tbody id="admin-orders-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAINEL: RELATÓRIOS -->
+    <div id="panel-reports" class="admin-panel hidden">
+      <h2 class="text-title" style="color:var(--primary);margin-bottom:24px">Relatórios de Vendas</h2>
+      <div id="reports-content"><div class="spinner"></div></div>
+    </div>
+
+    <!-- PAINEL: CONFIGURAÇÕES -->
+    <div id="panel-settings" class="admin-panel hidden">
+      <h2 class="text-title" style="color:var(--primary);margin-bottom:24px">Configurações da Loja</h2>
+      <div id="settings-content"><div class="spinner"></div></div>
+    </div>
+
+  </div>
+</main>
+
+<!-- MODAL: PRODUTO CRUD -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal-box" style="max-width:580px">
+    <div class="modal-header">
+      <h3 id="product-modal-title">Novo Produto</h3>
+      <button class="modal-close" onclick="window._closeModal('product-modal')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="product-crud-form" enctype="multipart/form-data" style="display:flex;flex-direction:column;gap:18px">
+        <input type="hidden" id="pf-id" name="id">
+
+        <div class="form-group">
+          <label class="form-label">Nome do Produto *</label>
+          <input type="text" class="form-input" id="pf-name" name="name" required placeholder="Ex: Bolsa Boho Crochê">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Preço (R$) *</label>
+            <input type="number" class="form-input" id="pf-price" name="price" step="0.01" min="0" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Estoque</label>
+            <input type="number" class="form-input" id="pf-stock" name="stock" min="0" value="1">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Categoria *</label>
+            <input type="text" class="form-input" id="pf-category" name="category" required placeholder="Ex: Moda & Acessórios">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo *</label>
+            <select class="form-select" id="pf-type" name="type" required>
+              <option value="pronta-entrega">Pronta Entrega</option>
+              <option value="sob-encomenda">Sob Encomenda</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descrição *</label>
+          <textarea class="form-textarea" id="pf-description" name="description" required placeholder="Descreva o produto com detalhes..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Imagem da Capa</label>
+          <label class="upload-area" id="cover-upload-area">
+            <input type="file" id="pf-image" name="image" accept="image/*">
+            <span class="material-symbols-outlined" style="font-size:32px;color:var(--outline-variant);display:block;margin-bottom:8px">add_photo_alternate</span>
+            <span style="font-size:14px;color:var(--on-surface-variant)">Clique para selecionar a imagem de capa</span>
+            <div class="upload-preview" id="cover-preview"></div>
+          </label>
+          <div class="form-hint">Deixe em branco para manter a imagem atual ao editar.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Imagens Extras</label>
+          <label class="upload-area" id="extras-upload-area">
+            <input type="file" id="pf-extra-images" name="extraImages" accept="image/*" multiple>
+            <span class="material-symbols-outlined" style="font-size:32px;color:var(--outline-variant);display:block;margin-bottom:8px">photo_library</span>
+            <span style="font-size:14px;color:var(--on-surface-variant)">Clique para selecionar imagens extras (galeria)</span>
+            <div class="upload-preview" id="extras-preview"></div>
+          </label>
+        </div>
+
+        <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px">
+          <button type="button" class="btn btn-ghost" onclick="window._closeModal('product-modal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">
+            <span class="material-symbols-outlined">save</span> Salvar Produto
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script type="module">
+  import { initAuth, onAuthChange, logout } from "./js/auth.js";
+  import { initAdmin }                      from "./js/admin.js";
+  import { initProducts }                   from "./js/catalog.js";
+  import { openModal, closeModal, setupImageUpload } from "./js/ui.js";
+
+  window._closeModal = closeModal;
+
+  window.switchTab = (panel) => {
+    document.querySelectorAll(".admin-tab").forEach(t => t.classList.toggle("active", t.dataset.panel === panel));
+    document.querySelectorAll(".admin-panel").forEach(p => p.classList.toggle("hidden", p.id !== `panel-${panel}`));
+  };
+
+  // Setup upload previews
+  setupImageUpload(
+    document.getElementById("pf-image"),
+    document.getElementById("cover-preview"),
+    null
+  );
+  setupImageUpload(
+    document.getElementById("pf-extra-images"),
+    document.getElementById("extras-preview"),
+    null
+  );
+
+  document.getElementById("logout-btn")?.addEventListener("click", async () => {
+    await logout();
+    window.location.href = "index.html";
+  });
+
+  initAuth();
+  onAuthChange(user => {
+    if (user === null) { window.location.href = "index.html"; return; }
+    if (user) {
+      initProducts().then(() => initAdmin());
+    }
+  });
+</script>
+</body>
+</html>

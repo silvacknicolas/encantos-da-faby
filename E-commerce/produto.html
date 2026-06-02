@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto — Encantos da Faby</title>
+  <meta name="description" content="Veja os detalhes desta peça artesanal única da Encantos da Faby.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container inner">
+    <a href="index.html" class="nav-logo">Encantos da Faby</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#catalogo">Catálogo</a></li>
+        <li><a href="index.html#nossa-historia">Nossa História</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="open-cart-btn">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="badge" id="cart-count">0</span>
+      </button>
+      <button class="nav-icon-btn" id="auth-btn">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:24px;padding-bottom:12px">
+    <nav style="font-size:14px;color:var(--on-surface-variant);display:flex;align-items:center;gap:8px">
+      <a href="index.html" style="color:var(--primary);font-weight:600">Catálogo</a>
+      <span class="material-symbols-outlined" style="font-size:18px">chevron_right</span>
+      <span id="breadcrumb-name">Produto</span>
+    </nav>
+  </div>
+
+  <!-- Produto -->
+  <section class="section" style="padding-top:24px">
+    <div class="container">
+      <div id="product-detail-container">
+        <div class="spinner"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produtos relacionados -->
+  <section style="padding-block:60px;background:var(--surface-container-low)">
+    <div class="container">
+      <h2 class="text-headline" style="color:var(--primary);margin-bottom:36px;text-align:center">Você também pode gostar</h2>
+      <div id="related-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px"></div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">© 2024 Encantos da Faby · Feito com 🌸 e muito crochê</div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h2>Meu Carrinho</h2>
+    <button class="btn btn-icon btn-ghost" id="close-cart-btn">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-value" id="cart-subtotal">R$ 0,00</span>
+    </div>
+    <a href="index.html" class="btn btn-primary w-full" style="font-size:15px;padding:16px;text-align:center">
+      <span class="material-symbols-outlined">shopping_cart_checkout</span> Finalizar Compra
+    </a>
+  </div>
+</aside>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script type="module">
+  import { initAuth, onAuthChange }  from "./js/auth.js";
+  import { initCart, initCartDrawer, addToCart } from "./js/cart.js";
+  import { initProducts, getProductById, getAllProducts } from "./js/catalog.js";
+  import { formatCurrency, initAccordions } from "./js/ui.js";
+
+  const params    = new URLSearchParams(location.search);
+  const productId = params.get("id");
+
+  function renderProduct(p) {
+    if (!p) {
+      document.getElementById("product-detail-container").innerHTML = `
+        <div class="empty-state">
+          <span class="material-symbols-outlined">search_off</span>
+          <h3>Produto não encontrado</h3>
+          <a href="index.html" class="btn btn-primary" style="margin-top:20px">Voltar ao catálogo</a>
+        </div>`;
+      return;
+    }
+
+    document.title = `${p.name} — Encantos da Faby`;
+    document.getElementById("breadcrumb-name").textContent = p.name;
+
+    const allImgs = [p.image, ...(p.extraImages || [])].filter(Boolean);
+    const thumbsHtml = allImgs.length > 1
+      ? `<div class="product-thumbnails">
+          ${allImgs.map((img, i) => `
+            <button class="product-thumb ${i===0?'active':''}" onclick="changeImg('${img}',this)">
+              <img src="assets/images/${img}" alt="Foto ${i+1}" onerror="this.src='assets/images/Imagem 1.jpg'">
+            </button>`).join("")}
+         </div>`
+      : "";
+
+    const badge = p.type === "pronta-entrega"
+      ? `<span class="chip chip-sent" style="font-size:12px">Pronta Entrega</span>`
+      : `<span class="chip chip-producing" style="font-size:12px">Sob Encomenda</span>`;
+
+    document.getElementById("product-detail-container").innerHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+        <!-- Gallery -->
+        <div class="product-gallery">
+          ${thumbsHtml}
+          <div class="product-main-img" id="main-img-wrap">
+            <img src="assets/images/${p.image}" alt="${p.name}" id="main-product-img" style="width:100%;height:100%;object-fit:cover" onerror="this.src='assets/images/Imagem 1.jpg'">
+            ${badge}
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div style="padding-top:20px">
+          <h1 style="font-family:var(--font-display);font-size:clamp(28px,4vw,44px);color:var(--primary);margin-bottom:12px">${p.name}</h1>
+          <div style="font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--on-surface);margin-bottom:20px">${formatCurrency(p.price)}</div>
+          <p style="color:var(--on-surface-variant);font-size:17px;line-height:1.8;font-style:italic;margin-bottom:32px">"${p.description}"</p>
+
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
+            <div style="display:flex;align-items:center;border:2px solid var(--outline-variant);border-radius:999px;height:52px;overflow:hidden">
+              <button style="padding:0 16px;font-size:20px;color:var(--on-surface-variant);transition:color .2s" onclick="changeQty(-1)">−</button>
+              <span style="font-weight:700;font-size:17px;min-width:36px;text-align:center" id="qty-display">1</span>
+              <button style="padding:0 16px;font-size:20px;color:var(--on-surface-variant);transition:color .2s" onclick="changeQty(1)">+</button>
+            </div>
+            <button class="btn btn-primary" style="flex:1;font-size:15px;padding:16px" id="add-to-cart-btn">
+              <span class="material-symbols-outlined">add_shopping_cart</span> Adicionar ao Carrinho
+            </button>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="toggleAcc('acc-desc',this)">
+              Descrição Detalhada
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-content" id="acc-desc">
+              <p>${p.description} Cada peça é produzida com atenção especial à qualidade e ao acabamento.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="toggleAcc('acc-care',this)">
+              Materiais e Cuidados
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-content" id="acc-care">
+              <p>Lavar à mão com sabão neutro em água fria. Não usar alvejante. Secar à sombra em superfície plana. Não torcer.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="toggleAcc('acc-delivery',this)">
+              Prazo de Entrega
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div class="accordion-content" id="acc-delivery">
+              <p>${p.type === 'pronta-entrega' ? 'Item em estoque. Prazo de envio: <strong>1 a 3 dias úteis</strong> após confirmação do pagamento.' : 'Produto sob encomenda. Prazo de produção: <strong>7 a 15 dias úteis</strong> após confirmação do pagamento.'}</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    // Bind add to cart
+    let qty = 1;
+    window.changeQty = (delta) => {
+      qty = Math.max(1, qty + delta);
+      document.getElementById("qty-display").textContent = qty;
+    };
+    document.getElementById("add-to-cart-btn")?.addEventListener("click", async () => {
+      await addToCart(p, qty);
+    });
+  }
+
+  window.changeImg = (img, btn) => {
+    document.getElementById("main-product-img").src = "assets/images/" + img;
+    document.querySelectorAll(".product-thumb").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  };
+
+  window.toggleAcc = (id, btn) => {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.toggle("open");
+    btn.classList.toggle("open", isOpen);
+  };
+
+  function renderRelated(currentId) {
+    const all = getAllProducts().filter(p => p.id !== currentId).slice(0, 4);
+    const grid = document.getElementById("related-grid");
+    if (!grid) return;
+    grid.innerHTML = all.map((p, i) => `
+      <div>
+        <a href="produto.html?id=${p.id}" class="product-card-img-wrap arch-sm" style="display:block;aspect-ratio:3/4">
+          <img src="assets/images/${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+        </a>
+        <div class="product-card-info">
+          <div class="product-card-name">${p.name}</div>
+          <div class="product-card-price">${formatCurrency(p.price)}</div>
+        </div>
+      </div>`).join("");
+  }
+
+  // Boot
+  initAuth();
+  onAuthChange(user => { initCart(user?.uid); });
+  initCartDrawer();
+  initProducts().then(() => {
+    const p = getProductById(productId);
+    renderProduct(p);
+    renderRelated(productId);
+  });
+
+  // Auth btn
+  document.getElementById("auth-btn")?.addEventListener("click", () => {
+    if (window._currentUser) window.location.href = "perfil.html";
+    else window.location.href = "index.html";
+  });
+
+  onAuthChange(u => { window._currentUser = u; });
+</script>
+</body>
+</html>

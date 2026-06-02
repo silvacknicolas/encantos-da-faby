@@ -1,731 +1,566 @@
-<!DOCTYPE html><html class="light scroll-smooth" lang="pt-BR"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Encantos da Faby | Amor em cada ponto</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<!-- Material Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Tailwind Config -->
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "secondary-fixed": "#ffdad4",
-                    "outline": "#827473",
-                    "inverse-surface": "#3b2d26",
-                    "on-primary-container": "#5d3a3b",
-                    "on-secondary-fixed-variant": "#5b403c",
-                    "on-tertiary-container": "#444340",
-                    "on-surface-variant": "#504444",
-                    "surface-container-low": "#fff1eb",
-                    "primary-fixed": "#ffdad9",
-                    "tertiary-fixed": "#e5e2dd",
-                    "error": "#ba1a1a",
-                    "on-secondary-container": "#795c57",
-                    "on-surface": "#251912",
-                    "surface-bright": "#fff8f6",
-                    "on-primary-fixed-variant": "#603d3e",
-                    "inverse-on-surface": "#ffede6",
-                    "on-secondary": "#ffffff",
-                    "on-primary": "#ffffff",
-                    "on-background": "#251912",
-                    "surface-tint": "#7b5455",
-                    "on-tertiary-fixed-variant": "#474743",
-                    "surface-container-high": "#fbe3d9",
-                    "surface": "#fff8f6",
-                    "tertiary-fixed-dim": "#c8c6c2",
-                    "on-secondary-fixed": "#2b1613",
-                    "background": "#fff8f6",
-                    "surface-container": "#ffeae0",
-                    "on-primary-fixed": "#2f1314",
-                    "primary-container": "#d4a5a5",
-                    "primary": "#7b5455",
-                    "surface-container-highest": "#f5ded3",
-                    "surface-container-lowest": "#ffffff",
-                    "secondary-container": "#fed7d0",
-                    "outline-variant": "#d4c2c2",
-                    "surface-dim": "#edd5cb",
-                    "tertiary-container": "#b2b0ac",
-                    "primary-fixed-dim": "#ecbbba",
-                    "on-tertiary-fixed": "#1c1c19",
-                    "error-container": "#ffdad6",
-                    "inverse-primary": "#ecbbba",
-                    "tertiary": "#5f5e5b",
-                    "on-error-container": "#93000a",
-                    "secondary-fixed-dim": "#e3beb8",
-                    "secondary": "#745853",
-                    "on-tertiary": "#ffffff",
-                    "on-error": "#ffffff",
-                    "surface-variant": "#f5ded3"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px",
-                    "arch": "120px 120px 0 0"
-            },
-            "spacing": {
-                    "gutter": "24px",
-                    "container-max": "1280px",
-                    "unit": "8px",
-                    "margin-mobile": "20px",
-                    "margin-desktop": "64px",
-                    "section": "120px"
-            },
-            "fontFamily": {
-                    "headline-lg": [
-                            "Playfair Display"
-                    ],
-                    "body-lg": [
-                            "Plus Jakarta Sans"
-                    ],
-                    "headline-md": [
-                            "Playfair Display"
-                    ],
-                    "headline-lg-mobile": [
-                            "Playfair Display"
-                    ],
-                    "display-lg": [
-                            "Playfair Display"
-                    ],
-                    "label-md": [
-                            "Plus Jakarta Sans"
-                    ],
-                    "body-md": [
-                            "Plus Jakarta Sans"
-                    ]
-            },
-            "fontSize": {
-                    "headline-lg": [
-                            "40px",
-                            {
-                                    "lineHeight": "1.2",
-                                    "fontWeight": "600"
-                            }
-                    ],
-                    "body-lg": [
-                            "18px",
-                            {
-                                    "lineHeight": "1.6",
-                                    "fontWeight": "400"
-                            }
-                    ],
-                    "headline-md": [
-                            "24px",
-                            {
-                                    "lineHeight": "1.3",
-                                    "fontWeight": "500"
-                            }
-                    ],
-                    "headline-lg-mobile": [
-                            "32px",
-                            {
-                                    "lineHeight": "1.2",
-                                    "fontWeight": "600"
-                            }
-                    ],
-                    "display-lg": [
-                            "64px",
-                            {
-                                    "lineHeight": "1.1",
-                                    "letterSpacing": "-0.02em",
-                                    "fontWeight": "700"
-                            }
-                    ],
-                    "label-md": [
-                            "14px",
-                            {
-                                    "lineHeight": "1.4",
-                                    "letterSpacing": "0.05em",
-                                    "fontWeight": "600"
-                            }
-                    ],
-                    "body-md": [
-                            "16px",
-                            {
-                                    "lineHeight": "1.6",
-                                    "fontWeight": "400"
-                            }
-                    ]
-            }
-        },
-        },
-      }
-    </script>
-<style>
-        .arch-mask {
-            clip-path: ellipse(60% 80% at 50% 20%);
-            border-radius: 200px 200px 0 0;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .soft-shadow {
-            box-shadow: 0px 10px 30px rgba(62, 39, 35, 0.05);
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encantos da Faby — Crochê Artesanal com Amor</title>
+  <meta name="description" content="Peças artesanais em crochê: bolsas, mantas, amigurumis, decoração e muito mais. Feito à mão com amor por Fabíola.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
-<!-- Header (Shared Component) -->
-<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md bg-surface/95 shadow-sm">
-<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
-<a class="flex items-center gap-3 font-headline-md text-headline-md font-semibold text-primary scale-95 transition-transform duration-200 active:scale-90 hover:opacity-80 transition-opacity duration-300" href="#">
-<img alt="Encantos da Faby Logo" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2tivXjYQgWRIknKW71u6iPMvteYJCWXbFg9-v3eoYqYMkU4dRuHKVazzlxSp_SalAOVmJsMnVD5Lv5ATcCQ_NMLr1ASj39w39Zwmk8iJPDIOntoXhL7c-RC9epxmxV_6gf3pEwsfZJciGz1eSmj-MLRw6Emi3TUiHBpsjfwXILpdM4eDh8pArAhwtPiHhkM7bsGozAoL8_9H47iZZmy8M8hT1SNXXV00Y6AuauUEIIuI5jUBon0sUjuL6LZGtP7-oVpWrsaaVEQGd">
-<span class="">Encantos da Faby</span>
-</a>
-<nav class="hidden md:flex items-center gap-8">
-<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#catalogo">Catálogo</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#nossa-historia">Nossa História</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#depoimentos">Depoimentos</a>
-</nav>
-<div class="flex items-center gap-4">
-<button class="text-primary hover:opacity-80 transition-opacity duration-300 scale-95 transition-transform duration-200 active:scale-90 relative">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" id="auth-portal-btn">person<span id="auth-btn-label" style="display:none;">Entrar</span></span>
-</button><button class="text-primary hover:opacity-80 transition-opacity duration-300 scale-95 transition-transform duration-200 active:scale-90 relative">
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;" id="open-cart-btn">shopping_cart</span>
-<span id="cart-count" class="absolute -top-1 -right-1 bg-primary-container text-on-primary-container text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">0</span>
-</button>
-</div>
-</div>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="site-header">
+  <div class="container inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/Imagem 1.jpg" alt="Logo Encantos da Faby" id="nav-logo-img" onerror="this.style.display='none'">
+      Encantos da Faby
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#catalogo" class="active">Catálogo</a></li>
+        <li><a href="#nossa-historia">Nossa História</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="open-cart-btn" title="Carrinho">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        <span class="badge" id="cart-count">0</span>
+      </button>
+      <button class="nav-icon-btn" id="auth-btn" title="Minha Conta">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </header>
-<!-- Hero Section -->
-<section class="relative w-full min-h-[80vh] flex items-center justify-center bg-surface-container-highest overflow-hidden">
-<div class="absolute inset-0 z-0 opacity-40">
-<img alt="Hero Background" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrXqmF0--PArVrBevUQDpsyBGGzKQ3d--BYLcuESxBA0XWWl5shTx47rWiETQK5yCzthwUIArv0UyGNC8_S2FarpMPMma1vH4PrxxAIIjnlNBSDl8jd4GiVZKmFZEhPIz7ynf_cHaOh9F3Q3sG4Rts_g2asTkapFVIp1qKE3gyeKizDbajzsEZmkoeZA1I-lqYYszQa4EA8OTLQd11o9WeSlR4Cw4LRWhdzb9S_u_sW8M-1xquBpHOXENbrEiPAy6WDzGpWW4Gxyw0">
-</div>
-<div class="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent z-10"></div>
-<div class="relative z-20 max-w-container-max mx-auto px-gutter w-full flex flex-col md:flex-row items-center gap-12">
-<div class="w-full md:w-1/2 flex flex-col items-start gap-6 fade-in visible">
-<span class="font-label-md text-label-md uppercase tracking-wider text-primary">Coleção Exclusiva</span>
-<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">
-                    Amor em <br><span class="italic text-primary">cada ponto.</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-                    Descubra o luxo do feito à mão. Peças de crochê curadas com detalhes meticulosos, qualidade impecável e design contemporâneo para o seu dia a dia.
-                </p>
-<a class="mt-4 px-8 py-4 bg-primary-container text-on-primary-container font-label-md text-label-md uppercase rounded-full hover:bg-surface-tint hover:text-on-primary transition-all duration-300 soft-shadow flex items-center gap-2 group" href="#catalogo">
-                    Ver Catálogo
-                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
-</a>
-</div>
-<div class="w-full md:w-1/2 flex justify-end fade-in relative visible" style="transition-delay: 200ms;">
-<div class="w-[80%] aspect-[3/4] bg-surface-variant arch-mask relative overflow-hidden soft-shadow">
-<img alt="Coleção de Crochê" class="w-full h-full object-cover" data-alt="A lifestyle photo of a woman holding a beautifully crafted luxury crochet handbag. She is standing in a brightly lit, minimalist space with soft archways in the background. The color palette features creamy off-whites, soft dusty rose, and subtle earthy greens. The mood is elegant, serene, and sophisticated, highlighting the artisanal quality of the bag." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLmIHx4yTyunxR3sxP-3GuElDJXqrUu3egD78F_UZML1EFaVbkMI0S_Lx20Tk52FsD9Vd8Is-TH6i1Bl96HwGsx46vtWeTofP-ZiScqqhNvk8OHgN6SWta8msnOCa9gKktaMWJy3s6BiimEy5t80bY79YnSNMSK14dAXVtBUfyQyf73D8FqYfn8ZBV5S2Fjwo_bMjw_EFYeB2SMJ-PaRnS3ZhMk9Jw24-ZvUAB_FpPKx5YpvBE2lzV3CjvCRrItHbzZt0GPIMrSQNi">
-</div>
-<!-- Floating Element -->
-<div class="absolute bottom-12 -left-8 bg-surface p-4 rounded-xl soft-shadow flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
-<div class="h-12 w-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
-<span class="material-symbols-outlined">verified</span>
-</div>
-<div>
-<p class="font-label-md text-label-md text-on-surface">100% Artesanal</p>
-<p class="font-body-md text-sm text-on-surface-variant">Qualidade Garantida</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#catalogo">Catálogo</a>
+  <a href="#nossa-historia">Nossa História</a>
+  <a href="#depoimentos">Depoimentos</a>
+  <div style="padding-top:8px;display:flex;gap:12px">
+    <button class="btn btn-outline btn-sm w-full" id="mobile-login-btn">Entrar</button>
+    <a href="perfil.html" class="btn btn-secondary btn-sm w-full" id="mobile-profile-link" style="display:none">Meu Perfil</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-decoration" style="width:500px;height:500px;top:-100px;right:-100px;"></div>
+  <div class="hero-decoration" style="width:300px;height:300px;bottom:-50px;left:-50px;opacity:.2"></div>
+
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding-block:80px">
+    <div class="hero-content">
+      <span class="hero-eyebrow">✦ Artesanato com alma</span>
+      <h1 class="text-display hero-title">Cada ponto,<br>uma história<br>de amor</h1>
+      <p class="hero-subtitle">Peças únicas em crochê tecidas à mão com carinho, fios premium e a dedicação de quem ama o que faz.</p>
+      <div class="hero-cta">
+        <a href="#catalogo" class="btn btn-primary" style="padding:16px 36px;font-size:15px">
+          <span class="material-symbols-outlined">storefront</span> Explorar Catálogo
+        </a>
+        <a href="#nossa-historia" class="btn btn-ghost" style="padding:16px 28px">Nossa história →</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="hero-img-wrap" style="width:460px;height:520px;max-width:100%">
+        <img src="assets/images/Imagem 1.jpg" alt="Peça artesanal Encantos da Faby" style="width:100%;height:100%;object-fit:cover" onerror="this.src='assets/images/Imagem 2.jpg'">
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Product Catalog Section -->
-<section class="py-section max-w-container-max mx-auto px-gutter" id="catalogo">
-<div class="flex flex-col items-center text-center gap-4 mb-12 fade-in visible">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Catálogo de Produtos</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Peças exclusivas, feitas à mão com os melhores fios e muito carinho.</p>
-</div>
-<!-- Filters & Search -->
-<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 fade-in visible">
-<div class="flex flex-wrap justify-center gap-3">
-<button class="px-6 py-3 rounded-full bg-primary-container text-on-primary-container border border-primary-container font-label-md text-label-md uppercase transition-colors">Todos</button>
-<button class="px-6 py-3 rounded-full bg-transparent text-on-surface border border-primary-container font-label-md text-label-md uppercase hover:bg-surface-variant transition-colors">Pronta Entrega</button>
-<button class="px-6 py-3 rounded-full bg-transparent text-on-surface border border-primary-container font-label-md text-label-md uppercase hover:bg-surface-variant transition-colors">Sob Encomenda</button>
-</div>
-<div class="relative w-full md:w-auto">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="w-full md:w-64 pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-full font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Buscar produtos..." type="text">
-</div>
-</div>
-<!-- Product Grid (Bento/Asymmetric Style) -->
-<div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-</div>
-<!-- Banner Card inside grid -->
-<div class="col-span-1 sm:col-span-2 lg:col-span-4 mt-12 bg-surface-container-high rounded-[32px] p-8 flex flex-col justify-center items-center text-center fade-in relative overflow-hidden visible" style="transition-delay: 100ms;">
-<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, var(--tw-colors-primary) 1px, transparent 0); background-size: 24px 24px;"></div>
-<span class="material-symbols-outlined text-4xl text-primary mb-4">stars</span>
-<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Encomendas Personalizadas</h3>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-6">Sonha com uma peça única nas suas cores favoritas? Nós criamos para você.</p>
-<a class="px-8 py-3 border-2 border-primary text-primary rounded-full font-label-md text-label-md uppercase hover:bg-primary hover:text-on-primary transition-colors duration-300" href="#contato">Solicitar Orçamento</a>
-</div>
-<div class="flex justify-center mt-12 fade-in visible">
-<button id="view-all-products-btn" class="flex items-center gap-2 text-on-surface hover:text-primary transition-colors font-label-md text-label-md uppercase pb-1 border-b border-on-surface hover:border-primary">
-                Ver todos os produtos <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
+
+<!-- ═══════════════════ CATÁLOGO ═══════════════════ -->
+<section class="section" id="catalogo">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em">✦ Feito com amor ✦</span>
+      <h2 class="text-headline" style="color:var(--primary);margin-top:8px">Nosso Catálogo</h2>
+      <p style="color:var(--on-surface-variant);font-size:17px;margin-top:12px;max-width:500px;margin-inline:auto">Peças únicas, tecidas à mão. Cada produto é um mimo.</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-tabs" style="justify-content:center;margin-bottom:40px">
+      <button class="filter-tab active" data-filter="todos">Todos</button>
+      <button class="filter-tab" data-filter="pronta-entrega">Pronta Entrega</button>
+      <button class="filter-tab" data-filter="sob-encomenda">Sob Encomenda</button>
+    </div>
+
+    <!-- Grid -->
+    <div id="products-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Ver mais -->
+    <div style="text-align:center;margin-top:48px">
+      <button class="btn btn-outline" id="view-all-btn" style="display:none">
+        Ver todos os produtos
+        <span class="material-symbols-outlined">expand_more</span>
+      </button>
+    </div>
+  </div>
 </section>
-<!-- Nossa História Section -->
-<section class="py-section bg-surface-bright relative overflow-hidden" id="nossa-historia">
-<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-<div class="relative fade-in order-2 md:order-1 visible">
-<!-- Decorative background shape -->
-<div class="absolute -top-12 -left-12 w-64 h-64 bg-surface-container-high rounded-full opacity-50 blur-3xl -z-10"></div>
-<div class="relative w-full max-w-[400px] mx-auto aspect-[3/4] arch-mask overflow-hidden border-8 border-surface soft-shadow">
-<img alt="Fabíola" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVOnI6M7RzR-xs63fGEKsi1Zr9eENJ7AzZR_tIrwUmsNpbm9gj-UfDTOWvQOKjvwRiuDJXl3b30Upjwpm5Yf5vZnVSOcy5-srdlN_5238ods_HwtHnzuhGyvaYVLVzyOW16Gpq0iw09RnoJxSbQpls1OHL2x4xjXoaKPld5140rZE6d8aCNwniB03zFB6_u0q6nDvr-Dvj1v9TGGtxciN5_xRRKcVNjABzJhYScybNns7V3s1nsWQ2y-SFsuJOh1WZbDwkhLncF4o0">
-</div>
-<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container rounded-full opacity-30 blur-2xl -z-10"></div>
-</div>
-<div class="flex flex-col gap-6 fade-in order-1 md:order-2 visible">
-<span class="font-label-md text-label-md uppercase tracking-wider text-primary">A Artesã</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Nossa História, Nossas Raízes</h2>
-<div class="font-body-lg text-body-lg text-on-surface-variant flex flex-col gap-4">
-<p class="">
-                        A Encantos da Faby nasceu em Nova Mutum - MT, da paixão de Fabíola Kurz Chimenes da Silva pelo crochê. O que começou como um hobby terapêutico, transformou-se em uma missão de levar elegância e aconchego através de peças feitas à mão.
-                    </p>
-<p class="">
-                        "Cada ponto carrega um pouco da minha história e da minha dedicação. Meu objetivo é que cada cliente sinta esse amor ao receber uma de nossas criações."
-                    </p>
-<p class="font-semibold text-on-surface mt-2">
-                        Mais do que crochê, é empoderamento.
-                    </p>
-<p class="">
-                        Buscamos não apenas criar produtos luxuosos, mas também inspirar e empoderar outras mulheres a valorizarem o artesanato e a buscarem seus próprios caminhos.
-                    </p>
-</div>
-<div class="flex items-center gap-8 mt-6">
-<div class="flex flex-col">
-<span class="font-display-lg text-4xl text-primary font-bold">5+</span>
-<span class="font-label-md text-xs text-on-surface-variant uppercase">Anos de Experiência</span>
-</div>
-<div class="h-12 w-px bg-outline-variant"></div>
-<div class="flex flex-col">
-<span class="font-display-lg text-4xl text-primary font-bold">500+</span>
-<span class="font-label-md text-xs text-on-surface-variant uppercase">Peças Entregues</span>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ═══════════════════ NOSSA HISTÓRIA ═══════════════════ -->
+<section class="section" id="nossa-historia" style="background:var(--surface-container-low)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="arch-md" style="overflow:hidden;aspect-ratio:3/4;background:var(--surface-container)">
+            <img src="assets/images/Imagem 3.jpg" alt="Fabíola criando" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div class="arch-sm" style="overflow:hidden;aspect-ratio:3/4;background:var(--surface-container);margin-top:40px">
+            <img src="assets/images/Imagem 7.jpg" alt="Detalhes do crochê" style="width:100%;height:100%;object-fit:cover">
+          </div>
+        </div>
+      </div>
+      <div>
+        <span style="color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em">✦ Nossa história</span>
+        <h2 class="text-headline" style="color:var(--primary);margin:12px 0 20px">Nascida do amor<br>pelo artesanal</h2>
+        <p style="color:var(--on-surface-variant);font-size:17px;line-height:1.8;margin-bottom:20px">O que começou como um hobby nas noites frias se tornou uma paixão que envolve toda a família. Fabíola tece cada peça com dedicação, escolhendo os melhores fios e garantindo qualidade em cada ponto.</p>
+        <p style="color:var(--on-surface-variant);font-size:17px;line-height:1.8;margin-bottom:32px">Cada produto que sai das mãos da Faby carrega amor, cuidado e a certeza de ser único no mundo.</p>
+        <div style="display:flex;gap:40px">
+          <div>
+            <div class="text-display" style="font-size:36px;color:var(--primary)">500+</div>
+            <div style="font-size:14px;color:var(--on-surface-variant);font-weight:600">Peças criadas</div>
+          </div>
+          <div>
+            <div class="text-display" style="font-size:36px;color:var(--primary)">5★</div>
+            <div style="font-size:14px;color:var(--on-surface-variant);font-weight:600">Avaliação média</div>
+          </div>
+          <div>
+            <div class="text-display" style="font-size:36px;color:var(--primary)">8+</div>
+            <div style="font-size:14px;color:var(--on-surface-variant);font-weight:600">Anos de prática</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Testimonials Section -->
-<section class="py-section max-w-container-max mx-auto px-gutter bg-surface-container-lowest" id="depoimentos">
-<div class="text-center mb-16 fade-in visible">
-<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2 block">Depoimentos</span>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">O que dizem nossas clientes</h2>
-</div>
-<div class="relative max-w-4xl mx-auto fade-in visible">
-<!-- Carousel Container -->
-<div class="overflow-hidden">
-<div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track" style="transform: translateX(0%);">
-<!-- Testimonial 1 -->
-<div class="w-full flex-shrink-0 px-4 text-center">
-<div class="flex justify-center gap-1 mb-6 text-primary">
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-</div>
-<p class="font-headline-lg text-2xl md:text-3xl text-on-surface italic leading-relaxed mb-8">
-                            "A manta que encomendei é simplesmente perfeita. O acabamento é impecável e a embalagem veio com um cheirinho maravilhoso. Dá para sentir o carinho em cada detalhe!"
-                        </p>
-<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Marina S.</p>
-<p class="font-body-md text-sm text-outline">São Paulo, SP</p>
-</div>
-<!-- Testimonial 2 (Hidden by default in flow, managed by JS) -->
-<div class="w-full flex-shrink-0 px-4 text-center">
-<div class="flex justify-center gap-1 mb-6 text-primary">
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
-</div>
-<p class="font-headline-lg text-2xl md:text-3xl text-on-surface italic leading-relaxed mb-8">
-                            "Atendimento nota mil e peças maravilhosas. Comprei um top de crochê para o verão e vestiu perfeitamente. Muito luxo e conforto."
-                        </p>
-<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Camila R.</p>
-<p class="font-body-md text-sm text-outline">Rio de Janeiro, RJ</p>
-</div>
-</div>
-</div>
-<!-- Carousel Controls -->
-<div class="flex justify-center items-center gap-6 mt-12">
-<button class="h-10 w-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" id="prev-btn">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<div class="flex gap-2" id="carousel-indicators">
-<button class="h-1 rounded-full transition-all duration-300 w-8 bg-primary"></button>
-<button class="h-1 rounded-full transition-all duration-300 w-4 bg-outline-variant"></button>
-</div>
-<button class="h-10 w-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" id="next-btn">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
+
+<!-- ═══════════════════ DEPOIMENTOS ═══════════════════ -->
+<section class="section" id="depoimentos">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em">✦ Quem já comprou ✦</span>
+      <h2 class="text-headline" style="color:var(--primary);margin-top:8px">O que dizem sobre nós</h2>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-track" id="testimonials-track" style="gap:0">
+        <div style="min-width:100%;padding:0 60px">
+          <div class="testimonial-card" style="max-width:700px;margin:0 auto">
+            <p class="testimonial-text">"A manta que encomendei é simplesmente perfeita. O acabamento é impecável e a embalagem veio com um cheirinho maravilhoso. Dá para sentir o carinho em cada detalhe!"</p>
+            <div class="testimonial-author">Marina S.</div>
+            <div class="testimonial-location">São Paulo, SP</div>
+          </div>
+        </div>
+        <div style="min-width:100%;padding:0 60px">
+          <div class="testimonial-card" style="max-width:700px;margin:0 auto">
+            <p class="testimonial-text">"Comprei uma bolsa boho e recebi muito mais do que esperava. A qualidade é excepcional e o prazo foi atendido perfeitamente. Super recomendo!"</p>
+            <div class="testimonial-author">Camila R.</div>
+            <div class="testimonial-location">Curitiba, PR</div>
+          </div>
+        </div>
+        <div style="min-width:100%;padding:0 60px">
+          <div class="testimonial-card" style="max-width:700px;margin:0 auto">
+            <p class="testimonial-text">"Presenteei minha filha recém-nascida com o kit bebê. A Fabíola é uma artista! As peças são lindas, delicadas e feitas com tanto amor que me emocionei ao abrir."</p>
+            <div class="testimonial-author">Renata M.</div>
+            <div class="testimonial-location">Florianópolis, SC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-top:36px">
+      <button class="btn btn-icon btn-outline" id="prev-testimonial">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <div style="display:flex;gap:8px" id="testimonial-dots">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
+      <button class="btn btn-icon btn-outline" id="next-testimonial">
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+  </div>
 </section>
-<!-- Footer (Shared Component) -->
-<footer class="bg-surface-container dark:bg-inverse-surface w-full rounded-t-xl bg-surface-container-low dark:bg-inverse-surface mt-12">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-gutter py-12 max-w-container-max mx-auto text-on-surface dark:text-inverse-on-surface">
-<!-- Brand & Copyright -->
-<div class="flex flex-col gap-4 opacity-90 hover:opacity-100 transition-opacity">
-<a class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim font-bold" href="#">Encantos da Faby</a>
-<p class="font-body-md text-body-md font-label-md text-label-md">© 2024 Encantos da Faby. Feito com amor por Fabíola Kurz Chimenes da Silva.</p>
-<div class="flex gap-4 mt-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
-<!-- Assuming generic icons for social since exact ones aren't in material standard easily without specifics, using links -->
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
-</div>
-</div>
-<!-- Links -->
-<div class="flex flex-col gap-3">
-<h4 class="font-headline-md text-lg text-on-surface mb-2">Navegação</h4>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#catalogo">Catálogo</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#nossa-historia">Nossa História</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#depoimentos">Depoimentos</a>
-</div>
-<div class="flex flex-col gap-3">
-<h4 class="font-headline-md text-lg text-on-surface mb-2">Informações</h4>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#">Privacidade</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#">Termos</a>
-</div>
-</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px">
+      <div>
+        <div style="font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--inverse-on-surface);margin-bottom:16px">Encantos da Faby</div>
+        <p style="opacity:.7;font-size:15px;line-height:1.8;max-width:320px">Peças artesanais em crochê feitas com amor por Fabíola Kurz Chimenes da Silva.</p>
+        <div style="display:flex;gap:12px;margin-top:20px">
+          <a href="#" class="nav-icon-btn" style="background:rgba(255,255,255,.1)" title="Instagram">
+            <span class="material-symbols-outlined">photo_camera</span>
+          </a>
+          <a href="#" class="nav-icon-btn" style="background:rgba(255,255,255,.1)" title="WhatsApp">
+            <span class="material-symbols-outlined">chat</span>
+          </a>
+          <a href="#" class="nav-icon-btn" style="background:rgba(255,255,255,.1)" title="E-mail">
+            <span class="material-symbols-outlined">mail</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#catalogo">Catálogo</a>
+          <a href="#nossa-historia">Nossa História</a>
+          <a href="#depoimentos">Depoimentos</a>
+        </div>
+      </div>
+      <div>
+        <h4>Informações</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Trocas e Devoluções</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 Encantos da Faby · Feito com 🌸 e muito crochê
+    </div>
+  </div>
 </footer>
-<!-- Scripts -->
-<script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+<!-- ═══════════════════ CART DRAWER ═══════════════════ -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h2>Meu Carrinho</h2>
+    <button class="btn btn-icon btn-ghost" id="close-cart-btn">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-value" id="cart-subtotal">R$ 0,00</span>
+    </div>
+    <button class="btn btn-primary w-full" id="cart-checkout-btn" style="font-size:15px;padding:16px">
+      <span class="material-symbols-outlined">shopping_cart_checkout</span>
+      Finalizar Compra
+    </button>
+  </div>
+</aside>
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
-
-        // Simple Carousel Logic
-        let currentSlide = 0;
-        const track = document.getElementById('testimonial-track');
-        const slides = track.children;
-        const totalSlides = slides.length;
-        const indicators = document.getElementById('carousel-indicators').children;
-        
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            Array.from(indicators).forEach((indicator, index) => {
-                if (index === currentSlide) {
-                    indicator.classList.remove('w-4', 'bg-outline-variant');
-                    indicator.classList.add('w-8', 'bg-primary');
-                } else {
-                    indicator.classList.remove('w-8', 'bg-primary');
-                    indicator.classList.add('w-4', 'bg-outline-variant');
-                }
-            });
-        }
-
-        document.getElementById('next-btn').addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        });
-
-        document.getElementById('prev-btn').addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        });
-        
-        // Auto advance carousel slowly
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }, 8000);
-    </script>
-
-
-
-<!-- ==========================================================================
-       MODAL: AUTENTICAÇÃO (LOGIN / REGISTRO)
-       ========================================================================== -->
-  <div class="modal" id="auth-modal">
-    <div class="modal-backdrop" id="auth-modal-backdrop"></div>
-    <div class="modal-content" style="max-width: 420px;">
-      <div class="modal-header">
-        <h3 id="auth-modal-title">Entrar na Conta</h3>
-        <button class="close-modal-btn" id="close-auth-modal-btn">&times;</button>
+<!-- ═══════════════════ MODAL AUTH ═══════════════════ -->
+<div class="modal-overlay" id="auth-modal">
+  <div class="modal-box" style="max-width:440px">
+    <div class="modal-header">
+      <h3 id="auth-modal-title">Bem-vinda!</h3>
+      <button class="modal-close" onclick="window._closeModal('auth-modal')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Entrar</button>
+        <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Criar Conta</button>
       </div>
-      <div class="modal-body">
-        
-        <!-- Abas do Login/Registro -->
-        <div class="payment-tabs" style="margin-bottom: 24px;">
-          <button class="payment-tab-btn active" id="auth-tab-login-btn">Entrar</button>
-          <button class="payment-tab-btn" id="auth-tab-register-btn">Criar Conta</button>
+
+      <!-- Login -->
+      <form class="auth-form active" id="login-form">
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-input" id="login-email" placeholder="seu@email.com" required autocomplete="email">
         </div>
-
-        <!-- Alerta de Erro -->
-        <div id="auth-error-alert" style="display: none; background-color: #fce8e6; border: 1px solid #f2b8b5; color: #b3261e; padding: 12px; border-radius: var(--radius-sm); font-size: 0.85rem; margin-bottom: 16px;">
-          Erro de autenticação. Tente novamente.
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" id="login-password" placeholder="••••••••" required autocomplete="current-password">
         </div>
+        <div class="form-error hidden" id="login-error"></div>
+        <button type="submit" class="btn btn-primary w-full" style="margin-top:8px">
+          <span class="material-symbols-outlined">login</span> Entrar na Loja
+        </button>
+      </form>
 
-        <!-- Formulário de Login -->
-        <form id="auth-login-form" class="payment-content active">
-          <div class="form-group form-group-full">
-            <label for="login-email">Endereço de E-mail</label>
-            <input type="email" id="login-email" required placeholder="seu-email@exemplo.com">
-          </div>
-          <div class="form-group form-group-full">
-            <label for="login-password">Senha de Acesso</label>
-            <input type="password" id="login-password" required placeholder="Digite sua senha">
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Entrar na Loja</button>
-          <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 15px;">
-            Quer testar o painel da Fabíola? Use:<br>
-            <strong>fabiola@encantosdafaby.com.br</strong> / senha: <strong>faby123</strong>
-          </p>
-        </form>
-
-        <!-- Formulário de Registro -->
-        <form id="auth-register-form" class="payment-content">
-          <div class="form-group form-group-full">
-            <label for="register-name">Seu Nome Completo</label>
-            <input type="text" id="register-name" required placeholder="Ex: Ana Silva">
-          </div>
-          <div class="form-group form-group-full">
-            <label for="register-email">Endereço de E-mail</label>
-            <input type="email" id="register-email" required placeholder="sua-conta@exemplo.com">
-          </div>
-          <div class="form-group form-group-full">
-            <label for="register-password">Crie uma Senha</label>
-            <input type="password" id="register-password" required minlength="6" placeholder="Mínimo 6 caracteres">
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Cadastrar & Acessar</button>
-        </form>
-      </div>
+      <!-- Register -->
+      <form class="auth-form" id="register-form">
+        <div class="form-group">
+          <label class="form-label">Nome Completo</label>
+          <input type="text" class="form-input" id="reg-name" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-input" id="reg-email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" id="reg-password" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
+        </div>
+        <div class="form-error hidden" id="register-error"></div>
+        <button type="submit" class="btn btn-primary w-full" style="margin-top:8px">
+          <span class="material-symbols-outlined">person_add</span> Criar Conta
+        </button>
+      </form>
     </div>
   </div>
+</div>
 
-  <!-- ==========================================================================
-       CARRINHO LATERAL (SLIDE-OVER DRAW CHAT)
-       ========================================================================== -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-header">
-      <h3>Sua Sacola</h3>
-      <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+<!-- ═══════════════════ MODAL CHECKOUT ═══════════════════ -->
+<div class="modal-overlay" id="checkout-modal">
+  <div class="modal-box" style="max-width:580px">
+    <div class="modal-header">
+      <h3>Finalizar Compra</h3>
+      <button class="modal-close" onclick="window._closeModal('checkout-modal')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
     </div>
-    
-    <div class="cart-items" id="cart-items-container">
-      <!-- Injetado via Javascript -->
-    </div>
-
-    <div class="cart-footer">
-      <div class="cart-subtotal-row">
-        <span>Subtotal</span>
-        <span class="cart-subtotal-price" id="cart-subtotal">R$ 0,00</span>
-      </div>
-      <button class="btn btn-primary checkout-btn" id="go-to-checkout-btn" disabled>Fechar Pedido</button>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       MODAL: CHECKOUT MOCK PREMIUM
-       ========================================================================== -->
-  <div class="modal" id="checkout-modal">
-    <div class="modal-backdrop" id="checkout-modal-backdrop"></div>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Fechar Encomenda</h3>
-        <button class="close-modal-btn" id="close-checkout-modal-btn">&times;</button>
-      </div>
-      
-      <div class="modal-body">
-        <div class="checkout-layout" id="checkout-form-view">
-          
-          <!-- Formulário do Cliente -->
-          <div>
-            <div class="checkout-section-title">1. Dados de Entrega</div>
-            <form id="checkout-form">
-              <div class="form-grid">
-                <div class="form-group form-group-full">
-                  <label for="checkout-name">Nome Completo</label>
-                  <input type="text" id="checkout-name" required placeholder="Ex: Ana Maria Silva">
-                </div>
-                <div class="form-group">
-                  <label for="checkout-phone">WhatsApp / Celular</label>
-                  <input type="tel" id="checkout-phone" required placeholder="Ex: (11) 99999-9999">
-                </div>
-                <div class="form-group">
-                  <label for="checkout-cep">CEP</label>
-                  <input type="text" id="checkout-cep" required placeholder="Ex: 01000-000">
-                </div>
-                <div class="form-group form-group-full">
-                  <label for="checkout-address">Endereço Completo</label>
-                  <input type="text" id="checkout-address" required placeholder="Rua, Número, Bairro, Complemento">
-                </div>
-                <div class="form-group">
-                  <label for="checkout-city">Cidade</label>
-                  <input type="text" id="checkout-city" required placeholder="Ex: São Paulo">
-                </div>
-                <div class="form-group">
-                  <label for="checkout-state">Estado</label>
-                  <input type="text" id="checkout-state" required placeholder="Ex: SP">
-                </div>
-              </div>
-
-              <div class="checkout-section-title" style="margin-top: 30px;">2. Forma de Pagamento</div>
-              <div class="payment-tabs">
-                <button type="button" class="payment-tab-btn active" id="tab-pix-btn"><i class="fa-brands fa-pix" style="color: #32bcad;"></i> PIX</button>
-                <button type="button" class="payment-tab-btn" id="tab-card-btn"><i class="fa-solid fa-credit-card"></i> Cartão</button>
-              </div>
-
-              <!-- Painel de Pagamento: PIX -->
-              <div class="payment-content active" id="payment-pix-content">
-                <div class="pix-panel">
-                  <div class="pix-qr-code">
-                    <!-- Ícone de QR Code simulado de altíssima fidelidade -->
-                    <i class="fa-solid fa-qrcode" style="font-size: 8rem; color: var(--text-primary);"></i>
-                  </div>
-                  <p style="font-size: 0.85rem; color: var(--text-muted);">Escaneie o QR Code acima ou copie a chave PIX abaixo para pagar.</p>
-                  
-                  <div class="pix-copia-cola-box">
-                    <span class="pix-code-text" id="pix-key-string">00020126360014BR.GOV.BCB.PIX0114fabiola@encantosdafaby.com.br520400005303986540500.005802BR5921Encantos da Faby Loja6009Sao Paulo62070503***6304</span>
-                    <button type="button" class="copy-pix-btn" id="copy-pix-btn">Copiar</button>
-                  </div>
-                  
-                  <div class="pix-timer">O PIX expira em: <span id="pix-countdown">05:00</span></div>
-                </div>
-              </div>
-
-              <!-- Painel de Pagamento: Cartão (Com Flip Card Interativo) -->
-              <div class="payment-content" id="payment-card-content">
-                <div class="card-preview-wrapper">
-                  <div class="credit-card-mock" id="credit-card-mock">
-                    <!-- Frente do Cartão -->
-                    <div class="card-face card-front">
-                      <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div class="card-chip"></div>
-                        <div class="card-logo">Encantos</div>
-                      </div>
-                      <div class="card-number-display" id="card-display-number">•••• •••• •••• ••••</div>
-                      <div class="card-holder-row">
-                        <div>
-                          <div style="font-size: 0.6rem; opacity: 0.8;">Portador</div>
-                          <div id="card-display-name">NOME COMPLETO</div>
-                        </div>
-                        <div>
-                          <div style="font-size: 0.6rem; opacity: 0.8;">Validade</div>
-                          <div id="card-display-expiry">MM/AA</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <!-- Verso do Cartão -->
-                    <div class="card-face card-back">
-                      <div class="card-stripe"></div>
-                      <div class="card-cvv-section">
-                        <span style="font-size: 0.6rem; opacity: 0.8; display: block; color: var(--white); margin-bottom: 4px;">CVC / CVV</span>
-                        <div class="card-cvv-box" id="card-display-cvv">•••</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Campos do Cartão -->
-                <div class="form-grid">
-                  <div class="form-group form-group-full">
-                    <label for="card-number">Número do Cartão</label>
-                    <input type="text" id="card-number" placeholder="4000 1234 5678 9010" maxlength="19">
-                  </div>
-                  <div class="form-group form-group-full">
-                    <label for="card-name">Nome Impresso no Cartão</label>
-                    <input type="text" id="card-name" placeholder="Ex: ANA M SILVA">
-                  </div>
-                  <div class="form-group">
-                    <label for="card-expiry">Validade</label>
-                    <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
-                  </div>
-                  <div class="form-group">
-                    <label for="card-cvv">Código de Segurança (CVC)</label>
-                    <input type="text" id="card-cvv" placeholder="123" maxlength="4">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <!-- Resumo de Compra à Direita -->
-          <div>
-            <div class="checkout-section-title">Resumo da Sacola</div>
-            <div class="checkout-summary-box">
-              <div class="summary-items-list" id="checkout-summary-items">
-                <!-- Injetado via JS -->
-              </div>
-              
-              <div class="summary-totals">
-                <div class="summary-row">
-                  <span>Subtotal</span>
-                  <span id="checkout-subtotal">R$ 0,00</span>
-                </div>
-                <div class="summary-row">
-                  <span>Frete</span>
-                  <span style="color: var(--color-secondary); font-weight: 600;">GRÁTIS</span>
-                </div>
-                <div class="summary-total-row">
-                  <span>Total</span>
-                  <span id="checkout-total">R$ 0,00</span>
-                </div>
-              </div>
+    <div class="modal-body">
+      <div id="checkout-form-view">
+        <form id="checkout-form">
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--on-surface-variant);margin-bottom:16px">Dados de Entrega</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nome Completo *</label>
+              <input type="text" class="form-input" id="checkout-name" required>
             </div>
+            <div class="form-group">
+              <label class="form-label">WhatsApp *</label>
+              <input type="tel" class="form-input" id="checkout-phone" placeholder="(00) 00000-0000" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:12px">
+            <label class="form-label">Endereço *</label>
+            <input type="text" class="form-input" id="checkout-address" placeholder="Rua, Número, Bairro" required>
+          </div>
+          <div class="form-row" style="margin-top:12px">
+            <div class="form-group">
+              <label class="form-label">CEP</label>
+              <input type="text" class="form-input" id="checkout-cep" placeholder="00000-000">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Cidade *</label>
+              <input type="text" class="form-input" id="checkout-city" required>
+            </div>
+            <div class="form-group" style="max-width:80px">
+              <label class="form-label">Estado</label>
+              <input type="text" class="form-input" id="checkout-state" maxlength="2" placeholder="SC">
+            </div>
+          </div>
 
-            <!-- Botão de Confirmação Final -->
-            <button type="button" class="btn btn-primary place-order-btn" id="confirm-purchase-btn">
-              <i class="fa-solid fa-circle-check"></i> Finalizar Encomenda
+          <div class="divider" style="margin-top:24px"></div>
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--on-surface-variant);margin-bottom:16px">Forma de Pagamento</div>
+
+          <div class="payment-method-tabs">
+            <button type="button" class="payment-tab active" data-method="pix">
+              <span class="material-symbols-outlined">qr_code_2</span>
+              PIX
+            </button>
+            <button type="button" class="payment-tab" data-method="card">
+              <span class="material-symbols-outlined">credit_card</span>
+              Cartão
             </button>
           </div>
-        </div>
 
-        <!-- Tela de Sucesso Pós-Compra -->
-        <div class="checkout-success-view" id="checkout-success-view" style="display: none;">
-          <span class="success-icon"><i class="fa-solid fa-heart-circle-check"></i></span>
-          <h2 class="success-title">Encomenda Concluída!</h2>
-          <p class="success-text">Sua encomenda foi registrada com sucesso no nosso sistema. O pagamento está sendo simulado de forma segura.</p>
-          
-          <div style="background-color: var(--bg-main); padding: 20px; border-radius: var(--radius-md); max-width: 480px; margin: 0 auto 30px; border: 1px solid var(--border-soft); text-align: left;">
-            <h4 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 600;"><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> Enviar resumo no WhatsApp da Faby</h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Para agilizar a produção ou tirar dúvidas sobre a entrega, clique no botão abaixo para enviar os detalhes e customizações do seu pedido diretamente para a Fabíola!</p>
-            <button class="btn btn-primary" id="send-whatsapp-order-btn" style="width: 100%; background-color: #25d366; box-shadow: 0 4px 12px rgba(37,211,102,0.3); border: none;"><i class="fa-brands fa-whatsapp"></i> Chamar Faby no WhatsApp</button>
+          <!-- PIX -->
+          <div id="payment-pix" class="payment-panel">
+            <div class="pix-box">
+              <p style="font-size:14px;color:var(--on-surface-variant)">Após confirmar, você receberá as instruções de pagamento via WhatsApp.</p>
+              <div class="pix-qr">
+                <span class="material-symbols-outlined" style="font-size:80px;color:var(--outline-variant)">qr_code_2</span>
+              </div>
+              <p style="font-size:12px;color:var(--on-surface-variant)">O QR Code será gerado após confirmação do pedido.</p>
+            </div>
           </div>
 
-          <button class="btn btn-secondary" id="close-success-view-btn">Continuar Navegando</button>
-        </div>
+          <!-- Cartão -->
+          <div id="payment-card" class="payment-panel hidden">
+            <div id="mp-card-brick" style="min-height:160px">
+              <div class="empty-state" style="padding:32px">
+                <span class="material-symbols-outlined">credit_card</span>
+                <p>Selecione "Cartão" para carregar o formulário de pagamento seguro.</p>
+              </div>
+            </div>
+          </div>
 
+          <div class="divider"></div>
+          <div class="cart-total" style="margin-bottom:16px">
+            <span style="font-weight:600;color:var(--on-surface-variant)">Total do Pedido</span>
+            <span style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--primary)" id="checkout-total">R$ 0,00</span>
+          </div>
+          <button type="submit" class="btn btn-primary w-full" id="checkout-submit-btn" style="font-size:15px;padding:16px">
+            <span class="material-symbols-outlined">check_circle</span> Confirmar Pedido
+          </button>
+        </form>
+      </div>
+
+      <!-- Success -->
+      <div id="checkout-success-view" class="hidden" style="text-align:center;padding:40px 0">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--primary-fixed);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--primary)">check_circle</span>
+        </div>
+        <h3 class="text-headline" style="color:var(--primary);margin-bottom:12px">Pedido Confirmado!</h3>
+        <p style="color:var(--on-surface-variant);margin-bottom:8px">Número do pedido:</p>
+        <p style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--primary);margin-bottom:20px" id="success-order-id">#EF000000</p>
+        <p style="color:var(--on-surface-variant);font-size:15px;margin-bottom:32px">Você receberá as atualizações pelo WhatsApp. Obrigada pela confiança! 🌸</p>
+        <button class="btn btn-primary" id="checkout-done-btn">Continuar Comprando</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ==========================================================================
-       CDNs DO SDK WEB DO FIREBASE (MODULAR - VERSÃO 10+)
-       ========================================================================== -->
-  <!-- Inicializaremos dinamicamente a lógica unificada no app.js -->
-  
-<script src="app.js" type="module"></script>
-</body></html>
+<!-- ═══════════════════ TOAST CONTAINER ═══════════════════ -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- ═══════════════════ JS ═══════════════════ -->
+<script type="module">
+  import { initAuth, onAuthChange, login, register, logout, isAdmin } from "./js/auth.js";
+  import { initCart, initCartDrawer }    from "./js/cart.js";
+  import { initProducts, initFilters, renderCatalog } from "./js/catalog.js";
+  import { initCheckout }               from "./js/checkout.js";
+  import { openModal, closeModal, initCarousel, formatCurrency } from "./js/ui.js";
+
+  // Expor closeModal globalmente para uso em onclick inline
+  window._closeModal = closeModal;
+
+  // Aba de auth
+  window.switchAuthTab = (tab) => {
+    document.querySelectorAll(".auth-tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".auth-form").forEach(f => f.classList.remove("active"));
+    document.getElementById(`tab-${tab}`).classList.add("active");
+    document.getElementById(`${tab}-form`).classList.add("active");
+  };
+
+  // Botão de auth no header
+  document.getElementById("auth-btn").addEventListener("click", () => {
+    const user = window._currentUser;
+    if (user) {
+      window.location.href = "perfil.html";
+    } else {
+      openModal("auth-modal");
+    }
+  });
+  document.getElementById("mobile-login-btn")?.addEventListener("click", () => openModal("auth-modal"));
+
+  // Login form
+  document.getElementById("login-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Entrando...";
+    const errEl = document.getElementById("login-error");
+    const result = await login(
+      document.getElementById("login-email").value,
+      document.getElementById("login-password").value
+    );
+    if (result.success) {
+      closeModal("auth-modal");
+    } else {
+      errEl.textContent = result.error;
+      errEl.classList.remove("hidden");
+    }
+    btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined">login</span> Entrar na Loja';
+  });
+
+  // Register form
+  document.getElementById("register-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Criando conta...";
+    const errEl = document.getElementById("register-error");
+    const result = await register(
+      document.getElementById("reg-name").value,
+      document.getElementById("reg-email").value,
+      document.getElementById("reg-password").value
+    );
+    if (result.success) {
+      closeModal("auth-modal");
+    } else {
+      errEl.textContent = result.error;
+      errEl.classList.remove("hidden");
+    }
+    btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined">person_add</span> Criar Conta';
+  });
+
+  // Observer de autenticação
+  onAuthChange(user => {
+    window._currentUser = user;
+    const authBtn = document.getElementById("auth-btn");
+    const mobileProfile = document.getElementById("mobile-profile-link");
+    const mobileLoginBtn = document.getElementById("mobile-login-btn");
+
+    if (user) {
+      authBtn.innerHTML = `<span class="material-symbols-outlined">account_circle</span>`;
+      authBtn.title = user.name;
+      if (mobileProfile) mobileProfile.style.display = "flex";
+      if (mobileLoginBtn) mobileLoginBtn.style.display = "none";
+      // Admin: mostrar link para admin
+      if (isAdmin()) {
+        if (!document.getElementById("admin-link")) {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="admin.html" id="admin-link" style="color:var(--primary);font-weight:700"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">admin_panel_settings</span> Admin</a>`;
+          document.querySelector(".nav-links")?.appendChild(li);
+        }
+      }
+    } else {
+      authBtn.innerHTML = `<span class="material-symbols-outlined">person</span>`;
+      authBtn.title = "Entrar";
+      if (mobileProfile) mobileProfile.style.display = "none";
+      if (mobileLoginBtn) mobileLoginBtn.style.display = "flex";
+      document.getElementById("admin-link")?.parentElement?.remove();
+    }
+    // Re-sincronizar carrinho
+    initCart(user?.uid);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById("hamburger-btn");
+  const mobileNav = document.getElementById("mobile-nav");
+  hamburger?.addEventListener("click", () => mobileNav?.classList.toggle("open"));
+  mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
+
+  // Checkout total atualização
+  function updateCheckoutTotal() {
+    const { getTotal } = window.__cartModule || {};
+    const el = document.getElementById("checkout-total");
+    if (el && getTotal) el.textContent = formatCurrency(getTotal());
+  }
+
+  // Carrossel depoimentos
+  const carousel = initCarousel(
+    document.getElementById("testimonials-track"),
+    document.getElementById("testimonial-dots")
+  );
+  document.getElementById("prev-testimonial")?.addEventListener("click", () => carousel?.prev());
+  document.getElementById("next-testimonial")?.addEventListener("click", () => carousel?.next());
+  let autoplay = setInterval(() => carousel?.next(), 5000);
+
+  // Inicializar tudo
+  initAuth();
+  initCartDrawer();
+  initProducts().then(() => {
+    initFilters();
+    renderCatalog();
+  });
+  initCheckout();
+
+  // Atualizar total do checkout quando abrir modal
+  document.getElementById("cart-checkout-btn")?.addEventListener("click", updateCheckoutTotal);
+
+  // Smooth scroll para âncoras
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+      const target = document.querySelector(a.getAttribute("href"));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    });
+  });
+</script>
+</body>
+</html>

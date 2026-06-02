@@ -166,9 +166,11 @@ async function syncProductDatabase() {
   } else {
     dbProducts = getLocalProducts();
   }
+  window.dbProducts = dbProducts;
   renderVitrine();
   populateImageSelect();
-  renderAdminProducts();
+  if (typeof renderAdminProducts === 'function') renderAdminProducts();
+  if (typeof renderProductDetails === 'function') renderProductDetails();
 }
 
 async function syncOrders() {
@@ -495,7 +497,7 @@ function syncCartUI() {
         : `<div class="cart-item-meta">Pronta Entrega</div>`;
 
       itemDiv.innerHTML = `
-        <img src="../Imagens dos produtos/${item.image}" alt="${item.name}" class="cart-item-img">
+        <img src="assets/images/${item.image}" alt="${item.name}" class="cart-item-img">
         <div class="cart-item-details">
           <div class="cart-item-title">${item.name}</div>
           ${metaText}
@@ -563,14 +565,16 @@ function renderVitrine() {
     // To make it repeat beautifully for all 32 products:
     const patternIndex = index % 4;
     
-    if (patternIndex === 0) {
+      if (patternIndex === 0) {
       // Taller card
       extraClasses = "lg:col-span-1 lg:row-span-2 flex flex-col";
       innerHtml = `
         <div class="relative w-full h-full min-h-[300px] mb-4 overflow-hidden rounded-t-[100px] bg-surface-variant">
-          <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="../Imagens dos produtos/${prod.image}">
-          <div class="absolute inset-0 bg-on-surface/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 soft-shadow" onclick="quickAdd('${prod.id}')">Adicionar</button>
+          <a href="produto.html?id=${prod.id}" class="absolute inset-0 w-full h-full">
+            <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/images/${prod.image}">
+          </a>
+          <div class="absolute inset-0 bg-on-surface/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+            <button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 soft-shadow pointer-events-auto" onclick="quickAdd('${prod.id}')">Adicionar</button>
           </div>
         </div>
       `;
@@ -579,9 +583,11 @@ function renderVitrine() {
       extraClasses = "lg:col-span-1";
       innerHtml = `
         <div class="relative w-full aspect-[3/4] mb-4 overflow-hidden arch-mask bg-surface-variant">
-          <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="../Imagens dos produtos/${prod.image}">
-          <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-            <button class="bg-surface text-on-surface px-6 py-2 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300" onclick="quickAdd('${prod.id}')">Comprar</button>
+          <a href="produto.html?id=${prod.id}" class="absolute inset-0 w-full h-full">
+            <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/images/${prod.image}">
+          </a>
+          <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8 pointer-events-none">
+            <button class="bg-surface text-on-surface px-6 py-2 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 pointer-events-auto" onclick="quickAdd('${prod.id}')">Comprar</button>
           </div>
         </div>
       `;
@@ -590,8 +596,10 @@ function renderVitrine() {
       extraClasses = "";
       innerHtml = `
         <div class="relative w-full aspect-square mb-4 overflow-hidden rounded-2xl bg-surface-variant">
-          <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="../Imagens dos produtos/${prod.image}">
-          ${prod.type === 'pronta-entrega' ? '<div class="absolute top-4 left-4 bg-surface-container-highest px-3 py-1 rounded-full text-xs font-bold text-on-surface">Pronta Entrega</div>' : '<div class="absolute top-4 left-4 bg-primary-container px-3 py-1 rounded-full text-xs font-bold text-on-primary-container">Sob Encomenda</div>'}
+          <a href="produto.html?id=${prod.id}" class="absolute inset-0 w-full h-full">
+            <img alt="${prod.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/images/${prod.image}">
+          </a>
+          ${prod.type === 'pronta-entrega' ? '<div class="absolute top-4 left-4 bg-surface-container-highest px-3 py-1 rounded-full text-xs font-bold text-on-surface pointer-events-none">Pronta Entrega</div>' : '<div class="absolute top-4 left-4 bg-primary-container px-3 py-1 rounded-full text-xs font-bold text-on-primary-container pointer-events-none">Sob Encomenda</div>'}
           <button class="absolute bottom-4 right-4 h-10 w-10 bg-surface rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300" onclick="quickAdd('${prod.id}')">
             <span class="material-symbols-outlined">add_shopping_cart</span>
           </button>
@@ -1098,7 +1106,7 @@ function renderAdminProducts() {
     tr.style.borderBottom = "1px solid var(--border-soft)";
 
     tr.innerHTML = `
-      <td style="padding: 12px;"><img src="../Imagens dos produtos/${prod.image}" alt="${prod.name}" style="height:40px; width:40px; object-fit:cover; border-radius: var(--radius-sm);"></td>
+      <td style="padding: 12px;"><img src="assets/images/${prod.image}" alt="${prod.name}" style="height:40px; width:40px; object-fit:cover; border-radius: var(--radius-sm);"></td>
       <td style="padding: 12px; font-weight:600;">${prod.name}</td>
       <td style="padding: 12px; font-size:0.8rem; color:var(--text-muted);">${prod.category}</td>
       <td style="padding: 12px; font-family:var(--font-headings); font-weight:700;">R$ ${prod.price.toFixed(2).replace(".", ",")}</td>
@@ -1323,3 +1331,186 @@ document.addEventListener("DOMContentLoaded", () => {
   setupAuthListener();
   syncProductDatabase();
 });
+
+// Admin Panel Tabs
+window.switchAdminTab = (tab) => {
+  if (tab === 'products') {
+    document.getElementById('tab-admin-products').classList.add('active');
+    document.getElementById('tab-admin-orders').classList.remove('active');
+    document.getElementById('admin-products-view').style.display = 'block';
+    document.getElementById('admin-orders-view').style.display = 'none';
+  } else {
+    document.getElementById('tab-admin-orders').classList.add('active');
+    document.getElementById('tab-admin-products').classList.remove('active');
+    document.getElementById('admin-orders-view').style.display = 'block';
+    document.getElementById('admin-products-view').style.display = 'none';
+  }
+};
+
+window.openProductModal = () => {
+  document.getElementById("product-crud-form").reset();
+  document.getElementById("product-id").value = "";
+  document.getElementById("product-modal-title").textContent = "Novo Produto";
+  openModal('product-modal');
+};
+
+// Override original editProduct
+window.editProduct = (productId) => {
+  const prod = dbProducts.find(p => p.id === productId);
+  if (!prod) return;
+
+  document.getElementById("product-id").value = prod.id;
+  document.getElementById("product-name").value = prod.name;
+  document.getElementById("product-price").value = prod.price;
+  document.getElementById("product-category").value = prod.category;
+  document.getElementById("product-type").value = prod.type;
+  // image input remains empty on edit unless user selects new
+  document.getElementById("product-desc").value = prod.description || "";
+
+  document.getElementById("product-modal-title").textContent = `Editar Produto: ${prod.name}`;
+  openModal('product-modal');
+};
+
+document.getElementById("product-crud-form").onsubmit = async (e) => {
+  e.preventDefault();
+  const id = document.getElementById("product-id").value;
+  const name = document.getElementById("product-name").value;
+  const price = parseFloat(document.getElementById("product-price").value);
+  const category = document.getElementById("product-category").value;
+  const type = document.getElementById("product-type").value;
+  const description = document.getElementById("product-desc").value;
+  const imageInput = document.getElementById("product-image");
+  const extraImagesInput = document.getElementById("product-extra-images");
+  
+  let image = "";
+  let extraImages = [];
+  const existing = id ? dbProducts.find(p => p.id === id) : null;
+  
+  if (imageInput && imageInput.files && imageInput.files[0]) {
+    image = imageInput.files[0].name;
+  } else if (existing) {
+    image = existing.image;
+  }
+
+  if (extraImagesInput && extraImagesInput.files && extraImagesInput.files.length > 0) {
+    extraImages = Array.from(extraImagesInput.files).map(file => file.name);
+  } else if (existing && existing.extraImages) {
+    extraImages = existing.extraImages;
+  }
+
+  const productData = {
+    id: id || "p_custom_" + Date.now(),
+    name,
+    price,
+    category,
+    type,
+    image,
+    extraImages,
+    stock: 1, // default
+    description
+  };
+
+  if (isFirebaseActive) {
+    try {
+      const { doc, setDoc } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+      await setDoc(doc(db, "products", productData.id), productData);
+    } catch (err) {
+      console.error(err);
+      saveProductLocalFallback(productData);
+    }
+  } else {
+    saveProductLocalFallback(productData);
+  }
+
+  closeModal('product-modal');
+  syncProductDatabase();
+};
+
+// Client Profile
+window.editProfile = () => {
+  if (!currentUser) return;
+  document.getElementById("profile-name").value = currentUser.name || "";
+  document.getElementById("profile-address").value = currentUser.address || "";
+  openModal('profile-modal');
+};
+
+window.previewProfileImage = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      document.getElementById('profile-img-preview').src = e.target.result;
+      document.getElementById('profile-img-preview').classList.remove('hidden');
+      document.getElementById('client-profile-img').src = e.target.result;
+      document.getElementById('client-profile-img').classList.remove('hidden');
+    };
+    reader.readAsDataURL(file);
+  }
+};
+
+document.getElementById("profile-edit-form").onsubmit = async (e) => {
+  e.preventDefault();
+  const name = document.getElementById("profile-name").value;
+  const address = document.getElementById("profile-address").value;
+  
+  if (currentUser) {
+    currentUser.name = name;
+    currentUser.address = address;
+    document.getElementById("client-user-name").textContent = name;
+    
+    if (isFirebaseActive) {
+      const { doc, updateDoc } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
+      try {
+        await updateDoc(doc(db, "users", currentUser.uid), { name, address });
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      const users = getLocalUsers();
+      if (users[currentUser.email]) {
+        users[currentUser.email].name = name;
+        users[currentUser.email].address = address;
+        saveLocalUser(currentUser.email, users[currentUser.email]);
+        sessionStorage.setItem("faby_session_user", JSON.stringify(currentUser));
+      }
+    }
+  }
+  closeModal('profile-modal');
+};
+
+window.renderClientOrders = () => {
+  const list = document.getElementById("client-orders-list");
+  if (!list) return;
+  list.innerHTML = "";
+  
+  if (!currentUser) return;
+
+  const myOrders = dbOrders.filter(o => o.clientEmail === currentUser.email);
+  if (myOrders.length === 0) {
+    list.innerHTML = `<p class="text-on-surface-variant col-span-2">Você ainda não possui encomendas.</p>`;
+    return;
+  }
+
+  myOrders.forEach(order => {
+    let statusColor = "var(--color-primary)";
+    if (order.status === "Em Produção") statusColor = "orange";
+    if (order.status === "Concluído" || order.status === "Enviado") statusColor = "var(--color-secondary)";
+
+    const card = document.createElement("div");
+    card.className = "bg-surface rounded-xl p-6 soft-shadow border border-outline-variant";
+    card.innerHTML = `
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <span class="text-xs text-on-surface-variant font-bold">#${order.orderId}</span>
+          <h4 class="font-headline-md text-lg text-on-surface mt-1">R$ ${order.total.toFixed(2).replace(".", ",")}</h4>
+        </div>
+        <span class="badge" style="background-color:${statusColor}; color:#fff; font-size:0.7rem;">${order.status || 'Pendente'}</span>
+      </div>
+      <div class="text-sm text-on-surface-variant">
+        ${order.items.map(i => `${i.quantity}x ${i.name}`).join('<br>')}
+      </div>
+    `;
+    list.appendChild(card);
+  });
+};
+
