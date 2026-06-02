@@ -1,0 +1,44 @@
+# Relatório de Metadados ASO - Encantos da Faby
+
+## 1. Nome do Aplicativo (App Name)
+**Encantos da Faby: Crochê Luxo**
+*(29 caracteres - Máximo 30)*
+
+## 2. Legenda (Subtitle)
+**Artesanato de Luxo Sob Medida**
+*(29 caracteres - Máximo 30)*
+
+## 3. Descrição Curta (Short Description)
+**Peças exclusivas de crochê feitas à mão com amor e sofisticação para você.**
+*(79 caracteres - Máximo 80)*
+
+## 4. Descrição Longa (Long Description)
+Descubra o universo de **Encantos da Faby**, onde a tradição do crochê encontra o luxo contemporâneo. Cada peça é uma obra de arte única, tecida manualmente por Fabíola Kurz Chimenes da Silva, unindo paixão, técnica e os melhores fios do mercado.
+
+**O que você encontrará no nosso App:**
+* **Catálogo Exclusivo:** Navegue por coleções curadas de moda, acessórios e decoração em crochê.
+* **Encomendas Personalizadas:** Sonha com uma peça em cores específicas? Solicite seu orçamento diretamente pelo app.
+* **Experiência de Compra Premium:** Interface fluida, checkout seguro e acompanhamento detalhado do seu pedido.
+* **História e Inspiração:** Conheça as raízes da marca e o processo artesanal por trás de cada ponto.
+
+**Por que escolher Encantos da Faby?**
+Acreditamos que o artesanato de luxo é uma forma de empoderamento. Nossas peças não são apenas acessórios; são histórias tecidas para valorizar a sua essência. Seja uma bolsa sofisticada para o verão ou uma manta aconchegante para sua casa, garantimos 100% de dedicação em cada detalhe.
+
+Baixe agora e leve a elegância do feito à mão para o seu dia a dia! ✨
+
+## 5. Palavras-chave (Keywords)
+crochê,artesanato,luxo,bolsas,moda feminina,feito a mão,decoração,exclusivo,presentes,tricô,handmade
+*(98 caracteres - Máximo 100)*
+
+## 6. Sugestão de Categorias
+* **Principal:** Compras (Shopping)
+* **Secundária:** Estilo de Vida (Lifestyle)
+
+## 7. O que há de novo (What's New)
+Bem-vinda à Encantos da Faby! 🧶✨ 
+Nesta versão inicial, você já pode:
+- Explorar nosso catálogo completo de peças exclusivas.
+- Realizar pedidos de forma rápida e segura com Pix ou Cartão.
+- Solicitar orçamentos para peças personalizadas.
+- Conhecer nossa história e depoimentos de clientes.
+Design refinado para uma experiência de luxo. Aproveite!

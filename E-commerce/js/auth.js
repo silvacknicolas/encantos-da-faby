@@ -24,6 +24,7 @@ const ADMIN_EMAIL = "fabiola@encantosdafaby.com.br";
 
 let currentUser  = null;
 let authCallbacks = [];
+let authResolved = false;
 
 /** Retorna o usuário atual (ou null) */
 export const getUser = () => currentUser;
@@ -35,7 +36,7 @@ export const isAdmin = () => currentUser?.email?.toLowerCase() === ADMIN_EMAIL.t
 export function onAuthChange(cb) {
   authCallbacks.push(cb);
   // Chamar imediatamente com estado atual se já resolvido
-  if (currentUser !== undefined) cb(currentUser);
+  if (authResolved) cb(currentUser);
 }
 
 /** Inicializa o listener de estado de autenticação */
@@ -55,6 +56,7 @@ export function initAuth() {
     } else {
       currentUser = null;
     }
+    authResolved = true;
     authCallbacks.forEach(cb => cb(currentUser));
   });
 }
@@ -63,7 +65,8 @@ export function initAuth() {
 export async function login(email, password) {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    return { success: true };
+    const isAdminUser = email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+    return { success: true, redirect: isAdminUser ? "admin.html" : "perfil.html" };
   } catch (err) {
     const msg = translateAuthError(err.code);
     return { success: false, error: msg };
@@ -74,6 +77,7 @@ export async function login(email, password) {
 export async function register(name, email, password) {
   try {
     const cred = await createUserWithEmailAndPassword(auth, email, password);
+    const isAdminUser = email.toLowerCase() === ADMIN_EMAIL.toLowerCase();
     // Salvar dados extras no Firestore
     await setDoc(doc(db, "users", cred.user.uid), {
       uid:     cred.user.uid,
@@ -81,10 +85,10 @@ export async function register(name, email, password) {
       name,
       address: "",
       photo:   "",
-      role:    email.toLowerCase() === ADMIN_EMAIL.toLowerCase() ? "admin" : "client",
+      role:    isAdminUser ? "admin" : "client",
       createdAt: new Date().toISOString()
     });
-    return { success: true };
+    return { success: true, redirect: isAdminUser ? "admin.html" : "perfil.html" };
   } catch (err) {
     const msg = translateAuthError(err.code);
     return { success: false, error: msg };

@@ -85,10 +85,20 @@ export function renderCatalog() {
     ? [...allProducts]
     : allProducts.filter(p => p.type === activeFilter);
 
+  // Filtro de pesquisa (definido pelo input de busca no index.html)
+  const query = (window.__searchQuery || "").trim().toLowerCase();
+  if (query) {
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      (p.category || "").toLowerCase().includes(query) ||
+      (p.description || "").toLowerCase().includes(query)
+    );
+  }
+
   const shown = showAll ? list : list.slice(0, PAGE_SIZE);
 
   if (list.length === 0) {
-    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><span class="material-symbols-outlined">inventory_2</span><h3>Nenhum produto nesta categoria</h3></div>`;
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><span class="material-symbols-outlined">search_off</span><h3>Nenhum produto encontrado</h3><p style="margin-top:8px;color:var(--on-surface-variant)">Tente outro termo ou limpe a busca.</p></div>`;
     if (viewBtn) viewBtn.style.display = "none";
     return;
   }
@@ -99,6 +109,7 @@ export function renderCatalog() {
     viewBtn.style.display = list.length <= PAGE_SIZE || showAll ? "none" : "flex";
   }
 }
+
 
 function buildProductCard(p, i) {
   const badgeHtml = p.type === "pronta-entrega"

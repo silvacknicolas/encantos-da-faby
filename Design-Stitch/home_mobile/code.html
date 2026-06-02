@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Encantos da Faby - Início</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad4",
+                        "surface-container": "#ffeae0",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "surface-container-high": "#fbe3d9",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "inverse-on-surface": "#ffede6",
+                        "surface-variant": "#f5ded3",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b2b0ac",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#2f1314",
+                        "on-secondary-fixed": "#2b1613",
+                        "on-background": "#251912",
+                        "outline": "#827473",
+                        "tertiary": "#5f5e5b",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5d3a3b",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#795c57",
+                        "on-primary-fixed-variant": "#603d3e",
+                        "on-surface-variant": "#504444",
+                        "primary-fixed-dim": "#ecbbba",
+                        "background": "#fff8f6",
+                        "outline-variant": "#d4c2c2",
+                        "secondary-fixed-dim": "#e3beb8",
+                        "surface-dim": "#edd5cb",
+                        "on-surface": "#251912",
+                        "inverse-surface": "#3b2d26",
+                        "primary-fixed": "#ffdad9",
+                        "primary": "#7b5455",
+                        "secondary-container": "#fed7d0",
+                        "on-secondary-fixed-variant": "#5b403c",
+                        "tertiary-fixed": "#e5e2dd",
+                        "surface-container-highest": "#f5ded3",
+                        "secondary": "#745853",
+                        "inverse-primary": "#ecbbba",
+                        "primary-container": "#d4a5a5",
+                        "surface-tint": "#7b5455",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff1eb",
+                        "on-tertiary-container": "#444340",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Arched Shapes */
+        .arch-top {
+            border-top-left-radius: 9999px;
+            border-top-right-radius: 9999px;
+        }
+        .arch-card {
+            border-top-left-radius: 120px;
+            border-top-right-radius: 120px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+        .soft-shadow {
+            box-shadow: 0px 10px 30px rgba(62, 39, 35, 0.05);
+        }
+        /* Hide scrollbar for horizontal scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            /* Prevent overscroll bounce on mobile showing background gaps */
+            overscroll-behavior-y: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim sticky top-0 z-40 transition-all duration-300 ease-in-out flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<button aria-label="Menu" class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity duration-300 p-2 -ml-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim font-bold tracking-tight">Encantos da Faby</h1>
+<button aria-label="Carrinho" class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity duration-300 p-2 -mr-2">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full h-[60vh] min-h-[400px] mb-12">
+<img alt="" class="absolute inset-0 w-full h-full object-cover rounded-b-[40px]" src="https://lh3.googleusercontent.com/aida/ADBb0uiJ79GTTlVMtnq3jvewLDPygZ3VT0yDMUt8XeNC7co00LmIYtmB2NOAAnamSPPx3o9oczMga7MQvH3ArlpJAXdYSTCRfkdEapOfHmi3tr09YuknmxyCRad1C6sWAtwjzCokwoO0k7JvhhJeVLQxmXyekgsULeGzfUfaR4H0PMKTslsB-TNpvywm9_G67obvgtS9LM0chwKg54gMDUybOTrlq2KGvApXa4CzZXHa5rYcp5XB-KAhiHw_uNQv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/30 to-transparent rounded-b-[40px]"></div>
+<div class="absolute bottom-0 left-0 w-full p-margin-mobile pb-12 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">Amor em cada ponto</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Artesanato de luxo em crochê para o seu lar.</p>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="px-margin-mobile mb-10 overflow-hidden">
+<div class="flex space-x-3 overflow-x-auto hide-scrollbar pb-2 pt-1 -mx-margin-mobile px-margin-mobile">
+<button class="whitespace-nowrap rounded-full px-6 py-3 font-label-md text-label-md bg-primary-container text-on-primary-container transition-transform active:scale-95">Todos</button>
+<button class="whitespace-nowrap rounded-full px-6 py-3 font-label-md text-label-md border border-primary-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95">Pronta Entrega</button>
+<button class="whitespace-nowrap rounded-full px-6 py-3 font-label-md text-label-md border border-primary-container text-on-surface hover:bg-surface-variant transition-colors active:scale-95">Sob Encomenda</button>
+</div>
+</section>
+<!-- Product Grid (Bento/Asymmetric Style) -->
+<section class="px-margin-mobile mb-16 grid grid-cols-2 gap-4">
+<!-- Large Card -->
+<article class="col-span-2 relative group overflow-hidden rounded-2xl bg-surface-container soft-shadow pb-4">
+<div class="relative h-64 w-full arch-top overflow-hidden">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious, thick crocheted blanket draped over a modern, minimalist velvet armchair. The lighting is soft and natural, pouring in from a nearby window, highlighting the intricate stitch patterns and high-quality yarn in dusty rose tones. The aesthetic is warm, inviting, and sophisticated, perfectly aligned with a high-end artisanal brand. The background is a blurred, pristine white room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAIb0k9SXeTOx5l4D3edOBzQ3vQPYa6vRTVXx6ijtHBK9pUL_Qu0Zpvg5yrDgU23zElKU26qRgxqMy-2VbfQzgy3WHbQTYBU0KWD7KvA1wcppZ_5bhsQqwmB-bJp_hR4YFuz5I0hMHCj72W0ef4ITLj997YYPypurdKb5UTi26rgKom5m6rqzkt9CVl8euybdUS2jFsDkUYBXyEvFvghM-hvHekGd8gvMtMq93f5y_-J_2-foSDQeo1Oqz6fhYNb_Z2psgs_JN21xh"/>
+</div>
+<div class="pt-4 px-4 text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Manta Requinte</h3>
+<p class="font-body-md text-body-md text-primary mt-1">R$ 450,00</p>
+</div>
+</article>
+<!-- Small Card 1 -->
+<article class="col-span-1 relative group overflow-hidden rounded-2xl bg-surface-container soft-shadow pb-4">
+<div class="relative h-48 w-full rounded-t-2xl overflow-hidden">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautifully crafted crochet summer tote bag resting on a clean, light wood surface. The bag features a complex, airy stitch pattern in soft cream and pale pink threads. A subtle beam of sunlight strikes the bag, creating soft shadows that emphasize its texture. The composition is bright, airy, and elegant, reflecting artisanal luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO7agQpU3LM4Pv5gektPxuDOqXh2OLUMUkYOQE74bU_V7Kxg4zJSJnpFdgkmV2NgELa4O3mfz2hpWV_GbyrwkmotyEH_hbte6JLWwD27SgJxqt93JBhowJ7LykxEDOnDhvlSvENSf0MwJcK9pF9yJu-mTjXMSf0oyeat9nTqcTI6Fhy36KVTjy-2I0McxnkOJHc6ezzcjkVU7n2MDavUSo-s8Iv110ypqW2BE2rUxvPdrQnfmI3b8MhyA-aDabJTYvcYWT74YdTjeU"/>
+</div>
+<div class="pt-3 px-2 text-center">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Bolsa Verão</h3>
+<p class="font-body-md text-body-md text-primary mt-1 text-sm">R$ 220,00</p>
+</div>
+</article>
+<!-- Small Card 2 -->
+<article class="col-span-1 relative group overflow-hidden rounded-2xl bg-surface-container soft-shadow pb-4 mt-8"> <!-- Offset for asymmetric look -->
+<div class="relative h-48 w-full rounded-t-2xl overflow-hidden">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A set of two nesting crochet storage baskets in warm coffee brown and soft rose colors, placed on a pristine white marble counter. The tightly woven stitches demonstrate impeccable craftsmanship. The lighting is bright and even, highlighting the sturdiness and elegant shape of the baskets. The mood is organized, calm, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-wXm_YQIDameYA_LNfTHVoMzseIbHMyeMfsh7bhM_LYKxveG-XTnwCTzTMw6oYI7AMfak2gseHVf2Sfx964NE9OglmaTn0LNXH8dNjye7Li05PuBJgwmAVRyEuRqsNOX2oElWia1i5NdE7t-ms3Xv9aHrd-B52YUunblVI40p3MsFXhoRPufDpNBccjywAa65E32ydMO9CfUgpXcasWw1W0aU-zh0Y8Ix1fFbVGmCpbQa5cbXfhUYs2wPWfNglA55vOUWUVsEDjYf"/>
+</div>
+<div class="pt-3 px-2 text-center">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Cesto Duo</h3>
+<p class="font-body-md text-body-md text-primary mt-1 text-sm">R$ 180,00</p>
+</div>
+</article>
+</section>
+<!-- Call to Action: Encomendas Personalizadas -->
+<section class="px-margin-mobile mb-16">
+<div class="bg-surface-container-high rounded-[40px] p-8 text-center soft-shadow relative overflow-hidden">
+<!-- Decorative element -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-fixed-dim rounded-full opacity-20 blur-xl"></div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary-container rounded-full opacity-30 blur-xl"></div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-4 relative z-10">Encomendas Personalizadas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 relative z-10">Transforme sua ideia em uma peça única, tecida com exclusividade para você.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-3 px-8 rounded-full shadow-sm hover:opacity-90 transition-opacity active:scale-95 relative z-10">Solicitar Orçamento</button>
+</div>
+</section>
+<!-- Nossa História -->
+<section class="px-margin-mobile mb-16 relative">
+<div class="flex flex-col items-center">
+<div class="w-48 h-64 arch-top overflow-hidden mb-6 soft-shadow relative z-10 border-4 border-surface">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4VJIYXpMpMT3_CzXR8oP7EyDnekwY9cpWd2idDQ4-krrYZD9Gl4zySz1zA6DkPRr8xACa8x1IvZ5S2li65UarwbpddUDUVimmP7k72FQdvrI4cBYiYBeHf-kdfDZjZ3pf6W7wqltoye0-keqzPFZJ_3wKNT-wm34zhcURHT6kCF6a6bHJK31WFq7VUdBDsSt0-UxIINiH7T89P5A0oppL8cLHtE2Y73MU8W9WUg9hwyGfb5FTT12EoN6cHy4QDPdeTq5y8rMdCk1z"/>
+</div>
+<!-- Background decorative arch -->
+<div class="absolute top-10 w-64 h-80 bg-surface-container-low arch-top -z-0"></div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 text-center z-10">Nossa História</h2>
+<div class="font-body-md text-body-md text-on-surface-variant text-center max-w-sm z-10">
+<!-- Simulating content from DOCUMENT_16 -->
+<p>A Encantos da Faby nasceu da paixão por entrelaçar fios e criar memórias. Cada peça é um reflexo de dedicação, onde a tradição do crochê encontra o design contemporâneo para trazer aconchego e sofisticação ao seu dia a dia.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low shadow-sm fixed bottom-0 w-full z-50 flex justify-around items-center py-2 px-4 rounded-t-xl md:hidden">
+<!-- Active Item (Início) -->
+<a class="scale-95 active:scale-90 transition-transform flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined fill">home</span>
+<span class="font-label-md text-label-md text-[10px] mt-1">Início</span>
+</a>
+<!-- Inactive Items -->
+<a class="scale-95 active:scale-90 transition-transform flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md text-[10px] mt-1">Coleções</span>
+</a>
+<a class="scale-95 active:scale-90 transition-transform flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-md text-label-md text-[10px] mt-1">Carrinho</span>
+</a>
+<a class="scale-95 active:scale-90 transition-transform flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md text-[10px] mt-1">Perfil</span>
+</a>
+</nav>
+<script>
+        // Simple script to handle scroll effects on TopAppBar if needed later
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-sm');
+                } else {
+                    header.classList.remove('shadow-sm');
+                }
+            });
+        });
+    </script>
+</body></html>

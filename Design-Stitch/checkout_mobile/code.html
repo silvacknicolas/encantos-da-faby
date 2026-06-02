@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Encantos da Faby - Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad4",
+                        "surface-container": "#ffeae0",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "surface-container-high": "#fbe3d9",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "inverse-on-surface": "#ffede6",
+                        "surface-variant": "#f5ded3",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b2b0ac",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#2f1314",
+                        "on-secondary-fixed": "#2b1613",
+                        "on-background": "#251912",
+                        "outline": "#827473",
+                        "tertiary": "#5f5e5b",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5d3a3b",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#795c57",
+                        "on-primary-fixed-variant": "#603d3e",
+                        "on-surface-variant": "#504444",
+                        "primary-fixed-dim": "#ecbbba",
+                        "background": "#fff8f6",
+                        "outline-variant": "#d4c2c2",
+                        "secondary-fixed-dim": "#e3beb8",
+                        "surface-dim": "#edd5cb",
+                        "on-surface": "#251912",
+                        "inverse-surface": "#3b2d26",
+                        "primary-fixed": "#ffdad9",
+                        "primary": "#7b5455",
+                        "secondary-container": "#fed7d0",
+                        "on-secondary-fixed-variant": "#5b403c",
+                        "tertiary-fixed": "#e5e2dd",
+                        "surface-container-highest": "#f5ded3",
+                        "secondary": "#745853",
+                        "inverse-primary": "#ecbbba",
+                        "primary-container": "#d4a5a5",
+                        "surface-tint": "#7b5455",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff1eb",
+                        "on-tertiary-container": "#444340",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container pb-[100px]">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-50 transition-all duration-300 ease-in-out flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity duration-300 p-2 -ml-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Checkout</h1>
+<div class="w-10"></div> <!-- Spacer for center alignment -->
+</header>
+<main class="flex-grow flex flex-col px-margin-mobile py-6 gap-8">
+<!-- Order Summary Card (Collapsed/Mini view for mobile checkout flow) -->
+<section class="bg-surface-container-lowest rounded-xl p-5 border border-surface-variant shadow-sm flex flex-col gap-4">
+<div class="flex justify-between items-center cursor-pointer" onclick="document.getElementById('order-items').classList.toggle('hidden')">
+<h2 class="font-headline-md text-headline-md text-on-surface">Resumo do Pedido</h2>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-primary">R$ 349,90</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform" id="expand-icon">expand_more</span>
+</div>
+</div>
+<div class="hidden flex flex-col gap-4 pt-4 border-t border-surface-variant" id="order-items">
+<!-- Item 1 -->
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img alt="Bolsa de Crochê" class="w-full h-full object-cover" data-alt="A detailed close-up of a handmade crochet bag in soft cream and tea rose colors, sitting on a clean, light surface. The lighting is soft and natural, emphasizing the intricate textures of the yarn and the careful craftsmanship. The mood is elegant, minimalist, and artisanal, perfectly matching a luxurious boutique aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-4lWcERfXq7U15cpIcrcVedZaaPRuMjXFPzyVOqlOXX7Zmr3w9XQdWiYhLtPOJcnokZ9fJs8ohMAq7gf32rUg6Chk_KRTxSnfWyN9g2uXTvnaywLFFFVz5KwHaiJxoJ1iaWiZNkakZjJoFCoPiGUgVO0fmwo0jtwS80RHpMmu40t8X93FoVNq7chOht4sM1uVcejRzFFZujtwIu7BUUUd4_prk1go-82oIGVmrQvcz3ErSHKeap82osZ5dWdgFVU9b5lSF_XTL-O2"/>
+</div>
+<div class="flex flex-col justify-center flex-grow">
+<span class="font-label-md text-label-md text-on-surface line-clamp-1">Bolsa Tiracolo Macramê</span>
+<span class="font-body-md text-sm text-on-surface-variant">Qtd: 1</span>
+</div>
+<div class="flex items-center">
+<span class="font-body-md text-body-md text-on-surface">R$ 349,90</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Sections -->
+<form class="flex flex-col gap-8">
+<!-- 1. Dados Pessoais -->
+<section class="flex flex-col gap-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-md text-label-md shrink-0">1</div>
+<h2 class="font-headline-md text-[20px] leading-tight text-on-surface">Dados Pessoais</h2>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="nome">Nome Completo</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" id="nome" name="nome" placeholder="Maria da Silva" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="email">E-mail</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" id="email" name="email" placeholder="maria@exemplo.com" type="email"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="cpf">CPF</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" id="cpf" name="cpf" placeholder="000.000.000-00" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="telefone">Telefone</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" id="telefone" name="telefone" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+</div>
+</section>
+<!-- 2. Endereço de Entrega -->
+<section class="flex flex-col gap-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md shrink-0 border border-outline-variant">2</div>
+<h2 class="font-headline-md text-[20px] leading-tight text-on-surface">Endereço de Entrega</h2>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex gap-4">
+<div class="flex flex-col gap-1 flex-grow">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="cep">CEP</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" id="cep" name="cep" placeholder="00000-000" type="text"/>
+</div>
+<div class="flex items-end">
+<button class="bg-surface-variant text-primary font-label-md text-label-md px-4 py-3 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors h-[48px]" type="button">Buscar</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="rua">Rua / Avenida</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="rua" name="rua" type="text"/>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col gap-1 w-1/3">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="numero">Número</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="numero" name="numero" type="text"/>
+</div>
+<div class="flex flex-col gap-1 w-2/3">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="complemento">Complemento</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors placeholder:text-on-surface-variant/50" id="complemento" name="complemento" placeholder="Apto, Bloco..." type="text"/>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col gap-1 w-2/3">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="bairro">Bairro</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="bairro" name="bairro" type="text"/>
+</div>
+<div class="flex flex-col gap-1 w-1/3">
+<label class="font-label-md text-[12px] uppercase text-on-surface-variant tracking-wider" for="cidade">Cidade/UF</label>
+<input class="bg-surface-container-highest border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="cidade" name="cidade" readonly="" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Pagamento -->
+<section class="flex flex-col gap-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md shrink-0 border border-outline-variant">3</div>
+<h2 class="font-headline-md text-[20px] leading-tight text-on-surface">Pagamento</h2>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Cartão de Crédito -->
+<label class="flex items-start gap-4 p-4 rounded-xl border border-primary bg-primary-container/10 cursor-pointer transition-colors relative overflow-hidden group">
+<div class="mt-1 flex items-center justify-center w-5 h-5 rounded-full border-2 border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+<input checked="" class="sr-only" name="pagamento" type="radio" value="cartao"/>
+<div class="flex flex-col flex-grow">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+                                Cartão de Crédito
+                            </span>
+<span class="font-body-md text-sm text-on-surface-variant mt-1">Até 3x sem juros</span>
+<!-- Expandable Form for Credit Card -->
+<div class="flex flex-col gap-3 mt-4 pt-4 border-t border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[10px] uppercase text-on-surface-variant tracking-wider" for="num_cartao">Número do Cartão</label>
+<input class="bg-surface border border-outline-variant rounded-lg px-3 py-2 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary" id="num_cartao" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+<div class="flex gap-3">
+<div class="flex flex-col gap-1 w-1/2">
+<label class="font-label-md text-[10px] uppercase text-on-surface-variant tracking-wider" for="validade">Validade</label>
+<input class="bg-surface border border-outline-variant rounded-lg px-3 py-2 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary" id="validade" placeholder="MM/AA" type="text"/>
+</div>
+<div class="flex flex-col gap-1 w-1/2">
+<label class="font-label-md text-[10px] uppercase text-on-surface-variant tracking-wider" for="cvv">CVV</label>
+<input class="bg-surface border border-outline-variant rounded-lg px-3 py-2 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary" id="cvv" placeholder="123" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-[10px] uppercase text-on-surface-variant tracking-wider" for="nome_cartao">Nome no Cartão</label>
+<input class="bg-surface border border-outline-variant rounded-lg px-3 py-2 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary uppercase" id="nome_cartao" placeholder="NOME IMPRESSO" type="text"/>
+</div>
+</div>
+</div>
+</label>
+<!-- Pix -->
+<label class="flex items-center gap-4 p-4 rounded-xl border border-outline-variant bg-surface-container-highest hover:bg-surface-variant cursor-pointer transition-colors">
+<div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-outline"></div>
+<input class="sr-only" name="pagamento" type="radio" value="pix"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+                                Pix
+                            </span>
+<span class="font-body-md text-sm text-primary font-medium mt-0.5">Aprovação imediata (5% Off)</span>
+</div>
+</label>
+<!-- Boleto -->
+<label class="flex items-center gap-4 p-4 rounded-xl border border-outline-variant bg-surface-container-highest hover:bg-surface-variant cursor-pointer transition-colors">
+<div class="flex items-center justify-center w-5 h-5 rounded-full border-2 border-outline"></div>
+<input class="sr-only" name="pagamento" type="radio" value="boleto"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">receipt</span>
+                                Boleto Bancário
+                            </span>
+<span class="font-body-md text-sm text-on-surface-variant mt-0.5">Vencimento em 3 dias úteis</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Security & Footer info -->
+<div class="flex justify-center items-center gap-4 py-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+<span class="font-body-md text-[12px]">Pagamento Seguro</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">shield_person</span>
+<span class="font-body-md text-[12px]">Dados Protegidos</span>
+</div>
+</div>
+<!-- Sticky Bottom Action Button Area -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container p-4 border-t border-surface-variant shadow-[0_-4px_20px_rgba(62,39,35,0.05)] z-40 pb-6">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-4 rounded-full flex items-center justify-center gap-2 hover:bg-[#c99595] transition-colors shadow-sm" type="submit">
+                    Finalizar Pedido
+                    <span class="material-symbols-outlined text-[20px]">check_circle</span>
+</button>
+</div>
+<div class="h-20"></div> <!-- Spacer for sticky button -->
+</form>
+</main>
+<script>
+        // Simple JS for expanding order summary icon rotation
+        document.getElementById('order-items').addEventListener('transitionend', function() {
+           // handled by css typically, but just in case
+        });
+    </script>
+</body></html>

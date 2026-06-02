@@ -17,8 +17,7 @@
 <header class="site-header">
   <div class="container inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/images/Imagem 1.jpg" alt="Logo Encantos da Faby" id="nav-logo-img" onerror="this.style.display='none'">
-      Encantos da Faby
+      <img src="assets/logo.png" alt="Logo Encantos da Faby" class="nav-logo-img">
     </a>
     <nav>
       <ul class="nav-links">
@@ -88,11 +87,23 @@
       <p style="color:var(--on-surface-variant);font-size:17px;margin-top:12px;max-width:500px;margin-inline:auto">Peças únicas, tecidas à mão. Cada produto é um mimo.</p>
     </div>
 
-    <!-- Filtros -->
-    <div class="filter-tabs" style="justify-content:center;margin-bottom:40px">
-      <button class="filter-tab active" data-filter="todos">Todos</button>
-      <button class="filter-tab" data-filter="pronta-entrega">Pronta Entrega</button>
-      <button class="filter-tab" data-filter="sob-encomenda">Sob Encomenda</button>
+    <!-- Barra de Pesquisa + Filtros -->
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:center;margin-bottom:36px">
+      <div class="search-bar-wrap">
+        <span class="material-symbols-outlined search-icon">search</span>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Buscar produto..."
+          autocomplete="off"
+        >
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="todos">Todos</button>
+        <button class="filter-tab" data-filter="pronta-entrega">Pronta Entrega</button>
+        <button class="filter-tab" data-filter="sob-encomenda">Sob Encomenda</button>
+      </div>
     </div>
 
     <!-- Grid -->
@@ -201,17 +212,20 @@
   <div class="container">
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px">
       <div>
-        <div style="font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--inverse-on-surface);margin-bottom:16px">Encantos da Faby</div>
-        <p style="opacity:.7;font-size:15px;line-height:1.8;max-width:320px">Peças artesanais em crochê feitas com amor por Fabíola Kurz Chimenes da Silva.</p>
+        <img src="assets/logo.png" alt="Encantos da Faby" class="footer-logo-img">
+        <p style="opacity:.7;font-size:15px;line-height:1.8;max-width:320px;margin-top:12px">Peças artesanais em crochê feitas com amor por Fabíola Kurz Chimenes da Silva.</p>
         <div style="display:flex;gap:12px;margin-top:20px">
-          <a href="#" class="nav-icon-btn" style="background:rgba(255,255,255,.1)" title="Instagram">
-            <span class="material-symbols-outlined">photo_camera</span>
+          <a href="https://www.instagram.com/_encantosdafaby_/" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram">
+            <!-- Phosphor Icon: Instagram Logo -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>
           </a>
-          <a href="#" class="nav-icon-btn" style="background:rgba(255,255,255,.1)" title="WhatsApp">
-            <span class="material-symbols-outlined">chat</span>
+          <a href="https://wa.me/5565999306007" target="_blank" rel="noopener" class="footer-social-btn" title="WhatsApp">
+            <!-- Phosphor Icon: WhatsApp Logo -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72,24,24,0,0,1,19.29-23.54l11.48,22.95L101,117.11a8,8,0,0,0-.73,7.65,56.56,56.56,0,0,0,31,31,8,8,0,0,0,7.65-.73l13.7-9.19,22.95,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a88,88,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216l12.47-37.4a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>
           </a>
-          <a href="#" class="nav-icon-btn" style="background:rgba(255,255,255,.1)" title="E-mail">
-            <span class="material-symbols-outlined">mail</span>
+          <a href="mailto:encantosdafaby.oficiak@gmail.com" class="footer-social-btn" title="E-mail">
+            <!-- Phosphor Icon: Envelope -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>
           </a>
         </div>
       </div>
@@ -423,7 +437,7 @@
 <!-- ═══════════════════ JS ═══════════════════ -->
 <script type="module">
   import { initAuth, onAuthChange, login, register, logout, isAdmin } from "./js/auth.js";
-  import { initCart, initCartDrawer }    from "./js/cart.js";
+  import { initCart, initCartDrawer, getTotal }    from "./js/cart.js";
   import { initProducts, initFilters, renderCatalog } from "./js/catalog.js";
   import { initCheckout }               from "./js/checkout.js";
   import { openModal, closeModal, initCarousel, formatCurrency } from "./js/ui.js";
@@ -443,14 +457,14 @@
   document.getElementById("auth-btn").addEventListener("click", () => {
     const user = window._currentUser;
     if (user) {
-      window.location.href = "perfil.html";
+      window.location.href = isAdmin() ? "admin.html" : "perfil.html";
     } else {
       openModal("auth-modal");
     }
   });
   document.getElementById("mobile-login-btn")?.addEventListener("click", () => openModal("auth-modal"));
 
-  // Login form
+  // Login form — redireciona conforme role
   document.getElementById("login-form").addEventListener("submit", async e => {
     e.preventDefault();
     const btn = e.target.querySelector("button[type=submit]");
@@ -462,14 +476,16 @@
     );
     if (result.success) {
       closeModal("auth-modal");
+      window.location.href = result.redirect;
     } else {
       errEl.textContent = result.error;
       errEl.classList.remove("hidden");
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">login</span> Entrar na Loja';
     }
-    btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined">login</span> Entrar na Loja';
   });
 
-  // Register form
+  // Register form — redireciona conforme role
   document.getElementById("register-form").addEventListener("submit", async e => {
     e.preventDefault();
     const btn = e.target.querySelector("button[type=submit]");
@@ -482,11 +498,13 @@
     );
     if (result.success) {
       closeModal("auth-modal");
+      window.location.href = result.redirect;
     } else {
       errEl.textContent = result.error;
       errEl.classList.remove("hidden");
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">person_add</span> Criar Conta';
     }
-    btn.disabled = false; btn.innerHTML = '<span class="material-symbols-outlined">person_add</span> Criar Conta';
   });
 
   // Observer de autenticação
@@ -526,11 +544,11 @@
   hamburger?.addEventListener("click", () => mobileNav?.classList.toggle("open"));
   mobileNav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
 
-  // Checkout total atualização
+  // Atualizar total do checkout quando abrir modal de checkout
   function updateCheckoutTotal() {
-    const { getTotal } = window.__cartModule || {};
+    const total = getTotal();
     const el = document.getElementById("checkout-total");
-    if (el && getTotal) el.textContent = formatCurrency(getTotal());
+    if (el) el.textContent = formatCurrency(total);
   }
 
   // Carrossel depoimentos
@@ -552,7 +570,21 @@
   initCheckout();
 
   // Atualizar total do checkout quando abrir modal
-  document.getElementById("cart-checkout-btn")?.addEventListener("click", updateCheckoutTotal);
+  document.getElementById("cart-checkout-btn")?.addEventListener("click", () => {
+    // Sincroniza imediatamente (checkout.js expõe window.__syncCheckoutTotal após initCheckout)
+    if (window.__syncCheckoutTotal) {
+      window.__syncCheckoutTotal();
+    } else {
+      updateCheckoutTotal();
+    }
+  });
+
+  // Pesquisa de produtos
+  document.getElementById("search-input")?.addEventListener("input", e => {
+    const query = e.target.value.trim().toLowerCase();
+    window.__searchQuery = query;
+    renderCatalog();
+  });
 
   // Smooth scroll para âncoras
   document.querySelectorAll('a[href^="#"]').forEach(a => {

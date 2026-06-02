@@ -30,6 +30,17 @@ export function initCheckout() {
   const form = document.getElementById("checkout-form");
   if (!form) return;
 
+  // Função utilitária para atualizar o total exibido no modal
+  function syncTotal() {
+    const el = document.getElementById("checkout-total");
+    if (el) el.textContent = formatCurrency(getTotal());
+  }
+
+  // Atualizar total imediatamente e em cada mudança no carrinho
+  syncTotal();
+  // Expor globalmente para o botão "Finalizar Compra" no drawer
+  window.__syncCheckoutTotal = syncTotal;
+
   // Preencher dados do usuário logado automaticamente
   const user = getUser();
   if (user) {
@@ -57,9 +68,11 @@ export function initCheckout() {
   // Submissão do formulário
   form.addEventListener("submit", async e => {
     e.preventDefault();
+    syncTotal(); // garantir total atualizado antes de enviar
     await submitOrder();
   });
 }
+
 
 /* ─── INICIALIZAR SDK MERCADO PAGO ─── */
 async function initMercadoPago() {

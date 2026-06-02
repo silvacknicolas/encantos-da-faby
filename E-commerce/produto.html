@@ -16,7 +16,9 @@
 <!-- HEADER -->
 <header class="site-header">
   <div class="container inner">
-    <a href="index.html" class="nav-logo">Encantos da Faby</a>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Logo Encantos da Faby" class="nav-logo-img">
+    </a>
     <nav>
       <ul class="nav-links">
         <li><a href="index.html#catalogo">Catálogo</a></li>
@@ -66,7 +68,42 @@
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-bottom">© 2024 Encantos da Faby · Feito com 🌸 e muito crochê</div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px">
+      <div>
+        <img src="assets/logo.png" alt="Encantos da Faby" class="footer-logo-img">
+        <p style="opacity:.7;font-size:15px;line-height:1.8;max-width:320px;margin-top:12px">Peças artesanais em crochê feitas com amor por Fabíola Kurz Chimenes da Silva.</p>
+        <div style="display:flex;gap:12px;margin-top:20px">
+          <a href="https://www.instagram.com/_encantosdafaby_/" target="_blank" rel="noopener" class="footer-social-btn" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>
+          </a>
+          <a href="https://wa.me/5565999306007" target="_blank" rel="noopener" class="footer-social-btn" title="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72,24,24,0,0,1,19.29-23.54l11.48,22.95L101,117.11a8,8,0,0,0-.73,7.65,56.56,56.56,0,0,0,31,31,8,8,0,0,0,7.65-.73l13.7-9.19,22.95,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a88,88,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216l12.47-37.4a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>
+          </a>
+          <a href="mailto:encantosdafaby.oficiak@gmail.com" class="footer-social-btn" title="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="index.html#catalogo">Catálogo</a>
+          <a href="index.html#nossa-historia">Nossa História</a>
+          <a href="index.html#depoimentos">Depoimentos</a>
+        </div>
+      </div>
+      <div>
+        <h4>Informações</h4>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Trocas e Devoluções</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 Encantos da Faby · Feito com 🌸 e muito crochê
+    </div>
   </div>
 </footer>
 
@@ -91,13 +128,135 @@
   </div>
 </aside>
 
+<!-- MODAL CHECKOUT (para "Finalizar Compra" a partir do produto) -->
+<div class="modal-overlay" id="checkout-modal">
+  <div class="modal-box" style="max-width:580px">
+    <div class="modal-header">
+      <h3>Finalizar Compra</h3>
+      <button class="modal-close" onclick="window._closeModal('checkout-modal')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div id="checkout-form-view">
+        <form id="checkout-form">
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--on-surface-variant);margin-bottom:16px">Dados de Entrega</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nome Completo *</label>
+              <input type="text" class="form-input" id="checkout-name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">WhatsApp *</label>
+              <input type="tel" class="form-input" id="checkout-phone" placeholder="(00) 00000-0000" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:12px">
+            <label class="form-label">Endereço *</label>
+            <input type="text" class="form-input" id="checkout-address" placeholder="Rua, Número, Bairro" required>
+          </div>
+          <div class="form-row" style="margin-top:12px">
+            <div class="form-group">
+              <label class="form-label">CEP</label>
+              <input type="text" class="form-input" id="checkout-cep" placeholder="00000-000">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Cidade *</label>
+              <input type="text" class="form-input" id="checkout-city" required>
+            </div>
+            <div class="form-group" style="max-width:80px">
+              <label class="form-label">Estado</label>
+              <input type="text" class="form-input" id="checkout-state" maxlength="2" placeholder="SC">
+            </div>
+          </div>
+          <div class="divider" style="margin-top:24px"></div>
+          <div class="cart-total" style="margin-bottom:16px">
+            <span style="font-weight:600;color:var(--on-surface-variant)">Total do Pedido</span>
+            <span style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--primary)" id="checkout-total">R$ 0,00</span>
+          </div>
+          <button type="submit" class="btn btn-primary w-full" id="checkout-submit-btn" style="font-size:15px;padding:16px">
+            <span class="material-symbols-outlined">check_circle</span> Confirmar Pedido
+          </button>
+        </form>
+      </div>
+      <div id="checkout-success-view" class="hidden" style="text-align:center;padding:40px 0">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--primary-fixed);display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--primary)">check_circle</span>
+        </div>
+        <h3 class="text-headline" style="color:var(--primary);margin-bottom:12px">Pedido Confirmado!</h3>
+        <p style="color:var(--on-surface-variant);font-size:15px;margin-bottom:32px">Você receberá as atualizações pelo WhatsApp. Obrigada pela confiança! 🌸</p>
+        <button class="btn btn-primary" id="checkout-done-btn">Continuar Comprando</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast-container" id="toast-container"></div>
 
+<!-- MODAL AUTH (para caso não logado queira comprar) -->
+<div class="modal-overlay" id="auth-modal">
+  <div class="modal-box" style="max-width:440px">
+    <div class="modal-header">
+      <h3>Bem-vinda!</h3>
+      <button class="modal-close" onclick="window._closeModal('auth-modal')">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Entrar</button>
+        <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Criar Conta</button>
+      </div>
+      <form class="auth-form active" id="login-form">
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-input" id="login-email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <div class="form-error hidden" id="login-error"></div>
+        <button type="submit" class="btn btn-primary w-full" style="margin-top:8px">
+          <span class="material-symbols-outlined">login</span> Entrar
+        </button>
+      </form>
+      <form class="auth-form" id="register-form">
+        <div class="form-group">
+          <label class="form-label">Nome Completo</label>
+          <input type="text" class="form-input" id="reg-name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-input" id="reg-email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" id="reg-password" placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
+        </div>
+        <div class="form-error hidden" id="register-error"></div>
+        <button type="submit" class="btn btn-primary w-full" style="margin-top:8px">
+          <span class="material-symbols-outlined">person_add</span> Criar Conta
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script type="module">
-  import { initAuth, onAuthChange }  from "./js/auth.js";
-  import { initCart, initCartDrawer, addToCart } from "./js/cart.js";
+  import { initAuth, onAuthChange, login, register, isAdmin } from "./js/auth.js";
+  import { initCart, initCartDrawer, addToCart, getTotal } from "./js/cart.js";
   import { initProducts, getProductById, getAllProducts } from "./js/catalog.js";
-  import { formatCurrency, initAccordions } from "./js/ui.js";
+  import { initCheckout } from "./js/checkout.js";
+  import { formatCurrency, openModal, closeModal } from "./js/ui.js";
+
+  window._closeModal = closeModal;
+  window.switchAuthTab = (tab) => {
+    document.querySelectorAll(".auth-tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".auth-form").forEach(f => f.classList.remove("active"));
+    document.getElementById(`tab-${tab}`).classList.add("active");
+    document.getElementById(`${tab}-form`).classList.add("active");
+  };
 
   const params    = new URLSearchParams(location.search);
   const productId = params.get("id");
@@ -215,7 +374,7 @@
     const all = getAllProducts().filter(p => p.id !== currentId).slice(0, 4);
     const grid = document.getElementById("related-grid");
     if (!grid) return;
-    grid.innerHTML = all.map((p, i) => `
+    grid.innerHTML = all.map(p => `
       <div>
         <a href="produto.html?id=${p.id}" class="product-card-img-wrap arch-sm" style="display:block;aspect-ratio:3/4">
           <img src="assets/images/${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy">
@@ -227,23 +386,89 @@
       </div>`).join("");
   }
 
+  // Auth btn
+  document.getElementById("auth-btn")?.addEventListener("click", () => {
+    if (window._currentUser) {
+      window.location.href = isAdmin() ? "admin.html" : "perfil.html";
+    } else {
+      openModal("auth-modal");
+    }
+  });
+
+  // Login form
+  document.getElementById("login-form")?.addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Entrando...";
+    const errEl = document.getElementById("login-error");
+    const result = await login(
+      document.getElementById("login-email").value,
+      document.getElementById("login-password").value
+    );
+    if (result.success) {
+      closeModal("auth-modal");
+      window.location.href = result.redirect;
+    } else {
+      errEl.textContent = result.error;
+      errEl.classList.remove("hidden");
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">login</span> Entrar';
+    }
+  });
+
+  // Register form
+  document.getElementById("register-form")?.addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Criando...";
+    const errEl = document.getElementById("register-error");
+    const result = await register(
+      document.getElementById("reg-name").value,
+      document.getElementById("reg-email").value,
+      document.getElementById("reg-password").value
+    );
+    if (result.success) {
+      closeModal("auth-modal");
+      window.location.href = result.redirect;
+    } else {
+      errEl.textContent = result.error;
+      errEl.classList.remove("hidden");
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">person_add</span> Criar Conta';
+    }
+  });
+
   // Boot
   initAuth();
-  onAuthChange(user => { initCart(user?.uid); });
   initCartDrawer();
+  initCheckout();
+
+  onAuthChange(user => {
+    window._currentUser = user;
+    const authBtn = document.getElementById("auth-btn");
+    if (user) {
+      authBtn.innerHTML = `<span class="material-symbols-outlined">account_circle</span>`;
+      authBtn.title = user.name;
+    } else {
+      authBtn.innerHTML = `<span class="material-symbols-outlined">person</span>`;
+      authBtn.title = "Entrar";
+    }
+    initCart(user?.uid);
+  });
+
   initProducts().then(() => {
     const p = getProductById(productId);
     renderProduct(p);
     renderRelated(productId);
   });
 
-  // Auth btn
-  document.getElementById("auth-btn")?.addEventListener("click", () => {
-    if (window._currentUser) window.location.href = "perfil.html";
-    else window.location.href = "index.html";
+  // Atualizar total do checkout
+  document.getElementById("cart-checkout-btn")?.addEventListener("click", () => {
+    setTimeout(() => {
+      const el = document.getElementById("checkout-total");
+      if (el) el.textContent = formatCurrency(getTotal());
+    }, 50);
   });
-
-  onAuthChange(u => { window._currentUser = u; });
 </script>
 </body>
 </html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bolsa Verão Artesanal - Encantos da Faby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdad4",
+                        "surface-container": "#ffeae0",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "surface-container-high": "#fbe3d9",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "inverse-on-surface": "#ffede6",
+                        "surface-variant": "#f5ded3",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b2b0ac",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#2f1314",
+                        "on-secondary-fixed": "#2b1613",
+                        "on-background": "#251912",
+                        "outline": "#827473",
+                        "tertiary": "#5f5e5b",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#5d3a3b",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#795c57",
+                        "on-primary-fixed-variant": "#603d3e",
+                        "on-surface-variant": "#504444",
+                        "primary-fixed-dim": "#ecbbba",
+                        "background": "#fff8f6",
+                        "outline-variant": "#d4c2c2",
+                        "secondary-fixed-dim": "#e3beb8",
+                        "surface-dim": "#edd5cb",
+                        "on-surface": "#251912",
+                        "inverse-surface": "#3b2d26",
+                        "primary-fixed": "#ffdad9",
+                        "primary": "#7b5455",
+                        "secondary-container": "#fed7d0",
+                        "on-secondary-fixed-variant": "#5b403c",
+                        "tertiary-fixed": "#e5e2dd",
+                        "surface-container-highest": "#f5ded3",
+                        "secondary": "#745853",
+                        "inverse-primary": "#ecbbba",
+                        "primary-container": "#d4a5a5",
+                        "surface-tint": "#7b5455",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#fff1eb",
+                        "on-tertiary-container": "#444340",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .arch-mask {
+            clip-path: ellipse(150% 100% at 50% 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-button[aria-expanded="true"] .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased pb-[88px]"> <!-- Added pb to account for sticky button -->
+<!-- Top App Bar (Semantic Navigation Logic: Task-Focused Page, suppressing standard nav, custom back-nav injected) -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 transition-all duration-300 ease-in-out">
+<button aria-label="Voltar" class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 -ml-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Encantos da Faby</span>
+<div class="flex items-center gap-2">
+<button aria-label="Favoritar" class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 -mr-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">favorite_border</span>
+</button>
+<button aria-label="Carrinho" class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+</button>
+</div>
+</header>
+<main class="pt-16">
+<!-- Product Image Section -->
+<section class="relative w-full aspect-[4/5] bg-surface-container-low mb-6">
+<div class="w-full h-full arch-mask overflow-hidden bg-surface-variant">
+<img alt="Bolsa Verão Artesanal em detalhe de crochê" class="w-full h-full object-cover object-center" data-alt="A close-up, high-quality photograph of a luxurious, handcrafted crochet summer bag. The intricate, textured stitches of the off-white and pale pink yarn are the focal point, catching soft, natural sunlight. The setting implies a breezy, elegant boutique atmosphere. The lighting is bright and high-key, highlighting the tactile nature of the material. The overall aesthetic perfectly matches a minimalist, sophisticated 'Tea Rose' and cream brand palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBY9TU0Yc9N3a7i3xIw5b1OqtDINJtwJgckKdwhlocUVkqcYTEJ1zOYKGGZx3JwFwzuGIqGrCTUK_M8tGGOqKQrIAd5nbv8D9Gld0TFD5CS9oLny92KLHa8xpmcSf-fjNwhBLFokaKuqjb6qKQS02236Vl4nVrkG_Vdy5uisIwQkBfsqrhPQ9kB2GHESn70NTYBQ7-dSc1NgLihWrNKZ8K5EGRxcr2ikHpoVHD1mMZ8wd18vpzG_H29_QB360_Jb5PY_mOOGlmy8Fa"/>
+</div>
+<!-- Pagination Dots Indicator -->
+<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+<span class="w-2 h-1 bg-primary/30 rounded-full"></span>
+<span class="w-2 h-1 bg-primary/30 rounded-full"></span>
+</div>
+</section>
+<!-- Product Header Information -->
+<section class="px-margin-mobile mb-8">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Bolsa Verão Artesanal</h1>
+<p class="font-label-md text-label-md text-primary uppercase tracking-widest mb-4">R$ 320,00</p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Elegância tecida à mão para os seus dias ensolarados. Uma peça única que combina a tradição do crochê com um design contemporâneo.
+            </p>
+</section>
+<!-- Accordions Section -->
+<section class="px-margin-mobile mb-12 flex flex-col gap-2">
+<!-- Descrição -->
+<div class="border-b border-outline-variant pb-2">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-4 text-left group" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-[20px]">Descrição Detalhada</span>
+<span class="material-symbols-outlined accordion-icon text-on-surface-variant group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<p class="font-body-md text-body-md text-on-surface-variant pb-4">
+                        A Bolsa Verão é meticulosamente criada usando fios de algodão premium, garantindo durabilidade e um toque macio. Seu formato estruturado e alças reforçadas a tornam perfeita para passeios casuais ou eventos ao ar livre. Possui forro interno e fechamento seguro.
+                    </p>
+</div>
+</div>
+<!-- Materiais -->
+<div class="border-b border-outline-variant pb-2">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-4 text-left group" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-[20px]">Materiais &amp; Cuidados</span>
+<span class="material-symbols-outlined accordion-icon text-on-surface-variant group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<ul class="font-body-md text-body-md text-on-surface-variant pb-4 list-disc pl-5 space-y-2">
+<li>Fio 100% Algodão mercerizado</li>
+<li>Forro em tricoline</li>
+<li>Lavar à mão com sabão neutro</li>
+<li>Secar à sombra, na horizontal</li>
+</ul>
+</div>
+</div>
+<!-- Prazos -->
+<div class="border-b border-outline-variant pb-2">
+<button aria-expanded="false" class="accordion-button w-full flex justify-between items-center py-4 text-left group" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-[20px]">Prazos &amp; Entrega</span>
+<span class="material-symbols-outlined accordion-icon text-on-surface-variant group-hover:text-primary transition-colors">expand_more</span>
+</button>
+<div class="accordion-content">
+<p class="font-body-md text-body-md text-on-surface-variant pb-4">
+                        Por ser uma peça artesanal e exclusiva, o prazo de confecção é de até 15 dias úteis. Após a postagem, conta-se o prazo dos Correios para a sua região.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Related Products Section -->
+<section class="mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface px-margin-mobile mb-6">Você também pode gostar</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 px-margin-mobile snap-x snap-mandatory pb-4">
+<!-- Related Product 1 -->
+<div class="min-w-[200px] w-[200px] snap-start flex-shrink-0 group cursor-pointer">
+<div class="aspect-square bg-surface-container rounded-t-full overflow-hidden mb-3 relative">
+<img alt="Chapéu de Crochê Praia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A stylish, handmade crochet sun hat displayed on a clean, light surface. The hat features intricate patterns in soft beige and cream tones. The lighting is soft and airy, creating subtle shadows that emphasize the texture. The setting is minimal and elegant, fitting a sophisticated artisanal brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv3fZMpzgywLzTuxQK1sZyKx8ORhEQO7ojzfNNlwDiSsDL_1BsV07MeTZ24LB7SvExgSngYL_hto7iKwXjyPUORH5dA2EPLwodJcrfbU3hjqau9nKXEh5B3aWdZUXT5A5NdXCoSjIRuo9rq-TnRyShr296HgtbOarM3buJCBMntDf_rcLUy1pl4LGCJACjoNU60Mm34P1qOy06JtOktzd5VPMEK8ju0c2yygjTc3qDRDBTJQqTs6d1CdzsVD1c01TA9BpRkqXFHeni"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-[18px] text-on-surface mb-1 truncate">Chapéu Brisa</h3>
+<p class="font-label-md text-label-md text-primary uppercase">R$ 180,00</p>
+</div>
+</div>
+<!-- Related Product 2 -->
+<div class="min-w-[200px] w-[200px] snap-start flex-shrink-0 group cursor-pointer">
+<div class="aspect-square bg-surface-container rounded-t-full overflow-hidden mb-3 relative">
+<img alt="Necessaire Texturizada" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A delicate, handcrafted crochet makeup pouch resting on a neutral, soft-toned background. The pouch is woven with beautiful, chunky stitches in a pale 'Tea Rose' pink. Gentle natural light highlights the tactile quality of the yarn. The composition is breezy and minimal, exuding a sense of refined craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-aP6jNXrs-Ilq_XvDwYc1KTv_HpMqrhUB-EmPqfBK7ogeW5itX1SYb022Y17F3_VKMBAZjbbC332yDJCU-8UnA42SS6z_VrrTCXV5Bx_32GgoXGISiKL7ag0rHe7Gokr8frJljGnibc3LbywotyFrRC4jO0HX--VIbZoIM0rGwKfdxfUY567KaUyurOtMiBvUzCsxWXalWPNVY5kZleLfow9uTRQjNY_5KdLiHlUE3wIflO-4aEgX9F4zhxc6pZMo5RiBAi8f_qoJ"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-[18px] text-on-surface mb-1 truncate">Necessaire Favo</h3>
+<p class="font-label-md text-label-md text-primary uppercase">R$ 95,00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Action -->
+<div class="fixed bottom-0 left-0 w-full p-4 bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 z-50">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full flex justify-center items-center gap-2 hover:bg-primary/90 transition-colors shadow-[0px_10px_30px_rgba(62,39,35,0.15)] active:scale-95 duration-200">
+<span class="material-symbols-outlined filled text-xl">shopping_cart</span>
+            Adicionar ao Carrinho
+        </button>
+</div>
+<script>
+        function toggleAccordion(button) {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const content = button.nextElementSibling;
+            
+            // Close all others (optional, depending on desired UX)
+            // document.querySelectorAll('.accordion-button').forEach(btn => {
+            //     btn.setAttribute('aria-expanded', 'false');
+            //     btn.nextElementSibling.classList.remove('open');
+            // });
+
+            if (!isExpanded) {
+                button.setAttribute('aria-expanded', 'true');
+                content.classList.add('open');
+            } else {
+                button.setAttribute('aria-expanded', 'false');
+                content.classList.remove('open');
+            }
+        }
+    </script>
+</body></html>

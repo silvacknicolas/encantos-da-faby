@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carrinho - Encantos da Faby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#ffdad4",
+                      "surface-container": "#ffeae0",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#474743",
+                      "surface-container-high": "#fbe3d9",
+                      "on-tertiary-fixed": "#1c1c19",
+                      "inverse-on-surface": "#ffede6",
+                      "surface-variant": "#f5ded3",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#b2b0ac",
+                      "surface-bright": "#fff8f6",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#2f1314",
+                      "on-secondary-fixed": "#2b1613",
+                      "on-background": "#251912",
+                      "outline": "#827473",
+                      "tertiary": "#5f5e5b",
+                      "surface": "#fff8f6",
+                      "on-primary-container": "#5d3a3b",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#795c57",
+                      "on-primary-fixed-variant": "#603d3e",
+                      "on-surface-variant": "#504444",
+                      "primary-fixed-dim": "#ecbbba",
+                      "background": "#fff8f6",
+                      "outline-variant": "#d4c2c2",
+                      "secondary-fixed-dim": "#e3beb8",
+                      "surface-dim": "#edd5cb",
+                      "on-surface": "#251912",
+                      "inverse-surface": "#3b2d26",
+                      "primary-fixed": "#ffdad9",
+                      "primary": "#7b5455",
+                      "secondary-container": "#fed7d0",
+                      "on-secondary-fixed-variant": "#5b403c",
+                      "tertiary-fixed": "#e5e2dd",
+                      "surface-container-highest": "#f5ded3",
+                      "secondary": "#745853",
+                      "inverse-primary": "#ecbbba",
+                      "primary-container": "#d4a5a5",
+                      "surface-tint": "#7b5455",
+                      "tertiary-fixed-dim": "#c8c6c2",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#fff1eb",
+                      "on-tertiary-container": "#444340",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-max": "1280px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .arch-mask {
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4c2c2;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7b5455;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col md:hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface docked full-width top-0 z-40 sticky transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:opacity-80 transition-opacity duration-300 flex items-center justify-center p-2 rounded-full active:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim text-center flex-1">
+                Encantos da Faby
+            </h1>
+<button class="text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity duration-300 flex items-center justify-center p-2 rounded-full active:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- Main Content (Canvas) -->
+<main class="flex-1 px-margin-mobile pt-6 pb-32 flex flex-col gap-8">
+<!-- Page Title -->
+<section class="text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2">Seu Carrinho</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Revise seus itens antes de finalizar.</p>
+</section>
+<!-- Cart Items List -->
+<section class="flex flex-col gap-6">
+<!-- Item 1: Bolsa Verão -->
+<article class="flex gap-4 items-center bg-surface-container-lowest p-4 rounded-xl shadow-[0px_10px_30px_rgba(62,39,35,0.05)] relative overflow-hidden">
+<!-- Image -->
+<div class="w-24 h-32 rounded-t-full rounded-b-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Bolsa de crochê estilo verão" class="w-full h-full object-cover" data-alt="A beautifully crafted summer crochet bag, featuring intricate natural fiber weaves and subtle earthy tones. The bag rests elegantly on a clean, bright, minimalist surface (#FAF7F2). The lighting is soft and natural, casting delicate shadows that highlight the tactile texture of the high-end crochet work. The mood is fresh, airy, and sophisticated, perfectly matching a breezy, minimalist luxury brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg95WOQ9iTC0ZHtRk8WVHmlaYctWCPtv-OBiU10jnGog19SGIBbvfjcxbQhmhwWgqzLzjM78nrT1qnc-3m_oqKSTYEeNppIgVe6qf82-ZaYyraLIrYGenAL5rtr6roatSa2VPYXOZRXLJ1MZlQ_pZbce4HZBWKSoY4QMIv6wPc405ESkkPd5TyfCxjlaGueIANe07yFxjKUQI-0K-cEVgRxtR6U-lqRqgzJolCWnG0XGOg5FxK0JGBfBd_wRUY-lsa0nDBRCc9x6Ek"/>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary leading-tight text-lg mb-1">Bolsa Verão</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-2">Crochê natural, detalhe em madeira.</p>
+<p class="font-label-md text-label-md text-on-background">R$ 289,00</p>
+</div>
+<!-- Controls -->
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center bg-surface-variant rounded-full p-1 gap-3">
+<button class="w-8 h-8 flex items-center justify-center text-primary rounded-full hover:bg-surface transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-background">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-primary rounded-full hover:bg-surface transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full active:bg-error-container">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2: Manta Requinte -->
+<article class="flex gap-4 items-center bg-surface-container-lowest p-4 rounded-xl shadow-[0px_10px_30px_rgba(62,39,35,0.05)] relative overflow-hidden">
+<!-- Image -->
+<div class="w-24 h-32 rounded-t-full rounded-b-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Manta de crochê macia" class="w-full h-full object-cover" data-alt="A luxurious, thick crochet throw blanket meticulously draped over the edge of a minimalist modern chair. The yarn is a soft, creamy white, complementing a serene background (#FAF7F2) bathed in high-key, warm ambient light. The texture of the crochet is sharply in focus, conveying a tactile, cozy, yet commanding luxury presence. The overall mood is calm, inviting, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc_WPnX67AZxEyZrRYbdI7caSRljrSIVrQcRTvG-kcZb5bVezj4KrpJk9sNTNt_6l3rbD5kWIdSNARiZ04dEMzF2C904QLMprPWUrxuFeGt-9TRTeabJ6SSNVsBtE0XPfpxiumSh3iSTFq1HzxcOIBincOB0CkNDBWp6yJgRgGP_tj2GW6hrA0nq5m7pI7tRq0kxAjnSGD1E_lMPaPY579W-inU8nDUKPbe7j-EQd2_rsMYgsp_DYJo5-qUW_8_TnYtGsOolUup3vu"/>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary leading-tight text-lg mb-1">Manta Requinte</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-2">Fio de algodão premium, off-white.</p>
+<p class="font-label-md text-label-md text-on-background">R$ 450,00</p>
+</div>
+<!-- Controls -->
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center bg-surface-variant rounded-full p-1 gap-3">
+<button class="w-8 h-8 flex items-center justify-center text-primary rounded-full hover:bg-surface transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-label-md text-label-md text-on-background">2</span>
+<button class="w-8 h-8 flex items-center justify-center text-primary rounded-full hover:bg-surface transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full active:bg-error-container">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Shipping Calculator -->
+<section class="bg-surface-container-low p-5 rounded-xl border border-surface-variant">
+<h4 class="font-label-md text-label-md text-primary uppercase mb-3 tracking-wider">Calcular Frete</h4>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 font-body-md text-body-md text-on-background placeholder-on-surface-variant transition-colors outline-none" placeholder="CEP" type="text"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-sm">OK</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-3 hidden" id="shipping-result">Frete estimado: R$ 25,00 (Sedex)</p>
+</section>
+<!-- Order Summary -->
+<section class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0px_10px_30px_rgba(62,39,35,0.05)] border border-surface-variant">
+<h3 class="font-headline-md text-headline-md text-primary mb-5 border-b border-surface-variant pb-4">Resumo do Pedido</h3>
+<div class="flex flex-col gap-3 font-body-md text-body-md text-on-background">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Subtotal (3 itens)</span>
+<span>R$ 1.189,00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Frete Estimado</span>
+<span>--</span>
+</div>
+<div class="flex justify-between text-primary mt-2 pt-4 border-t border-surface-variant">
+<span class="font-headline-md text-headline-md text-xl">Total</span>
+<span class="font-headline-md text-headline-md text-xl">R$ 1.189,00</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container mt-8 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest hover:bg-surface-tint hover:text-white transition-all duration-300 shadow-md active:scale-95 flex items-center justify-center gap-2">
+                Finalizar Compra
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar (Semantic Shell) -->
+<!-- The intent of this page matches "Carrinho" -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low docked full-width bottom-0 rounded-t-xl shadow-sm fixed bottom-0 w-full z-50 flex justify-around items-center py-2 px-4 transition-transform">
+<!-- Início (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant transition-colors scale-95 active:scale-90 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md text-xs mt-1">Início</span>
+</button>
+<!-- Coleções (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant transition-colors scale-95 active:scale-90 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md text-xs mt-1">Coleções</span>
+</button>
+<!-- Carrinho (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-label-md text-label-md text-xs mt-1">Carrinho</span>
+</button>
+<!-- Perfil (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant transition-colors scale-95 active:scale-90 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md text-xs mt-1">Perfil</span>
+</button>
+</nav>
+<script>
+        // Simple JS for interaction demo (shipping mock)
+        document.querySelector('button.bg-primary').addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const result = document.getElementById('shipping-result');
+            if(input.value.length >= 8) {
+                result.classList.remove('hidden');
+                // In a real scenario, this would trigger recalculation of the total
+            }
+        });
+    </script>
+</body></html>

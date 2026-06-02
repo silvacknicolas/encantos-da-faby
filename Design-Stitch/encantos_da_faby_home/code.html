@@ -1,0 +1,518 @@
+<!DOCTYPE html><html class="light scroll-smooth" lang="pt-BR" style="width: 1280px; height: 4084px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Encantos da Faby | Amor em cada ponto</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdad4",
+                    "outline": "#827473",
+                    "inverse-surface": "#3b2d26",
+                    "on-primary-container": "#5d3a3b",
+                    "on-secondary-fixed-variant": "#5b403c",
+                    "on-tertiary-container": "#444340",
+                    "on-surface-variant": "#504444",
+                    "surface-container-low": "#fff1eb",
+                    "primary-fixed": "#ffdad9",
+                    "tertiary-fixed": "#e5e2dd",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#795c57",
+                    "on-surface": "#251912",
+                    "surface-bright": "#fff8f6",
+                    "on-primary-fixed-variant": "#603d3e",
+                    "inverse-on-surface": "#ffede6",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#251912",
+                    "surface-tint": "#7b5455",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "surface-container-high": "#fbe3d9",
+                    "surface": "#fff8f6",
+                    "tertiary-fixed-dim": "#c8c6c2",
+                    "on-secondary-fixed": "#2b1613",
+                    "background": "#fff8f6",
+                    "surface-container": "#ffeae0",
+                    "on-primary-fixed": "#2f1314",
+                    "primary-container": "#d4a5a5",
+                    "primary": "#7b5455",
+                    "surface-container-highest": "#f5ded3",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fed7d0",
+                    "outline-variant": "#d4c2c2",
+                    "surface-dim": "#edd5cb",
+                    "tertiary-container": "#b2b0ac",
+                    "primary-fixed-dim": "#ecbbba",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#ecbbba",
+                    "tertiary": "#5f5e5b",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#e3beb8",
+                    "secondary": "#745853",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#f5ded3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "arch": "120px 120px 0 0"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "section": "120px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Playfair Display"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-md": [
+                            "Playfair Display"
+                    ],
+                    "headline-lg-mobile": [
+                            "Playfair Display"
+                    ],
+                    "display-lg": [
+                            "Playfair Display"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .arch-mask {
+            clip-path: ellipse(60% 80% at 50% 20%);
+            border-radius: 200px 200px 0 0;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .soft-shadow {
+            box-shadow: 0px 10px 30px rgba(62, 39, 35, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- Header (Shared Component) -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md bg-surface/95 shadow-sm">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="flex items-center gap-3 font-headline-md text-headline-md font-semibold text-primary scale-95 transition-transform duration-200 active:scale-90 hover:opacity-80 transition-opacity duration-300" href="#">
+<img alt="Encantos da Faby Logo" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2tivXjYQgWRIknKW71u6iPMvteYJCWXbFg9-v3eoYqYMkU4dRuHKVazzlxSp_SalAOVmJsMnVD5Lv5ATcCQ_NMLr1ASj39w39Zwmk8iJPDIOntoXhL7c-RC9epxmxV_6gf3pEwsfZJciGz1eSmj-MLRw6Emi3TUiHBpsjfwXILpdM4eDh8pArAhwtPiHhkM7bsGozAoL8_9H47iZZmy8M8hT1SNXXV00Y6AuauUEIIuI5jUBon0sUjuL6LZGtP7-oVpWrsaaVEQGd">
+<span class="">Encantos da Faby</span>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#catalogo">Catálogo</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#nossa-historia">Nossa História</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#depoimentos">Depoimentos</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:opacity-80 transition-opacity duration-300 scale-95 transition-transform duration-200 active:scale-90 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button><button class="text-primary hover:opacity-80 transition-opacity duration-300 scale-95 transition-transform duration-200 active:scale-90 relative">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-primary-container text-on-primary-container text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">2</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full min-h-[80vh] flex items-center justify-center bg-surface-container-highest overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Hero Background" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrXqmF0--PArVrBevUQDpsyBGGzKQ3d--BYLcuESxBA0XWWl5shTx47rWiETQK5yCzthwUIArv0UyGNC8_S2FarpMPMma1vH4PrxxAIIjnlNBSDl8jd4GiVZKmFZEhPIz7ynf_cHaOh9F3Q3sG4Rts_g2asTkapFVIp1qKE3gyeKizDbajzsEZmkoeZA1I-lqYYszQa4EA8OTLQd11o9WeSlR4Cw4LRWhdzb9S_u_sW8M-1xquBpHOXENbrEiPAy6WDzGpWW4Gxyw0">
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent z-10"></div>
+<div class="relative z-20 max-w-container-max mx-auto px-gutter w-full flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 flex flex-col items-start gap-6 fade-in visible">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">Coleção Exclusiva</span>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">
+                    Amor em <br><span class="italic text-primary">cada ponto.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                    Descubra o luxo do feito à mão. Peças de crochê curadas com detalhes meticulosos, qualidade impecável e design contemporâneo para o seu dia a dia.
+                </p>
+<a class="mt-4 px-8 py-4 bg-primary-container text-on-primary-container font-label-md text-label-md uppercase rounded-full hover:bg-surface-tint hover:text-on-primary transition-all duration-300 soft-shadow flex items-center gap-2 group" href="#catalogo">
+                    Ver Catálogo
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="w-full md:w-1/2 flex justify-end fade-in relative visible" style="transition-delay: 200ms;">
+<div class="w-[80%] aspect-[3/4] bg-surface-variant arch-mask relative overflow-hidden soft-shadow">
+<img alt="Coleção de Crochê" class="w-full h-full object-cover" data-alt="A lifestyle photo of a woman holding a beautifully crafted luxury crochet handbag. She is standing in a brightly lit, minimalist space with soft archways in the background. The color palette features creamy off-whites, soft dusty rose, and subtle earthy greens. The mood is elegant, serene, and sophisticated, highlighting the artisanal quality of the bag." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLmIHx4yTyunxR3sxP-3GuElDJXqrUu3egD78F_UZML1EFaVbkMI0S_Lx20Tk52FsD9Vd8Is-TH6i1Bl96HwGsx46vtWeTofP-ZiScqqhNvk8OHgN6SWta8msnOCa9gKktaMWJy3s6BiimEy5t80bY79YnSNMSK14dAXVtBUfyQyf73D8FqYfn8ZBV5S2Fjwo_bMjw_EFYeB2SMJ-PaRnS3ZhMk9Jw24-ZvUAB_FpPKx5YpvBE2lzV3CjvCRrItHbzZt0GPIMrSQNi">
+</div>
+<!-- Floating Element -->
+<div class="absolute bottom-12 -left-8 bg-surface p-4 rounded-xl soft-shadow flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+<div class="h-12 w-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">100% Artesanal</p>
+<p class="font-body-md text-sm text-on-surface-variant">Qualidade Garantida</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Catalog Section -->
+<section class="py-section max-w-container-max mx-auto px-gutter" id="catalogo">
+<div class="flex flex-col items-center text-center gap-4 mb-12 fade-in visible">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Catálogo de Produtos</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Peças exclusivas, feitas à mão com os melhores fios e muito carinho.</p>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 fade-in visible">
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-6 py-3 rounded-full bg-primary-container text-on-primary-container border border-primary-container font-label-md text-label-md uppercase transition-colors">Todos</button>
+<button class="px-6 py-3 rounded-full bg-transparent text-on-surface border border-primary-container font-label-md text-label-md uppercase hover:bg-surface-variant transition-colors">Pronta Entrega</button>
+<button class="px-6 py-3 rounded-full bg-transparent text-on-surface border border-primary-container font-label-md text-label-md uppercase hover:bg-surface-variant transition-colors">Sob Encomenda</button>
+</div>
+<div class="relative w-full md:w-auto">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full md:w-64 pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-full font-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Buscar produtos..." type="text">
+</div>
+</div>
+<!-- Product Grid (Bento/Asymmetric Style) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+<!-- Product 1 (Taller) -->
+<div class="group cursor-pointer fade-in lg:col-span-1 lg:row-span-2 flex flex-col visible">
+<div class="relative w-full aspect-[2/3] mb-4 overflow-hidden rounded-t-[100px] bg-surface-variant">
+<img alt="Manta Requinte" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a luxurious, chunky knit crochet blanket in a soft cream color, draped elegantly over a modern minimalist chair. Soft window light highlights the intricate texture and high-quality yarn. The setting is a bright, serene living room with subtle dusty rose accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuZ5aXTKvExQYx-eWJdkKp8GpIc0rKDyyq2zRDfxy2wRh4EcarmvhhC1xju1SSkoLH_uKvj64ENqqx22VBm6sh806DxORhWrkfvP9xQuLo-2GbTlasCWz4lH4x9Ag6fjWmjqlCL9If3OoEXqBYXY6kY1P-tq28uKzCs4HMtjtNnKTe0e8gifHO0ahyr7zhKaEWgD_AlWJhgaeVZAqN5WLyHvw_rkxxF7aFBtoecpUa_l_r6nuBtY5a7ytZ3LHUYmVbQV3nw6r3pCgG">
+<div class="absolute inset-0 bg-on-surface/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300 soft-shadow">Adicionar</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Manta Requinte</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">R$ 289,00</p>
+</div>
+</div>
+<!-- Product 2 (Standard) -->
+<div class="group cursor-pointer fade-in visible" style="transition-delay: 100ms;">
+<div class="relative w-full aspect-square mb-4 overflow-hidden rounded-2xl bg-surface-variant">
+<img alt="Top Brisa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A delicate handmade crochet bralette in a dusty rose color, laid flat on a pristine white marble surface. Scattered around are minimal, elegant styling props like dried pampas grass and a delicate gold chain. The lighting is bright, soft, and top-down, emphasizing a luxury fashion aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9XpbKglswkdVBRPkp30NcF9gFQr70pGDeVoXeDqZxGMCfn8NXSg4svZCVBqWktzG8eNVOhjEAzg5Vt-rFXwUrsDL5yAGpDNRlVimUQLNP46ypGMENFahYjx-Y-hgIvC3enLyKwbYmaAz1--SAGaGuVN_SlGxiBZeDxJUhgi9mHoQdQzMjv4fcQNbWqGnuiSsmT2h5wbS_rXgbQVwUeVvlClnEikFpcnYPSXrE8tMHEEQk-awVmI82buZfXaVQ-WoHKKu2zJiZ3Jyl">
+<div class="absolute top-4 left-4 bg-surface-container-highest px-3 py-1 rounded-full text-xs font-bold text-on-surface">Novo</div>
+<button class="absolute bottom-4 right-4 h-10 w-10 bg-surface rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Top Brisa</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">R$ 145,00</p>
+</div>
+</div>
+<!-- Product 3 (Standard) -->
+<div class="group cursor-pointer fade-in visible" style="transition-delay: 200ms;">
+<div class="relative w-full aspect-square mb-4 overflow-hidden rounded-2xl bg-surface-variant">
+<img alt="Kit Porta-Copos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A collection of artisanal crochet coasters in muted earthy tones and off-white, stacked neatly on a light wood table. Beside them is a minimalist ceramic mug filled with coffee. Warm morning sunlight streams across the table, creating soft shadows and a cozy, elegant atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnZox77JY_CPikZQ6qd7QpxWBcwsAfc8BqPWuNa20sMnsbXujy5K69lS-teuNODs9zRQKzcLramV8nJZuywt_l6bU7Gd2r00nVkSD6SOUmuIS_-eSANywo1gmzuE9gyMSUp9Ju0OnVw8yq-8Qif8Ef_787fGct79ezJNfq4MwR9EnTy_3kJxbyS9UghC56VaOvTzmqCgPFZZTXeGgWCR23lmpBJG5APB2c8ceDKHylvHGhIEJye3ngT4vrwrWg9Fu8asG5KzT_Ich4">
+<button class="absolute bottom-4 right-4 h-10 w-10 bg-surface rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors soft-shadow opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Kit Porta-Copos Lua</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">R$ 89,00</p>
+</div>
+</div>
+<!-- Product 4 (Arched) -->
+<div class="group cursor-pointer fade-in lg:col-span-1 visible" style="transition-delay: 300ms;">
+<div class="relative w-full aspect-[3/4] mb-4 overflow-hidden arch-mask bg-surface-variant">
+<img alt="Bolsa Verão" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stylish woman holding a large, intricately woven crochet tote bag in a neutral beige color. She is walking through a bright, modern architectural space with clean lines and soft lighting. The bag is the focal point, exuding a sense of practical luxury and high-end artisanal craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRTpHLPOaU_ubu3UN5_6KopPOnMviSHo_Az3GiQd9yT6CRmWRON7TQ-Ti1smiO7ifega5a2CXDMzJcr6MsxUPh7FR44nIInvFsWJs4e5SPAk0kvorA1ne27E9M_2siSkUWxS4-NHUdc6WoKdD7KC_sEUiO8liBHRJrodDGx2zi7kUJTknBITzXhxM-x3xVPfZ87pzqdmlL533Wmr7dGerXtTqp2tCcIJ_VgEPhCKeB25i2tfeB4Zx4THBmWI-E4QBekrEE0Q0xFN6p">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+<button class="bg-surface text-on-surface px-6 py-2 rounded-full font-label-md text-label-md uppercase translate-y-4 group-hover:translate-y-0 transition-all duration-300">Ver Detalhes</button>
+</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Bolsa Verão</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">R$ 320,00</p>
+</div>
+</div>
+<!-- Banner Card inside grid -->
+<div class="col-span-1 sm:col-span-2 lg:col-span-2 bg-surface-container-high rounded-[32px] p-8 flex flex-col justify-center items-center text-center fade-in relative overflow-hidden visible" style="transition-delay: 100ms;">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, var(--tw-colors-primary) 1px, transparent 0); background-size: 24px 24px;"></div>
+<span class="material-symbols-outlined text-4xl text-primary mb-4">stars</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Encomendas Personalizadas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-6">Sonha com uma peça única nas suas cores favoritas? Nós criamos para você.</p>
+<a class="px-8 py-3 border-2 border-primary text-primary rounded-full font-label-md text-label-md uppercase hover:bg-primary hover:text-on-primary transition-colors duration-300" href="#contato">Solicitar Orçamento</a>
+</div>
+</div>
+<div class="flex justify-center mt-12 fade-in visible">
+<button class="flex items-center gap-2 text-on-surface hover:text-primary transition-colors font-label-md text-label-md uppercase pb-1 border-b border-on-surface hover:border-primary">
+                Ver todos os produtos <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Nossa História Section -->
+<section class="py-section bg-surface-bright relative overflow-hidden" id="nossa-historia">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative fade-in order-2 md:order-1 visible">
+<!-- Decorative background shape -->
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-surface-container-high rounded-full opacity-50 blur-3xl -z-10"></div>
+<div class="relative w-full max-w-[400px] mx-auto aspect-[3/4] arch-mask overflow-hidden border-8 border-surface soft-shadow">
+<img alt="Fabíola" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVOnI6M7RzR-xs63fGEKsi1Zr9eENJ7AzZR_tIrwUmsNpbm9gj-UfDTOWvQOKjvwRiuDJXl3b30Upjwpm5Yf5vZnVSOcy5-srdlN_5238ods_HwtHnzuhGyvaYVLVzyOW16Gpq0iw09RnoJxSbQpls1OHL2x4xjXoaKPld5140rZE6d8aCNwniB03zFB6_u0q6nDvr-Dvj1v9TGGtxciN5_xRRKcVNjABzJhYScybNns7V3s1nsWQ2y-SFsuJOh1WZbDwkhLncF4o0">
+</div>
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container rounded-full opacity-30 blur-2xl -z-10"></div>
+</div>
+<div class="flex flex-col gap-6 fade-in order-1 md:order-2 visible">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">A Artesã</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Nossa História, Nossas Raízes</h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant flex flex-col gap-4">
+<p class="">
+                        A Encantos da Faby nasceu em Nova Mutum - MT, da paixão de Fabíola Kurz Chimenes da Silva pelo crochê. O que começou como um hobby terapêutico, transformou-se em uma missão de levar elegância e aconchego através de peças feitas à mão.
+                    </p>
+<p class="">
+                        "Cada ponto carrega um pouco da minha história e da minha dedicação. Meu objetivo é que cada cliente sinta esse amor ao receber uma de nossas criações."
+                    </p>
+<p class="font-semibold text-on-surface mt-2">
+                        Mais do que crochê, é empoderamento.
+                    </p>
+<p class="">
+                        Buscamos não apenas criar produtos luxuosos, mas também inspirar e empoderar outras mulheres a valorizarem o artesanato e a buscarem seus próprios caminhos.
+                    </p>
+</div>
+<div class="flex items-center gap-8 mt-6">
+<div class="flex flex-col">
+<span class="font-display-lg text-4xl text-primary font-bold">5+</span>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">Anos de Experiência</span>
+</div>
+<div class="h-12 w-px bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="font-display-lg text-4xl text-primary font-bold">500+</span>
+<span class="font-label-md text-xs text-on-surface-variant uppercase">Peças Entregues</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section max-w-container-max mx-auto px-gutter bg-surface-container-lowest" id="depoimentos">
+<div class="text-center mb-16 fade-in visible">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary mb-2 block">Depoimentos</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">O que dizem nossas clientes</h2>
+</div>
+<div class="relative max-w-4xl mx-auto fade-in visible">
+<!-- Carousel Container -->
+<div class="overflow-hidden">
+<div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track" style="transform: translateX(0%);">
+<!-- Testimonial 1 -->
+<div class="w-full flex-shrink-0 px-4 text-center">
+<div class="flex justify-center gap-1 mb-6 text-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-headline-lg text-2xl md:text-3xl text-on-surface italic leading-relaxed mb-8">
+                            "A manta que encomendei é simplesmente perfeita. O acabamento é impecável e a embalagem veio com um cheirinho maravilhoso. Dá para sentir o carinho em cada detalhe!"
+                        </p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Marina S.</p>
+<p class="font-body-md text-sm text-outline">São Paulo, SP</p>
+</div>
+<!-- Testimonial 2 (Hidden by default in flow, managed by JS) -->
+<div class="w-full flex-shrink-0 px-4 text-center">
+<div class="flex justify-center gap-1 mb-6 text-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-headline-lg text-2xl md:text-3xl text-on-surface italic leading-relaxed mb-8">
+                            "Atendimento nota mil e peças maravilhosas. Comprei um top de crochê para o verão e vestiu perfeitamente. Muito luxo e conforto."
+                        </p>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Camila R.</p>
+<p class="font-body-md text-sm text-outline">Rio de Janeiro, RJ</p>
+</div>
+</div>
+</div>
+<!-- Carousel Controls -->
+<div class="flex justify-center items-center gap-6 mt-12">
+<button class="h-10 w-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" id="prev-btn">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex gap-2" id="carousel-indicators">
+<button class="h-1 rounded-full transition-all duration-300 w-8 bg-primary"></button>
+<button class="h-1 rounded-full transition-all duration-300 w-4 bg-outline-variant"></button>
+</div>
+<button class="h-10 w-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" id="next-btn">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container dark:bg-inverse-surface w-full rounded-t-xl bg-surface-container-low dark:bg-inverse-surface mt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-gutter py-12 max-w-container-max mx-auto text-on-surface dark:text-inverse-on-surface">
+<!-- Brand & Copyright -->
+<div class="flex flex-col gap-4 opacity-90 hover:opacity-100 transition-opacity">
+<a class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim font-bold" href="#">Encantos da Faby</a>
+<p class="font-body-md text-body-md font-label-md text-label-md">© 2024 Encantos da Faby. Feito com amor por Fabíola Kurz Chimenes da Silva.</p>
+<div class="flex gap-4 mt-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<!-- Assuming generic icons for social since exact ones aren't in material standard easily without specifics, using links -->
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+<!-- Links -->
+<div class="flex flex-col gap-3">
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Navegação</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#catalogo">Catálogo</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#nossa-historia">Nossa História</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#depoimentos">Depoimentos</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-headline-md text-lg text-on-surface mb-2">Informações</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#">Privacidade</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-inverse-on-surface hover:text-primary transition-colors duration-300" href="#">Termos</a>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Simple Carousel Logic
+        let currentSlide = 0;
+        const track = document.getElementById('testimonial-track');
+        const slides = track.children;
+        const totalSlides = slides.length;
+        const indicators = document.getElementById('carousel-indicators').children;
+        
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            Array.from(indicators).forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.remove('w-4', 'bg-outline-variant');
+                    indicator.classList.add('w-8', 'bg-primary');
+                } else {
+                    indicator.classList.remove('w-8', 'bg-primary');
+                    indicator.classList.add('w-4', 'bg-outline-variant');
+                }
+            });
+        }
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+        
+        // Auto advance carousel slowly
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 8000);
+    </script>
+
+
+</body></html>
