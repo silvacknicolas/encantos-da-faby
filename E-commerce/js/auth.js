@@ -26,6 +26,8 @@ let currentUser  = null;
 let authCallbacks = [];
 let authResolved = false;
 
+let authInitPromise = null;
+
 /** Retorna o usuário atual (ou null) */
 export const getUser = () => currentUser;
 
@@ -35,30 +37,47 @@ export const isAdmin = () => currentUser?.email?.toLowerCase() === ADMIN_EMAIL.t
 /** Registra callback para mudanças de autenticação */
 export function onAuthChange(cb) {
   authCallbacks.push(cb);
-  // Chamar imediatamente com estado atual se já resolvido
   if (authResolved) cb(currentUser);
 }
 
-/** Inicializa o listener de estado de autenticação */
+/** Inicializa o listener de estado de autenticação (retorna Promise) */
 export function initAuth() {
-  onAuthStateChanged(auth, async (firebaseUser) => {
-    if (firebaseUser) {
-      // Buscar dados extras do Firestore
-      const snap = await getDoc(doc(db, "users", firebaseUser.uid));
-      currentUser = {
-        uid:     firebaseUser.uid,
-        email:   firebaseUser.email,
-        name:    snap.exists() ? snap.data().name    : firebaseUser.email.split("@")[0],
-        address: snap.exists() ? snap.data().address : "",
-        photo:   snap.exists() ? snap.data().photo   : "",
-        role:    snap.exists() ? snap.data().role     : "client",
-      };
-    } else {
-      currentUser = null;
-    }
-    authResolved = true;
-    authCallbacks.forEach(cb => cb(currentUser));
-  });
+  if (!authInitPromise) {
+    authInitPromise = new Promise(resolve => {
+      onAuthStateChanged(auth, async (firebaseUser) => {
+        if (firebaseUser) {
+          try {
+            // Buscar dados extras do Firestore
+            const snap = await getDoc(doc(db, "users", firebaseUser.uid));
+            currentUser = {
+              uid:     firebaseUser.uid,
+              email:   firebaseUser.email,
+              name:    snap.exists() ? snap.data().name    : firebaseUser.email.split("@")[0],
+              address: snap.exists() ? snap.data().address : "",
+              photo:   snap.exists() ? snap.data().photo   : "",
+              role:    snap.exists() ? snap.data().role     : "client",
+            };
+          } catch (error) {
+            // Fallback em caso de erro de permissão ou rede
+            currentUser = {
+              uid:     firebaseUser.uid,
+              email:   firebaseUser.email,
+              name:    firebaseUser.email.split("@")[0],
+              address: "",
+              photo:   "",
+              role:    "client",
+            };
+          }
+        } else {
+          currentUser = null;
+        }
+        authResolved = true;
+        authCallbacks.forEach(cb => cb(currentUser));
+        resolve(currentUser);
+      });
+    });
+  }
+  return authInitPromise;
 }
 
 /** Login com email/senha */

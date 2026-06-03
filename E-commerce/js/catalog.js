@@ -119,7 +119,8 @@ function buildProductCard(p, i) {
   return `
   <div class="product-card">
     <a href="produto.html?id=${p.id}" class="product-card-img-wrap" style="aspect-ratio:4/5; display:block; border-radius:16px;">
-      <img src="assets/images/${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='assets/images/Imagem 1.jpg'">
+    <a href="produto.html?id=${p.id}" class="product-card-img-wrap ${shape}" style="aspect-ratio:3/4; display:block;">
+      <img src="${p.image && p.image.startsWith('http') ? p.image : `assets/images/${p.image}`}" alt="${p.name}" loading="lazy" onerror="this.src='assets/images/Imagem 1.jpg'">
       <div class="product-card-overlay">
         <span style="background:rgba(255,248,246,.95); color:var(--primary); padding:8px 20px; border-radius:999px; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;">Ver produto</span>
       </div>

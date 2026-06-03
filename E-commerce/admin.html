@@ -200,23 +200,39 @@
 
         <div class="form-group">
           <label class="form-label">Imagem da Capa</label>
-          <label class="upload-area" id="cover-upload-area">
+          <label class="upload-area" id="cover-upload-area" style="margin-bottom: 8px">
             <input type="file" id="pf-image" name="image" accept="image/*">
             <span class="material-symbols-outlined" style="font-size:32px;color:var(--outline-variant);display:block;margin-bottom:8px">add_photo_alternate</span>
             <span style="font-size:14px;color:var(--on-surface-variant)">Clique para selecionar a imagem de capa</span>
             <div class="upload-preview" id="cover-preview"></div>
           </label>
-          <div class="form-hint">Deixe em branco para manter a imagem atual ao editar.</div>
+          <input type="text" class="form-input" id="pf-image-url" name="imageUrl" placeholder="Ou cole a URL direta de uma imagem pública (ex: https://...)">
+          <div class="form-hint">Dica: Se o Storage estiver desativado, você pode hospedar as imagens em um site gratuito (ex: postimages.org) e colar a URL direta acima.</div>
         </div>
 
         <div class="form-group">
           <label class="form-label">Imagens Extras</label>
-          <label class="upload-area" id="extras-upload-area">
+          <label class="upload-area" id="extras-upload-area" style="margin-bottom: 8px">
             <input type="file" id="pf-extra-images" name="extraImages" accept="image/*" multiple>
             <span class="material-symbols-outlined" style="font-size:32px;color:var(--outline-variant);display:block;margin-bottom:8px">photo_library</span>
             <span style="font-size:14px;color:var(--on-surface-variant)">Clique para selecionar imagens extras (galeria)</span>
             <div class="upload-preview" id="extras-preview"></div>
           </label>
+          <input type="text" class="form-input" id="pf-extra-images-url" name="extraImagesUrl" placeholder="Ou cole URLs extras separadas por vírgula (ex: https://site.com/img1.jpg, https://...)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Materiais e Cuidados</label>
+          <textarea class="form-textarea" id="pf-materials" name="materials" rows="3"
+            placeholder="Ex: Fio 100% algodão. Lavar à mão com sabão neutro em água fria..."></textarea>
+          <div class="form-hint">Deixe em branco para usar o texto padrão na página do produto.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Prazo de Entrega Personalizado</label>
+          <textarea class="form-textarea" id="pf-delivery-time" name="deliveryTime" rows="2"
+            placeholder="Ex: Prazo de produção de 10 a 20 dias úteis após confirmação."></textarea>
+          <div class="form-hint">Deixe em branco para usar o texto padrão baseado no tipo do produto.</div>
         </div>
 
         <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px">
@@ -304,16 +320,20 @@
     window.location.href = "index.html";
   });
 
-  initAuth();
-  onAuthChange(user => {
-    // Se não há usuário (confirmado pelo Firebase após authResolved), redireciona
+  let adminInitialized = false;
+
+  initAuth().then(user => {
     if (user === null) { window.location.href = "index.html"; return; }
-    // Se é usuário mas não é admin, redireciona para perfil
     if (user && !isAdmin()) { window.location.href = "perfil.html"; return; }
-    // Usuário admin confirmado — inicializar
     if (user && isAdmin()) {
+      adminInitialized = true;
       initProducts().then(() => initAdmin());
     }
+  });
+
+  onAuthChange(user => {
+    // Monitorar expiração de sessão depois que já carregou
+    if (user === null) { window.location.href = "index.html"; }
   });
 </script>
 </body>

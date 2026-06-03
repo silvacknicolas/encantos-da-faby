@@ -485,13 +485,84 @@
       document.getElementById(`${tab}-form`).classList.add("active");
     };
 
-    // Botão de auth no header
-    document.getElementById("auth-btn").addEventListener("click", () => {
-      const user = window._currentUser;
-      if (user) {
-        window.location.href = isAdmin() ? "admin.html" : "perfil.html";
+  // Botão de auth no header
+  document.getElementById("auth-btn").addEventListener("click", () => {
+    const user = window._currentUser;
+    if (user) {
+      window.location.href = isAdmin() ? "admin.html" : "perfil.html";
+    } else {
+      openModal("auth-modal");
+    }
+  });
+  document.getElementById("mobile-login-btn")?.addEventListener("click", () => openModal("auth-modal"));
+
+  // Login form — redireciona conforme role
+  document.getElementById("login-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Entrando...";
+    const errEl = document.getElementById("login-error");
+    const result = await login(
+      document.getElementById("login-email").value,
+      document.getElementById("login-password").value
+    );
+    if (result.success) {
+      closeModal("auth-modal");
+      window.location.href = result.redirect;
+    } else {
+      errEl.textContent = result.error;
+      errEl.classList.remove("hidden");
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">login</span> Entrar na Loja';
+    }
+  });
+
+  // Register form — redireciona conforme role
+  document.getElementById("register-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Criando conta...";
+    const errEl = document.getElementById("register-error");
+    const result = await register(
+      document.getElementById("reg-name").value,
+      document.getElementById("reg-email").value,
+      document.getElementById("reg-password").value
+    );
+    if (result.success) {
+      closeModal("auth-modal");
+      window.location.href = result.redirect;
+    } else {
+      errEl.textContent = result.error;
+      errEl.classList.remove("hidden");
+      btn.disabled = false;
+      btn.innerHTML = '<span class="material-symbols-outlined">person_add</span> Criar Conta';
+    }
+  });
+
+  // Observer de autenticação
+  onAuthChange(user => {
+    window._currentUser = user;
+    const authBtn = document.getElementById("auth-btn");
+    const mobileProfile = document.getElementById("mobile-profile-link");
+    const mobileLoginBtn = document.getElementById("mobile-login-btn");
+
+    if (user) {
+      // Mostrar foto de perfil se disponível, senão ícone padrão
+      if (user.photo) {
+        authBtn.innerHTML = `<img src="${user.photo}" alt="${user.name}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid var(--primary-container)">`;
       } else {
-        openModal("auth-modal");
+        authBtn.innerHTML = `<span class="material-symbols-outlined">account_circle</span>`;
+      }
+      authBtn.title = user.name;
+      if (mobileProfile) mobileProfile.style.display = "flex";
+      if (mobileLoginBtn) mobileLoginBtn.style.display = "none";
+      // Admin: mostrar link para admin
+      if (isAdmin()) {
+        if (!document.getElementById("admin-link")) {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="admin.html" id="admin-link" style="color:var(--primary);font-weight:700"><span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle">admin_panel_settings</span> Admin</a>`;
+          document.querySelector(".nav-links")?.appendChild(li);
+        }
       }
     });
     document.getElementById("mobile-login-btn")?.addEventListener("click", () => openModal("auth-modal"));

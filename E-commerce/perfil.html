@@ -166,12 +166,15 @@
     window.location.href = "index.html";
   });
 
-  initAuth();
-  onAuthChange(user => {
+  initAuth().then(user => {
     // Só redireciona se user === null (deslogado confirmado pelo Firebase)
-    // authResolved garante que não haverá falso-positivo ao carregar a página
     if (user === null) { window.location.href = "index.html"; return; }
     if (user) initPerfil();
+  });
+
+  // onAuthChange ainda é usado caso a sessão expire depois de já ter carregado
+  onAuthChange(user => {
+    if (user === null) window.location.href = "index.html";
   });
 </script>
 </body>

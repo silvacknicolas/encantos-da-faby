@@ -271,10 +271,14 @@
     const allImgs = [p.image, ...(p.extraImages || [])].filter(Boolean);
     const thumbsHtml = allImgs.length > 1
       ? `<div class="product-thumbnails">
-          ${allImgs.map((img, i) => `
+          ${allImgs.map((img, i) => {
+            // Suporte a URLs absolutas do Firebase Storage e paths locais
+            const src = img.startsWith("http") ? img : `assets/images/${img}`;
+            return `
             <button class="product-thumb ${i===0?'active':''}" onclick="changeImg('${img}',this)">
-              <img src="assets/images/${img}" alt="Foto ${i+1}" onerror="this.src='assets/images/Imagem 1.jpg'">
-            </button>`).join("")}
+              <img src="${src}" alt="Foto ${i+1}" onerror="this.src='assets/images/Imagem 1.jpg'">
+            </button>`;
+          }).join("")}
          </div>`
       : "";
 
@@ -288,7 +292,7 @@
         <div class="product-gallery">
           ${thumbsHtml}
           <div class="product-main-img" id="main-img-wrap">
-            <img src="assets/images/${p.image}" alt="${p.name}" id="main-product-img" style="width:100%;height:100%;object-fit:cover" onerror="this.src='assets/images/Imagem 1.jpg'">
+            <img src="${p.image.startsWith('http') ? p.image : 'assets/images/' + p.image}" alt="${p.name}" id="main-product-img" style="width:100%;height:100%;object-fit:cover" onerror="this.src='assets/images/Imagem 1.jpg'">
             ${badge}
           </div>
         </div>
@@ -325,7 +329,7 @@
               <span class="material-symbols-outlined">expand_more</span>
             </button>
             <div class="accordion-content" id="acc-care">
-              <p>Lavar à mão com sabão neutro em água fria. Não usar alvejante. Secar à sombra em superfície plana. Não torcer.</p>
+              <p>${p.materials || 'Lavar à mão com sabão neutro em água fria. Não usar alvejante. Secar à sombra em superfície plana. Não torcer.'}</p>
             </div>
           </div>
           <div class="accordion-item">
@@ -334,7 +338,7 @@
               <span class="material-symbols-outlined">expand_more</span>
             </button>
             <div class="accordion-content" id="acc-delivery">
-              <p>${p.type === 'pronta-entrega' ? 'Item em estoque. Prazo de envio: <strong>1 a 3 dias úteis</strong> após confirmação do pagamento.' : 'Produto sob encomenda. Prazo de produção: <strong>7 a 15 dias úteis</strong> após confirmação do pagamento.'}</p>
+              <p>${p.deliveryTime || (p.type === 'pronta-entrega' ? 'Item em estoque. Prazo de envio: <strong>1 a 3 dias úteis</strong> após confirmação do pagamento.' : 'Produto sob encomenda. Prazo de produção: <strong>7 a 15 dias úteis</strong> após confirmação do pagamento.')}</p>
             </div>
           </div>
         </div>
@@ -352,7 +356,9 @@
   }
 
   window.changeImg = (img, btn) => {
-    document.getElementById("main-product-img").src = "assets/images/" + img;
+    // Suporte a URLs absolutas (Firebase Storage) e paths locais
+    const src = img.startsWith("http") ? img : "assets/images/" + img;
+    document.getElementById("main-product-img").src = src;
     document.querySelectorAll(".product-thumb").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
   };
@@ -440,7 +446,12 @@
     window._currentUser = user;
     const authBtn = document.getElementById("auth-btn");
     if (user) {
-      authBtn.innerHTML = `<span class="material-symbols-outlined">account_circle</span>`;
+      // Mostrar foto de perfil se disponível, senão ícone padrão
+      if (user.photo) {
+        authBtn.innerHTML = `<img src="${user.photo}" alt="${user.name}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid var(--primary-container)">`;
+      } else {
+        authBtn.innerHTML = `<span class="material-symbols-outlined">account_circle</span>`;
+      }
       authBtn.title = user.name;
     } else {
       authBtn.innerHTML = `<span class="material-symbols-outlined">person</span>`;

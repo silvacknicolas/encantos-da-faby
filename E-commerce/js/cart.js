@@ -98,10 +98,11 @@ export function renderCartDrawer() {
   if (!body) return;
 
   const n = getCount();
-  if (count) {
-    count.textContent = n;
-    count.classList.toggle("visible", n > 0);
-  }
+  // Atualizar TODOS os badges do carrinho no DOM (header + outras páginas)
+  document.querySelectorAll("#cart-count").forEach(el => {
+    el.textContent = n;
+    el.classList.toggle("visible", n > 0);
+  });
 
   if (items.length === 0) {
     body.innerHTML = `
@@ -111,9 +112,14 @@ export function renderCartDrawer() {
         <a href="index.html#catalogo" class="btn btn-outline btn-sm" style="margin-top:16px">Explorar produtos</a>
       </div>`;
   } else {
-    body.innerHTML = items.map(item => `
+    body.innerHTML = items.map(item => {
+      // Suporte a URLs absolutas do Firebase Storage e paths locais
+      const imgSrc = item.image && item.image.startsWith("http")
+        ? item.image
+        : `assets/images/${item.image || "Imagem 1.jpg"}`;
+      return `
       <div class="cart-item">
-        <img src="assets/images/${item.image}" alt="${item.name}" onerror="this.src='assets/images/Imagem 1.jpg'">
+        <img src="${imgSrc}" alt="${item.name}" onerror="this.src='assets/images/Imagem 1.jpg'">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-price">${formatCurrency(item.price)} cada</div>
@@ -131,7 +137,7 @@ export function renderCartDrawer() {
           <span class="material-symbols-outlined" style="font-size:20px">delete_outline</span>
         </button>
       </div>
-    `).join("");
+    `}).join("");
   }
 
   if (subtotal) subtotal.textContent = formatCurrency(getTotal());

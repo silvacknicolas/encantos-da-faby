@@ -108,22 +108,25 @@ function bindEvents(user) {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = e => {
+    reader.onload = async e => {
+      const base64Data = e.target.result;
       const img = document.getElementById("profile-avatar-img");
-      if (img) { img.src = e.target.result; img.classList.remove("hidden"); }
+      if (img) { img.src = base64Data; img.classList.remove("hidden"); }
       document.getElementById("profile-avatar-icon")?.classList.add("hidden");
+
+      try {
+        const storageRef = ref(storage, `users/${user.uid}/avatar`);
+        await uploadBytes(storageRef, file);
+        const url = await getDownloadURL(storageRef);
+        await updateProfile({ photo: url });
+        showToast("Foto de perfil atualizada!", "success");
+      } catch (err) {
+        // Se falhar o upload no Storage (Spark plan), salvamos o Base64 diretamente no Firestore (gratuito)
+        await updateProfile({ photo: base64Data });
+        showToast("Foto de perfil atualizada!", "success");
+      }
     };
     reader.readAsDataURL(file);
-
-    try {
-      const storageRef = ref(storage, `users/${user.uid}/avatar`);
-      await uploadBytes(storageRef, file);
-      const url = await getDownloadURL(storageRef);
-      await updateProfile({ photo: url });
-      showToast("Foto atualizada!", "success");
-    } catch {
-      showToast("Foto salva localmente.", "info");
-    }
   });
 
   // Salvar perfil

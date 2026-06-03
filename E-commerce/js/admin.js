@@ -76,7 +76,7 @@ function renderAdminProducts() {
 
   tbody.innerHTML = products.map(p => `
     <tr>
-      <td><img src="assets/images/${p.image}" alt="${p.name}" onerror="this.src='assets/images/Imagem 1.jpg'"></td>
+      <td><img src="${p.image && p.image.startsWith('http') ? p.image : `assets/images/${p.image}`}" alt="${p.name}" onerror="this.src='assets/images/Imagem 1.jpg'"></td>
       <td>
         <div style="font-weight:700;color:var(--on-surface)">${p.name}</div>
         <div style="font-size:12px;color:var(--on-surface-variant)">${p.category}</div>
@@ -172,6 +172,19 @@ window.adminEditProduct = (id) => {
   document.getElementById("pf-type").value        = p.type;
   document.getElementById("pf-description").value = p.description || "";
   document.getElementById("pf-stock").value       = p.stock || 1;
+  // Carregar campos de imagem (URL)
+  const imgUrlEl = document.getElementById("pf-image-url");
+  const extraUrlsEl = document.getElementById("pf-extra-images-url");
+  if (imgUrlEl) imgUrlEl.value = p.image && p.image.startsWith("http") ? p.image : "";
+  if (extraUrlsEl) {
+    const urls = (p.extraImages || []).filter(url => url.startsWith("http"));
+    extraUrlsEl.value = urls.join(", ");
+  }
+  // Carregar campos dos acordeões se existirem
+  const matEl = document.getElementById("pf-materials");
+  const delEl = document.getElementById("pf-delivery-time");
+  if (matEl) matEl.value = p.materials || "";
+  if (delEl) delEl.value = p.deliveryTime || "";
   openModal("product-modal");
 };
 
@@ -201,43 +214,58 @@ async function saveProduct(formData) {
 
   const existing = products.find(p => p.id === id);
 
-  // Upload da capa
-  if (imgFile && imgFile.size > 0) {
+  // Buscar inputs de URL
+  const inputUrl = document.getElementById("pf-image-url")?.value.trim();
+  const inputExtraUrls = document.getElementById("pf-extra-images-url")?.value.trim();
+
+  // Processamento da Imagem da Capa
+  if (inputUrl) {
+    imagePath = inputUrl;
+  } else if (imgFile && imgFile.size > 0) {
     try {
       const storageRef = ref(storage, `products/${id}/cover_${imgFile.name}`);
       await uploadBytes(storageRef, imgFile);
       imagePath = await getDownloadURL(storageRef);
     } catch {
-      imagePath = imgFile.name; // fallback local
+      // Fallback para nome do arquivo ou imagem existente
+      imagePath = existing?.image || imgFile.name;
+      showToast("Aviso: imagem não enviada ao Storage (permissão negada). Produto salvo com imagem local.", "info");
     }
   } else {
     imagePath = existing?.image || "Imagem 1.jpg";
   }
 
-  // Upload das extras
-  for (const f of extraFiles) {
-    if (f.size === 0) continue;
-    try {
-      const storageRef = ref(storage, `products/${id}/extra_${f.name}`);
-      await uploadBytes(storageRef, f);
-      const url = await getDownloadURL(storageRef);
-      extraImages.push(url);
-    } catch {
-      extraImages.push(f.name);
+  // Processamento das Imagens Extras
+  if (inputExtraUrls) {
+    extraImages = inputExtraUrls.split(",").map(url => url.trim()).filter(url => url.length > 0);
+  } else {
+    for (const f of extraFiles) {
+      if (f.size === 0) continue;
+      try {
+        const storageRef = ref(storage, `products/${id}/extra_${f.name}`);
+        await uploadBytes(storageRef, f);
+        const url = await getDownloadURL(storageRef);
+        extraImages.push(url);
+      } catch {
+        extraImages.push(f.name);
+      }
     }
+    if (extraImages.length === 0) extraImages = existing?.extraImages || [];
   }
-  if (extraImages.length === 0) extraImages = existing?.extraImages || [];
 
   const data = {
     id,
-    name:        document.getElementById("pf-name").value.trim(),
-    price:       parseFloat(document.getElementById("pf-price").value),
-    category:    document.getElementById("pf-category").value.trim(),
-    type:        document.getElementById("pf-type").value,
-    description: document.getElementById("pf-description").value.trim(),
-    stock:       parseInt(document.getElementById("pf-stock").value) || 1,
-    image:       imagePath,
+    name:         document.getElementById("pf-name").value.trim(),
+    price:        parseFloat(document.getElementById("pf-price").value),
+    category:     document.getElementById("pf-category").value.trim(),
+    type:         document.getElementById("pf-type").value,
+    description:  document.getElementById("pf-description").value.trim(),
+    stock:        parseInt(document.getElementById("pf-stock").value) || 1,
+    image:        imagePath,
     extraImages,
+    // Campos dos acordeões editáveis
+    materials:    document.getElementById("pf-materials")?.value.trim()  || "",
+    deliveryTime: document.getElementById("pf-delivery-time")?.value.trim() || "",
   };
 
   try {
